@@ -25,8 +25,9 @@ namespace PetSociety_for_Windows.Classes
         private string contact;
         private string email;
         private int credibility;
+        private int avatarID; //the current image the user is using for the avatar
 
-
+  
         //===============================================================//
         //                            Constructors
         //===============================================================//
@@ -35,7 +36,7 @@ namespace PetSociety_for_Windows.Classes
         {
 
         }
-        public User(string INname, string INbirthdate, string INpassword, string INaddress, int INx, int INy, string INbiography, int INprivicy, string INsex, string INcontact, string INemail, int INcredibility)
+        public User(string INname, string INbirthdate, string INpassword, string INaddress, int INx, int INy, string INbiography, int INprivicy, string INsex, string INcontact, string INemail, int INcredibility, int INavatarID)
         {
             this.name = INname;
             this.brithdate = INbirthdate;
@@ -49,6 +50,7 @@ namespace PetSociety_for_Windows.Classes
             this.contact = INcontact;
             this.email = INemail;
             this.credibility = INcredibility;
+            this.avatarID = INavatarID;
         }
 
         //===============================================================//
@@ -120,7 +122,11 @@ namespace PetSociety_for_Windows.Classes
             get { return credibility; }
             set { credibility = value; }
         }
-
+        public int AvatarID
+        {
+            get { return avatarID; }
+            set { avatarID = value; }
+        }
 
         //===============================================================//
         //                              End
