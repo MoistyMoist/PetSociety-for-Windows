@@ -7,5 +7,6 @@ namespace PetSociety_for_Windows.Src.Model
 {
     class Lost
     {
+        private int petID;
     }
 }
