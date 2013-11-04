@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace PetSociety_for_Windows.Src.Controller
+namespace PetSociety_for_Windows.Src.Model
 {
-    class UserController
+    class Review
     {
-  
     }
 }

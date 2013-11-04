@@ -92,6 +92,17 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\Controller\UserController.cs" />
+    <Compile Include="Src\Model\Achivement.cs" />
+    <Compile Include="Src\Model\Advert.cs" />
+    <Compile Include="Src\Model\Attendee.cs" />
+    <Compile Include="Src\Model\Event.cs" />
+    <Compile Include="Src\Model\Feed.cs" />
+    <Compile Include="Src\Model\Image.cs" />
+    <Compile Include="Src\Model\Location.cs" />
+    <Compile Include="Src\Model\Lost.cs" />
+    <Compile Include="Src\Model\Pet.cs" />
+    <Compile Include="Src\Model\Review.cs" />
+    <Compile Include="Src\Model\Stray.cs" />
     <Compile Include="Src\Utils\JSON.cs" />
     <Compile Include="Src\Model\User.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
