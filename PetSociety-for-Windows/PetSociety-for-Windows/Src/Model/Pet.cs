@@ -18,6 +18,7 @@ namespace PetSociety_for_Windows.Src.Model
         private int age;
         private string biography;
         private int avatarID;
+        //image,icon? x, y?
 
         //===============================================================//
         //                           Constructors
