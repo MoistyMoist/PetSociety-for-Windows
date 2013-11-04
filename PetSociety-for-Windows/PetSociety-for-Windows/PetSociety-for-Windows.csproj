@@ -91,7 +91,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Src\Controller\UserController.cs" />
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Src\Controller\LoginController.cs" />
+    <Compile Include="Src\Controller\RegisterController.cs" />
+    <Compile Include="Src\Controller\StrayController.cs" />
     <Compile Include="Src\Model\Achivement.cs" />
     <Compile Include="Src\Model\Advert.cs" />
     <Compile Include="Src\Model\Attendee.cs" />
@@ -115,6 +120,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Pages\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
