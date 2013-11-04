@@ -7,6 +7,11 @@ namespace PetSociety_for_Windows.Classes
 {
     class User
     {
+
+        //===============================================================//
+        //                              Attributes
+        //===============================================================//
+
         private int userID;
         private string name;
         private string brithdate;
@@ -22,22 +27,103 @@ namespace PetSociety_for_Windows.Classes
         private int credibility;
 
 
+        //===============================================================//
+        //                            Constructors
+        //===============================================================//
+
         public User()
         {
 
         }
-        public User(string INname, string INbirthdate, string INpassword, string INaddress, int INx, int INy, string INbiography, int INprivicy, string INsex, string INcontact, string INemail, string INcredibility)
+        public User(string INname, string INbirthdate, string INpassword, string INaddress, int INx, int INy, string INbiography, int INprivicy, string INsex, string INcontact, string INemail, int INcredibility)
         {
+            this.name = INname;
+            this.brithdate = INbirthdate;
+            this.password = INpassword;
+            this.address = INaddress;
+            this.x = INx;
+            this.y = INy;
+            this.biography = INbiography;
+            this.privicy = INprivicy;
+            this.sex = INsex;
+            this.contact = INcontact;
+            this.email = INemail;
+            this.credibility = INcredibility;
+        }
 
-        }
-        public string getName()
+        //===============================================================//
+        //                              Accessors
+        //===============================================================//
+
+        public int UserID
         {
-            return this.name;
+            get { return userID; }
+            set { userID = value; }
         }
-        public string getBirthdate()
+        public string Name
         {
-            return this.brithdate;
+            get { return name; }
+            set { name = value; }
+        }
+        public string Brithdate
+        {
+            get { return brithdate; }
+            set { brithdate = value; }
+        }
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
+        }
+        public string Address
+        {
+            get { return address; }
+            set { address = value; }
+        }
+        public double X
+        {
+            get { return x; }
+            set { x = value; }
+        }
+        public double Y
+        {
+            get { return y; }
+            set { y = value; }
+        }
+        public string Biography
+        {
+            get { return biography; }
+            set { biography = value; }
+        }
+        public int Privicy
+        {
+            get { return privicy; }
+            set { privicy = value; }
+        }
+        public string Sex
+        {
+            get { return sex; }
+            set { sex = value; }
+        }
+        public string Contact
+        {
+            get { return contact; }
+            set { contact = value; }
+        }
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+        public int Credibility
+        {
+            get { return credibility; }
+            set { credibility = value; }
         }
 
+
+        //===============================================================//
+        //                              End
+        //===============================================================//
     }
 }
