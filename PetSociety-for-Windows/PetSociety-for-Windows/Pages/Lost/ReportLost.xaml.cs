@@ -8,11 +8,11 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace PetSociety_for_Windows.Pages
+namespace PetSociety_for_Windows.Pages.Lost
 {
-    public partial class FeedPage : PhoneApplicationPage
+    public partial class ReportLost : PhoneApplicationPage
     {
-        public FeedPage()
+        public ReportLost()
         {
             InitializeComponent();
         }

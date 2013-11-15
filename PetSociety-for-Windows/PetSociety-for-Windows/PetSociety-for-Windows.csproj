@@ -91,14 +91,23 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\FeedPage.xaml.cs">
-      <DependentUpon>FeedPage.xaml</DependentUpon>
+    <Compile Include="Pages\Analysis\Heatmap.xaml.cs">
+      <DependentUpon>Heatmap.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\LoginPage.xaml.cs">
+    <Compile Include="Pages\CrowdSourcing\AddLocation.xaml.cs">
+      <DependentUpon>AddLocation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lost\ReportLost.xaml.cs">
+      <DependentUpon>ReportLost.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Profile\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\RegisterPage.xaml.cs">
+    <Compile Include="Pages\Profile\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\Controllers\LoginRequest.cs" />
     <Compile Include="Src\Controllers\RegisterUserRequest.cs" />
@@ -128,11 +137,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Pages\FeedPage.xaml">
+    <Page Include="Pages\Analysis\Heatmap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\LoginPage.xaml">
+    <Page Include="Pages\CrowdSourcing\AddLocation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lost\ReportLost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Profile\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,7 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\RegisterPage.xaml">
+    <Page Include="Pages\Profile\RegisterPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
