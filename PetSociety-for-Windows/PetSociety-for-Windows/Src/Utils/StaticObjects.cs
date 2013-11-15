@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PetSociety_for_Windows.Src.Utils
 {
-    class SOAP
+    class StaticObjects
     {
     }
 }

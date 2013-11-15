@@ -100,9 +100,9 @@
     <Compile Include="Pages\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Src\Controller\LoginController.cs" />
-    <Compile Include="Src\Controller\RegisterController.cs" />
-    <Compile Include="Src\Controller\StrayController.cs" />
+    <Compile Include="Src\Controllers\LoginRequest.cs" />
+    <Compile Include="Src\Controllers\RegisterUserRequest.cs" />
+    <Compile Include="Src\Controllers\UpdateUserRequest.cs" />
     <Compile Include="Src\Model\Achivement.cs" />
     <Compile Include="Src\Model\Advert.cs" />
     <Compile Include="Src\Model\Attendee.cs" />
@@ -114,13 +114,14 @@
     <Compile Include="Src\Model\Pet.cs" />
     <Compile Include="Src\Model\Review.cs" />
     <Compile Include="Src\Model\Stray.cs" />
-    <Compile Include="Src\Utils\JSON.cs" />
     <Compile Include="Src\Model\User.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\Utils\SOAP.cs" />
+    <Compile Include="Src\Utils\JSONExtractor.cs" />
+    <Compile Include="Src\Utils\StaticObjects.cs" />
+    <Compile Include="Src\Utils\XMLExtractor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
