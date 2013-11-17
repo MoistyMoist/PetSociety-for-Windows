@@ -109,9 +109,14 @@
     <Compile Include="Pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Src\Controllers\LoginRequest.cs" />
-    <Compile Include="Src\Controllers\RegisterUserRequest.cs" />
-    <Compile Include="Src\Controllers\UpdateUserRequest.cs" />
+    <Compile Include="Src\Controllers\Account\CheckEmailRequest.cs" />
+    <Compile Include="Src\Controllers\Account\LoginRequest.cs" />
+    <Compile Include="Src\Controllers\Account\RegisterUserRequest.cs" />
+    <Compile Include="Src\Controllers\Account\UpdateUserRequest.cs" />
+    <Compile Include="Src\Controllers\CrowdSourcing\RetrieveLocationRequest.cs" />
+    <Compile Include="Src\Controllers\Event\AddEventRequest.cs" />
+    <Compile Include="Src\Controllers\Event\UpdateEventRequest.cs" />
+    <Compile Include="Src\Controllers\Lost\ReportLostRequest.cs" />
     <Compile Include="Src\Model\Achivement.cs" />
     <Compile Include="Src\Model\Advert.cs" />
     <Compile Include="Src\Model\Attendee.cs" />
