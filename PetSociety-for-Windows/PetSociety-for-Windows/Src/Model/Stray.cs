@@ -28,9 +28,6 @@ namespace PetSociety_for_Windows.Src.Model
         private List<Review> reviews;
         private User user;
 
-        
-
-
 
         //===============================================================//
         //                            Constructors
@@ -44,7 +41,6 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
         //                              Accessors
         //===============================================================//
-
 
         public int StrayID
         {
@@ -111,7 +107,6 @@ namespace PetSociety_for_Windows.Src.Model
             get { return user; }
             set { user = value; }
         }
-
         //===============================================================//
         //                              End
         //===============================================================//
