@@ -30,7 +30,7 @@ namespace PetSociety_for_Windows.Classes
         private Image profileImage;
         private Gallery gallery;
         private Pin pin;
-
+ 
         private List<Attendee> attendees;
         private List<Event> events;
         private List<Lost> lost;
@@ -38,7 +38,9 @@ namespace PetSociety_for_Windows.Classes
         private List<Location> locations;
         private List<Stray> strays;
         private List<Friend_List> friend_list;
+        private List<Friend_Request> friend_request;
 
+      
   
         //===============================================================//
         //                            Constructors
@@ -47,22 +49,6 @@ namespace PetSociety_for_Windows.Classes
         public User()
         {
 
-        }
-        public User(string INname, string INbirthdate, string INpassword, string INaddress, int INx, int INy, string INbiography, int INprivicy, string INsex, string INcontact, string INemail, int INcredibility, int INavatarID)
-        {
-            this.name = INname;
-            this.brithdate = INbirthdate;
-            this.password = INpassword;
-            this.address = INaddress;
-            this.x = INx;
-            this.y = INy;
-            this.biography = INbiography;
-            this.privicy = INprivicy;
-            this.sex = INsex;
-            this.contact = INcontact;
-            this.email = INemail;
-            this.credibility = INcredibility;
-            this.avatarID = INavatarID;
         }
 
         //===============================================================//
@@ -134,12 +120,61 @@ namespace PetSociety_for_Windows.Classes
             get { return credibility; }
             set { credibility = value; }
         }
-        public int AvatarID
+        public Image ProfileImage
         {
-            get { return avatarID; }
-            set { avatarID = value; }
+            get { return profileImage; }
+            set { profileImage = value; }
         }
-
+        public Gallery Gallery
+        {
+            get { return gallery; }
+            set { gallery = value; }
+        }
+        public Pin Pin
+        {
+            get { return pin; }
+            set { pin = value; }
+        }
+        public List<Attendee> Attendees
+        {
+            get { return attendees; }
+            set { attendees = value; }
+        }
+        public List<Event> Events
+        {
+            get { return events; }
+            set { events = value; }
+        }
+        public List<Lost> Lost
+        {
+            get { return lost; }
+            set { lost = value; }
+        }
+        public List<Pet> Pets
+        {
+            get { return pets; }
+            set { pets = value; }
+        }
+        public List<Location> Locations
+        {
+            get { return locations; }
+            set { locations = value; }
+        }
+        public List<Stray> Strays
+        {
+            get { return strays; }
+            set { strays = value; }
+        }
+        public List<Friend_List> Friend_list
+        {
+            get { return friend_list; }
+            set { friend_list = value; }
+        }
+        public List<Friend_Request> Friend_request
+        {
+            get { return friend_request; }
+            set { friend_request = value; }
+        }
         //===============================================================//
         //                              End
         //===============================================================//
