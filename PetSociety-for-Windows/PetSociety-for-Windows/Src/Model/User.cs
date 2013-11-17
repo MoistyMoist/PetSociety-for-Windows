@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using PetSociety_for_Windows.Src.Model;
 
-namespace PetSociety_for_Windows.Classes
+namespace PetSociety_for_Windows.Src.Model
 {
     class User
     {
