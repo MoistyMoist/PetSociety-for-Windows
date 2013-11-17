@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PetSociety_for_Windows.Src.Model
 {
-    class Feed
+    class Friend_Request
     {
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PetSociety_for_Windows.Src.Model;
 
 namespace PetSociety_for_Windows.Classes
 {
@@ -25,7 +26,18 @@ namespace PetSociety_for_Windows.Classes
         private string contact;
         private string email;
         private int credibility;
-        private int avatarID; //the current image the user is using for the avatar
+
+        private Image profileImage;
+        private Gallery gallery;
+        private Pin pin;
+
+        private List<Attendee> attendees;
+        private List<Event> events;
+        private List<Lost> lost;
+        private List<Pet> pets;
+        private List<Location> locations;
+        private List<Stray> strays;
+        private List<Friend_List> friend_list;
 
   
         //===============================================================//

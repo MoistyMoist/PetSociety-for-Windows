@@ -116,11 +116,15 @@
     <Compile Include="Src\Model\Advert.cs" />
     <Compile Include="Src\Model\Attendee.cs" />
     <Compile Include="Src\Model\Event.cs" />
-    <Compile Include="Src\Model\Feed.cs" />
+    <Compile Include="Src\Model\Friend_List.cs" />
+    <Compile Include="Src\Model\Friend_Request.cs" />
+    <Compile Include="Src\Model\Gallery.cs" />
     <Compile Include="Src\Model\Image.cs" />
     <Compile Include="Src\Model\Location.cs" />
     <Compile Include="Src\Model\Lost.cs" />
+    <Compile Include="Src\Model\Organization.cs" />
     <Compile Include="Src\Model\Pet.cs" />
+    <Compile Include="Src\Model\Pin.cs" />
     <Compile Include="Src\Model\Review.cs" />
     <Compile Include="Src\Model\Stray.cs" />
     <Compile Include="Src\Model\User.cs" />
