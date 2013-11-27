@@ -91,12 +91,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Analysis\Heatmap.xaml.cs">
-      <DependentUpon>Heatmap.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\CrowdSourcing\AddLocation.xaml.cs">
-      <DependentUpon>AddLocation.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Lost\ReportLost.xaml.cs">
       <DependentUpon>ReportLost.xaml</DependentUpon>
     </Compile>
@@ -148,14 +142,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Pages\Analysis\Heatmap.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\CrowdSourcing\AddLocation.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Lost\ReportLost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,7 +184,10 @@
     <Content Include="Resources\SplashScreenImage.jpg" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\Analysis\" />
+    <Folder Include="Pages\CrowdSourcing\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
