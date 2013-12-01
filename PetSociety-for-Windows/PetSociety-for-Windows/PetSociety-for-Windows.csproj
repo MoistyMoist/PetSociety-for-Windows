@@ -91,6 +91,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Analysis\AnalysisDetail.xaml.cs">
+      <DependentUpon>AnalysisDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Lost\ReportLost.xaml.cs">
       <DependentUpon>ReportLost.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,8 @@
     <Compile Include="Src\HttpRequests\Account\RegisterUserRequest.cs" />
     <Compile Include="Src\HttpRequests\Account\UpdateUserRequest.cs" />
     <Compile Include="Src\HttpRequests\Analysis\AccidentAnalysisRequest.cs" />
+    <Compile Include="Src\HttpRequests\Analysis\RetrieveLostReviewByIDRequest.cs" />
+    <Compile Include="Src\HttpRequests\Analysis\RetrieveStrayReviewByIDRequest.cs" />
     <Compile Include="Src\HttpRequests\CrowdSourcing\RetrieveLocationRequest.cs" />
     <Compile Include="Src\HttpRequests\Event\AddEventRequest.cs" />
     <Compile Include="Src\HttpRequests\Event\UpdateEventRequest.cs" />
@@ -142,6 +147,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Pages\Analysis\AnalysisDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Lost\ReportLost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,7 +194,6 @@
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Analysis\" />
     <Folder Include="Pages\CrowdSourcing\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
