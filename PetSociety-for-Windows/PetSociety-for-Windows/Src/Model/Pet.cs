@@ -12,13 +12,17 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int petID;
-        private string name;
-        private string sex;
-        private string type;
-        private int age;
-        private string biography;
-        private int avatarID;
-        //image,icon? x, y?
+        private String name;
+        private String breed; 
+        private String sex;
+        private String type;
+        private String age;
+        private String biography;
+
+        private Gallery gallery;
+        private User user;
+        private Pin pin;
+        private Image profileImage;
 
         //===============================================================//
         //                           Constructors
@@ -26,15 +30,6 @@ namespace PetSociety_for_Windows.Src.Model
 
         public Pet()
         {
-        }
-        public Pet(string INname, string INsex, string INtype, int INage, string INbiography, int InavatarID)
-        {
-            this.name = INname;
-            this.sex = INsex;
-            this.type = INtype;
-            this.age = INage;
-            this.biography = INbiography;
-            this.avatarID = InavatarID;
         }
 
         //===============================================================//
@@ -62,20 +57,35 @@ namespace PetSociety_for_Windows.Src.Model
             get { return type; }
             set { type = value; }
         }
-        public int Age
+        public String Age
         {
             get { return age; }
             set { age = value; }
         }
-        public string Biography
+        public String Biography
         {
             get { return biography; }
             set { biography = value; }
         }
-        public int AvatarID
+        internal Gallery Gallery
         {
-            get { return avatarID; }
-            set { avatarID = value; }
+            get { return gallery; }
+            set { gallery = value; }
+        }
+        internal User User
+        {
+            get { return user; }
+            set { user = value; }
+        }
+        internal Pin Pin
+        {
+            get { return pin; }
+            set { pin = value; }
+        }
+        internal Image ProfileImage
+        {
+            get { return profileImage; }
+            set { profileImage = value; }
         }
 
         //===============================================================//

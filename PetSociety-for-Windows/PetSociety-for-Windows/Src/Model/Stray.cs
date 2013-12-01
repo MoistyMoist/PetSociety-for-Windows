@@ -14,8 +14,8 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int strayID;
-        private double x;
-        private double y;
+        private String x;
+        private String y;
         private String biography;
         private String title;
         private String timeSeen;
@@ -47,12 +47,12 @@ namespace PetSociety_for_Windows.Src.Model
             get { return strayID; }
             set { strayID = value; }
         }
-        public double X
+        public String X
         {
             get { return x; }
             set { x = value; }
         }
-        public double Y
+        public String Y
         {
             get { return y; }
             set { y = value; }
