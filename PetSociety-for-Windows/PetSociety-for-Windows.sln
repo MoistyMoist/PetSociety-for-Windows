@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PetSociety-for-Windows", "PetSociety-for-Windows\PetSociety-for-Windows.csproj", "{AE04500F-65E7-427C-B617-57225EDEBE46}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{22C72489-B181-4AA6-A151-A7D09EBC7A26}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Desktop\windowTest\PhoneApp2\PhoneApp2\MainMap.xaml = ..\..\..\..\Desktop\windowTest\PhoneApp2\PhoneApp2\MainMap.xaml
+		..\..\..\..\Desktop\windowTest\PhoneApp2\PhoneApp2\MainMap.xaml.cs = ..\..\..\..\Desktop\windowTest\PhoneApp2\PhoneApp2\MainMap.xaml.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

@@ -97,6 +97,9 @@
     <Compile Include="Pages\Lost\ReportLost.xaml.cs">
       <DependentUpon>ReportLost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Map.xaml.cs">
+      <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Profile\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
@@ -152,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Lost\ReportLost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
