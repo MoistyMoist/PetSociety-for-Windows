@@ -12,11 +12,11 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int advertID;
-        private Organization organization;
-        private String title;
-        private String description;
-        private String sateCreated;
-        private String duration;
+        private int organizationID;
+        private string title;
+        private string description;
+        private DateTime dateCreated;
+        private string duration;
 
 
         //===============================================================//
@@ -31,30 +31,30 @@ namespace PetSociety_for_Windows.Src.Model
         //                              Accessors
         //===============================================================//
 
-        public String Duration
+        public string Duration
         {
             get { return duration; }
             set { duration = value; }
         }
-        public String SateCreated
+        public DateTime DateCreated
         {
-            get { return sateCreated; }
-            set { sateCreated = value; }
+            get { return dateCreated; }
+            set { dateCreated = value; }
         }
-        public String Description
+        public string Description
         {
             get { return description; }
             set { description = value; }
         }
-        public String Title
+        public string Title
         {
             get { return title; }
             set { title = value; }
         }
-        internal Organization Organization
+        internal int OrganizationID
         {
-            get { return organization; }
-            set { organization = value; }
+            get { return organizationID; }
+            set { organizationID = value; }
         }
         public int AdvertID
         {

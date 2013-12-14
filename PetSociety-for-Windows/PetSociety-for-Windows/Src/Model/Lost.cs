@@ -12,15 +12,16 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int lostID;
-        private String time;
-        private String date;
-        private String x;       
-        private String y;      
-        private String address;
-        private String desciription;
-        private String found;
-        private String reward;
-        private String dateCreated;
+        private DateTime dateTimeSeen;
+        private double x;       
+        private double y;
+        private string address;
+        private string desciription;
+        private char found;
+        private string reward;
+        private DateTime dateTimeCreated;
+        private int petID;
+        private int userID;
 
         private Pet pet;
         private User user;
@@ -44,47 +45,52 @@ namespace PetSociety_for_Windows.Src.Model
             get { return lostID; }
             set { lostID = value; }
         }
-        public String Y
+        public int PetID
+        {
+            get { return petID; }
+            set { petID = value; }
+        }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public double Y
         {
             get { return y; }
             set { y = value; }
         }
-        public String X
+        public double X
         {
             get { return x; }
             set { x = value; }
         }
-        public String Date
+        public DateTime DateTimeSeen
         {
-            get { return date; }
-            set { date = value; }
+            get { return dateTimeSeen; }
+            set { dateTimeSeen = value; }
         }
-        public String Time
+        public DateTime DateTimeCreated
         {
-            get { return time; }
-            set { time = value; }
+            get { return dateTimeCreated; }
+            set { dateTimeCreated = value; }
         }
-        public String DateCreated
-        {
-            get { return dateCreated; }
-            set { dateCreated = value; }
-        }
-        public String Found
+        public char Found
         {
             get { return found; }
             set { found = value; }
         }
-        public String Address
+        public string Address
         {
             get { return address; }
             set { address = value; }
         }
-        public String Desciription
+        public string Desciription
         {
             get { return desciription; }
             set { desciription = value; }
         }
-        public String Reward
+        public string Reward
         {
             get { return reward; }
             set { reward = value; }

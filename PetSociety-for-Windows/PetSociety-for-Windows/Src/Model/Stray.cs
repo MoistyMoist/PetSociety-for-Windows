@@ -14,17 +14,17 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int strayID;
-        private String x;
-        private String y;
-        private String biography;
-        private String title;
-        private String timeSeen;
-        private String dateSeen;
-        private String type;
-        private String breed;
+        private double x;
+        private double y;
+        private string biography;
+        private string title;
+        private DateTime dateTimeSeen;
+        private string type;
+        private string breed;
+        private int status;
+        private int userID;
+        private string imageURL;
 
-        private Image image;
-        private Pin pin;
         private List<Review> reviews;
         private User user;
 
@@ -47,55 +47,55 @@ namespace PetSociety_for_Windows.Src.Model
             get { return strayID; }
             set { strayID = value; }
         }
-        public String X
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+        public double X
         {
             get { return x; }
             set { x = value; }
         }
-        public String Y
+        public double Y
         {
             get { return y; }
             set { y = value; }
         }
-        public String Biography
+        public string Biography
         {
             get { return biography; }
             set { biography = value; }
         }
-        public String Title
+        public string Title
         {
             get { return title; }
             set { title = value; }
         }
-        public String TimeSeen
+        public DateTime DateTimeSeen
         {
-            get { return timeSeen; }
-            set { timeSeen = value; }
+            get { return dateTimeSeen; }
+            set { dateTimeSeen = value; }
         }
-        public String DateSeen
-        {
-            get { return dateSeen; }
-            set { dateSeen = value; }
-        }
-        public String Type
+        public string Type
         {
             get { return type; }
             set { type = value; }
         }
-        public String Breed
+        public string Breed
         {
             get { return breed; }
             set { breed = value; }
         }
-        public Image Image
+        public string ImageURL
         {
-            get { return image; }
-            set { image = value; }
-        }
-        public Pin Pin
-        {
-            get { return pin; }
-            set { pin = value; }
+            get { return imageURL; }
+            set { imageURL = value; }
         }
         public List<Review> Reviews
         {

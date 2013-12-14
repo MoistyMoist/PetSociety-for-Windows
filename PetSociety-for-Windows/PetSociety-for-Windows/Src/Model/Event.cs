@@ -13,18 +13,19 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int eventID;
-        private String name;   
-        private String description;
-        private String date;
-        private String time;   
-        private String duration;
-        private String createdDate;
-        private String x;       
-        private String y;
-        private String status;
-        private String privicy;
+        private string name;
+        private string description;
+        private DateTime startDateTime;
+        private DateTime endDateTime;
+        private DateTime dateTimeCreated;
+        private double x;       
+        private double y;
+        private int status;
+        private int privicy;
+        private int userID;
+        private int galleryID;
+        
 
-        private Pin pin;
         private User user;
         private List<Attendee> attendees;
         private Gallery gallery;
@@ -48,6 +49,31 @@ namespace PetSociety_for_Windows.Src.Model
             get { return gallery; }
             set { gallery = value; }
         }
+        public DateTime EndDateTime
+        {
+            get { return endDateTime; }
+            set { endDateTime = value; }
+        }
+        public DateTime DateTimeCreated
+        {
+            get { return dateTimeCreated; }
+            set { dateTimeCreated = value; }
+        }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int GalleryID
+        {
+            get { return galleryID; }
+            set { galleryID = value; }
+        }
+        public DateTime StartDateTime
+        {
+            get { return startDateTime; }
+            set { startDateTime = value; }
+        }
         internal List<Attendee> Attendees
         {
             get { return attendees; }
@@ -58,12 +84,7 @@ namespace PetSociety_for_Windows.Src.Model
             get { return user; }
             set { user = value; }
         }
-        internal Pin Pin
-        {
-            get { return pin; }
-            set { pin = value; }
-        }
-        public String Name
+        public string Name
         {
             get { return name; }
             set { name = value; }
@@ -73,51 +94,32 @@ namespace PetSociety_for_Windows.Src.Model
             get { return eventID; }
             set { eventID = value; }
         }
-        public String Description
+        public string Description
         {
             get { return description; }
             set { description = value; }
         }
-        public String Date
-        {
-            get { return date; }
-            set { date = value; }
-        }
-        public String Y
+        public double Y
         {
             get { return y; }
             set { y = value; }
         }
-        public String Status
+        public int Status
         {
             get { return status; }
             set { status = value; }
         }
-        public String Privicy
+        public int Privicy
         {
             get { return privicy; }
             set { privicy = value; }
         }
-        public String X
+        public double X
         {
             get { return x; }
             set { x = value; }
         }
-        public String Time
-        {
-            get { return time; }
-            set { time = value; }
-        }
-        public String Duration
-        {
-            get { return duration; }
-            set { duration = value; }
-        }
-        public String CreatedDate
-        {
-            get { return createdDate; }
-            set { createdDate = value; }
-        }
+ 
 
         //===============================================================//
         //                              End

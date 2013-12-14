@@ -13,7 +13,10 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int attendeeID;
-        private String status;
+        private int status;
+        private int eventID;
+        private int userID;
+
         private Event events;
         private User user;
 
@@ -35,12 +38,22 @@ namespace PetSociety_for_Windows.Src.Model
             get { return user; }
             set { user = value; }
         }
+        public int EventID
+        {
+            get { return eventID; }
+            set { eventID = value; }
+        }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
         internal Event Events
         {
             get { return events; }
             set { events = value; }
         }
-        public String Status
+        public int Status
         {
             get { return status; }
             set { status = value; }

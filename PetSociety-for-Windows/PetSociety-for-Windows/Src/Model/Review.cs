@@ -19,12 +19,12 @@ namespace PetSociety_for_Windows.Src.Model
         private string title;
         private string likes;
         private string diskiles;
-        private string dateCreated;
-        private string timeCreated;
+        private DateTime dateTimeCreated;
         private int locationID;
+        private int userID;
+        private int strayID;
 
-        private User user;
-        private Stray stray;
+        
 
         //===============================================================//
         //                            Constructors
@@ -43,6 +43,16 @@ namespace PetSociety_for_Windows.Src.Model
         {
             get { return reviewID; }
             set { reviewID = value; }
+        }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int StrayID
+        {
+            get { return strayID; }
+            set { strayID = value; }
         }
         public string Description
         {
@@ -64,31 +74,17 @@ namespace PetSociety_for_Windows.Src.Model
             get { return diskiles; }
             set { diskiles = value; }
         }
-        public string DateCreated
+        public DateTime DateTimeCreated
         {
-            get { return dateCreated; }
-            set { dateCreated = value; }
-        }
-        public string TimeCreated
-        {
-            get { return timeCreated; }
-            set { timeCreated = value; }
+            get { return dateTimeCreated; }
+            set { dateTimeCreated = value; }
         }
         public int LocationID
         {
             get { return locationID; }
             set { locationID = value; }
         }
-        internal User User
-        {
-            get { return user; }
-            set { user = value; }
-        }
-        internal Stray Stray
-        {
-            get { return stray; }
-            set { stray = value; }
-        }
+        
 
         //===============================================================//
         //                              End

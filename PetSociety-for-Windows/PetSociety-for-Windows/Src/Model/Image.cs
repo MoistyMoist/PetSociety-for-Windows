@@ -14,10 +14,7 @@ namespace PetSociety_for_Windows.Src.Model
         private int imageID;
         private String type;
         private String imageURL;
-       
-        private User user;
-        private Pet pet;
-        private Gallery gallery;
+        private int galleryID;
 
        
         //===============================================================//
@@ -32,12 +29,12 @@ namespace PetSociety_for_Windows.Src.Model
         //                              Accessors
         //===============================================================//
 
-        internal Gallery Gallery
+        public int GalleryID
         {
-            get { return gallery; }
-            set { gallery = value; }
+            get { return galleryID; }
+            set { galleryID = value; }
         }
-        public String Type
+        public string Type
         {
             get { return type; }
             set { type = value; }
@@ -47,20 +44,10 @@ namespace PetSociety_for_Windows.Src.Model
             get { return imageID; }
             set { imageID = value; }
         }
-        public String ImageURL
+        public string ImageURL
         {
             get { return imageURL; }
             set { imageURL = value; }
-        }
-        internal User User
-        {
-            get { return user; }
-            set { user = value; }
-        }
-        internal Pet Pet
-        {
-            get { return pet; }
-            set { pet = value; }
         }
 
         //===============================================================//

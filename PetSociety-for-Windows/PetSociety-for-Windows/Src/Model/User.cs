@@ -21,15 +21,16 @@ namespace PetSociety_for_Windows.Src.Model
         private double x;
         private double y;
         private string biography;
-        private int privicy;
-        private string sex;
+        private string privicy;
+        private char sex;
         private string contact;
         private string email;
-        private int credibility;
+        private string credibility;
+        private string profileImageURL;
+        private int galleryID;
 
-        private Image profileImage;
+       
         private Gallery gallery;
-        private Pin pin;
  
         private List<Attendee> attendees;
         private List<Event> events;
@@ -59,6 +60,17 @@ namespace PetSociety_for_Windows.Src.Model
         {
             get { return userID; }
             set { userID = value; }
+        }
+        public int GalleryID
+        {
+            get { return galleryID; }
+            set { galleryID = value; }
+        }
+
+        public string ProfileImageURL
+        {
+            get { return profileImageURL; }
+            set { profileImageURL = value; }
         }
         public string Name
         {
@@ -95,12 +107,12 @@ namespace PetSociety_for_Windows.Src.Model
             get { return biography; }
             set { biography = value; }
         }
-        public int Privicy
+        public string Privicy
         {
             get { return privicy; }
             set { privicy = value; }
         }
-        public string Sex
+        public char Sex
         {
             get { return sex; }
             set { sex = value; }
@@ -115,25 +127,15 @@ namespace PetSociety_for_Windows.Src.Model
             get { return email; }
             set { email = value; }
         }
-        public int Credibility
+        public string Credibility
         {
             get { return credibility; }
             set { credibility = value; }
-        }
-        public Image ProfileImage
-        {
-            get { return profileImage; }
-            set { profileImage = value; }
         }
         public Gallery Gallery
         {
             get { return gallery; }
             set { gallery = value; }
-        }
-        public Pin Pin
-        {
-            get { return pin; }
-            set { pin = value; }
         }
         public List<Attendee> Attendees
         {

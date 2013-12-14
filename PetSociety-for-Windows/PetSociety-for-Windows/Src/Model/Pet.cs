@@ -12,17 +12,19 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int petID;
-        private String name;
-        private String breed; 
-        private String sex;
-        private String type;
-        private String age;
-        private String biography;
+        private string name;
+        private string breed; 
+        private char sex;
+        private string type;
+        private string age;
+        private string biography;
+        private int userID;
+        private int galleryID;
+        private string profileImageURL;
+        private DateTime dateTimeCreated;
 
         private Gallery gallery;
         private User user;
-        private Pin pin;
-        private Image profileImage;
 
         //===============================================================//
         //                           Constructors
@@ -42,12 +44,32 @@ namespace PetSociety_for_Windows.Src.Model
             get { return petID; }
             set { petID = value; }
         }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int GalleryID
+        {
+            get { return galleryID; }
+            set { galleryID = value; }
+        }
+        public string ProfileImageURL
+        {
+            get { return profileImageURL; }
+            set { profileImageURL = value; }
+        }
+        public DateTime DateTimeCreated
+        {
+            get { return dateTimeCreated; }
+            set { dateTimeCreated = value; }
+        }
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        public string Sex
+        public char Sex
         {
             get { return sex; }
             set { sex = value; }
@@ -57,12 +79,12 @@ namespace PetSociety_for_Windows.Src.Model
             get { return type; }
             set { type = value; }
         }
-        public String Age
+        public string Age
         {
             get { return age; }
             set { age = value; }
         }
-        public String Biography
+        public string Biography
         {
             get { return biography; }
             set { biography = value; }
@@ -76,16 +98,6 @@ namespace PetSociety_for_Windows.Src.Model
         {
             get { return user; }
             set { user = value; }
-        }
-        internal Pin Pin
-        {
-            get { return pin; }
-            set { pin = value; }
-        }
-        internal Image ProfileImage
-        {
-            get { return profileImage; }
-            set { profileImage = value; }
         }
 
         //===============================================================//

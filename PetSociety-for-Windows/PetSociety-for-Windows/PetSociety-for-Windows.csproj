@@ -120,7 +120,6 @@
     <Compile Include="Src\HttpRequests\Event\AddEventRequest.cs" />
     <Compile Include="Src\HttpRequests\Event\UpdateEventRequest.cs" />
     <Compile Include="Src\HttpRequests\Lost\ReportLostRequest.cs" />
-    <Compile Include="Src\Model\Achivement.cs" />
     <Compile Include="Src\Model\Advert.cs" />
     <Compile Include="Src\Model\Attendee.cs" />
     <Compile Include="Src\Model\Event.cs" />
@@ -132,7 +131,6 @@
     <Compile Include="Src\Model\Lost.cs" />
     <Compile Include="Src\Model\Organization.cs" />
     <Compile Include="Src\Model\Pet.cs" />
-    <Compile Include="Src\Model\Pin.cs" />
     <Compile Include="Src\Model\Review.cs" />
     <Compile Include="Src\Model\Stray.cs" />
     <Compile Include="Src\Model\User.cs" />

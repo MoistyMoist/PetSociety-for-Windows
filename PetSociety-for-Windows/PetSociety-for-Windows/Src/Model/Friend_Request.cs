@@ -13,9 +13,13 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int friend_requestID;
+        private int accepted;
+        private int userID;
+        private int friendID;
+
         private User user;   
         private User friend;
-        private String accepted;
+        
        
         //===============================================================//
         //                           Constructors
@@ -34,6 +38,16 @@ namespace PetSociety_for_Windows.Src.Model
             get { return friend_requestID; }
             set { friend_requestID = value; }
         }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int FriendID
+        {
+            get { return friendID; }
+            set { friendID = value; }
+        }
         internal User User
         {
             get { return user; }
@@ -44,7 +58,7 @@ namespace PetSociety_for_Windows.Src.Model
             get { return friend; }
             set { friend = value; }
         }
-        public String Accepted
+        public int Accepted
         {
             get { return accepted; }
             set { accepted = value; }

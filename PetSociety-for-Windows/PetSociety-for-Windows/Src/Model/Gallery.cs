@@ -12,9 +12,11 @@ namespace PetSociety_for_Windows.Src.Model
         //                              Attributes
         //===============================================================//
 
-        private int galleryID;   
-        private Pet pet;
-        private User user;
+        private int galleryID;
+        private int userID;
+        private int petID;
+        private int locationID;
+        private int eventID;
 
         //===============================================================//
         //                           Constructors
@@ -33,16 +35,27 @@ namespace PetSociety_for_Windows.Src.Model
             get { return galleryID; }
             set { galleryID = value; }
         }
-        internal User User
+        public int PetID
         {
-            get { return user; }
-            set { user = value; }
+            get { return petID; }
+            set { petID = value; }
         }
-        internal Pet Pet
+        public int LocationID
         {
-            get { return pet; }
-            set { pet = value; }
+            get { return locationID; }
+            set { locationID = value; }
         }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int EventID
+        {
+            get { return eventID; }
+            set { eventID = value; }
+        }
+       
 
         //===============================================================//
         //                              End

@@ -12,12 +12,11 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int organozationID;
-        private String name;
-        private String description;
-        private String email;
-        private String password;
-
-        private Image image;
+        private string name;
+        private string description;
+        private string email;
+        private string password;
+        private string imageURL;
 
 
         //===============================================================//
@@ -38,30 +37,30 @@ namespace PetSociety_for_Windows.Src.Model
             get { return organozationID; }
             set { organozationID = value; }
         }
-        public String Name
+        public string Name
         {
             get { return name; }
             set { name = value; }
         }
-        public String Description
+        public string Description
         {
             get { return description; }
             set { description = value; }
         }
-        public String Email
+        public string Email
         {
             get { return email; }
             set { email = value; }
         }
-        public String Password
+        public string Password
         {
             get { return password; }
             set { password = value; }
         }
-        internal Image Image
+        public string ImageURL
         {
-            get { return image; }
-            set { image = value; }
+            get { return imageURL; }
+            set { imageURL = value; }
         }
 
         //===============================================================//

@@ -13,16 +13,16 @@ namespace PetSociety_for_Windows.Src.Model
         //===============================================================//
 
         private int locationID;
-        private String x; 
-        private String y;     
-        private String description;     
-        private String title;       
-        private String address;       
-        private String type;      
-        private String dateCreated;      
-        private String timeCreated;
+        private double x;
+        private double y;     
+        private string description;
+        private string title;
+        private string address;
+        private string type;      
+        private DateTime dateTimeCreated;
+        private int userID;
+        private int galleryID;
         
-        private Pin pin;  
         private User user;
         private List<Review> reviews;
         private Gallery gallery;
@@ -40,55 +40,55 @@ namespace PetSociety_for_Windows.Src.Model
         //                              Accessors
         //===============================================================//
 
-        public String X
+        public double X
         {
             get { return x; }
             set { x = value; }
+        }
+        public int UserID
+        {
+            get { return userID; }
+            set { userID = value; }
+        }
+        public int GalleryID
+        {
+            get { return galleryID; }
+            set { galleryID = value; }
         }
         public int LocationID
         {
             get { return locationID; }
             set { locationID = value; }
         }
-        public String Y
+        public double Y
         {
             get { return y; }
             set { y = value; }
         }
-        public String Description
+        public string Description
         {
             get { return description; }
             set { description = value; }
         }
-        public String Title
+        public string Title
         {
             get { return title; }
             set { title = value; }
         }
-        public String DateCreated
+        public DateTime DateTimeCreated
         {
-            get { return dateCreated; }
-            set { dateCreated = value; }
+            get { return dateTimeCreated; }
+            set { dateTimeCreated = value; }
         }
-        public String Type
+        public string Type
         {
             get { return type; }
             set { type = value; }
         }
-        public String TimeCreated
-        {
-            get { return timeCreated; }
-            set { timeCreated = value; }
-        }
-        public String Address
+        public string Address
         {
             get { return address; }
             set { address = value; }
-        }
-        internal Pin Pin
-        {
-            get { return pin; }
-            set { pin = value; }
         }
         internal User User
         {
