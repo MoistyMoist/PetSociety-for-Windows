@@ -22,12 +22,18 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Pet Society" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
+            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
+            <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178"/>
+            <Button Content="Register" HorizontalAlignment="Left" Margin="246,203,0,0" VerticalAlignment="Top" Width="200"/>
+            <TextBlock HorizontalAlignment="Left" Margin="201,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
 
         </Grid>
     </Grid>
