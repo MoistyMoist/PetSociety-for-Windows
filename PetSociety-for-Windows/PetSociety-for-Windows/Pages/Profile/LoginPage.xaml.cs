@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using PetSociety_for_Windows;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -15,6 +16,11 @@ namespace PetSociety_for_Windows.Pages
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

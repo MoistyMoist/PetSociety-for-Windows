@@ -31,7 +31,7 @@
             <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
             <TextBox HorizontalAlignment="Left" Height="72" Margin="0,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
             <TextBox HorizontalAlignment="Left" Height="72" Margin="0,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
-            <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178"/>
+            <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click"/>
             <Button Content="Register" HorizontalAlignment="Left" Margin="246,203,0,0" VerticalAlignment="Top" Width="200"/>
             <TextBlock HorizontalAlignment="Left" Margin="201,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
 

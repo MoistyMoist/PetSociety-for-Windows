@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://petsociety.cloudapp.net/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://petsociety.cloudapp.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://petsociety.cloudapp.net/">
+      <s:element name="Get">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INemail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="INpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetResult" type="tns:USER" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="USER">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Birthday" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Biography" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Privicy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Contact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Credibility" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" nillable="true" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" nillable="true" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfileImageURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ATTENDEEs" type="tns:ArrayOfATTENDEE" />
+          <s:element minOccurs="0" maxOccurs="1" name="EVENTs" type="tns:ArrayOfEVENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRIEND_LIST" type="tns:ArrayOfFRIEND_LIST" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRIEND_LIST1" type="tns:ArrayOfFRIEND_LIST" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRIEND_REQUEST" type="tns:ArrayOfFRIEND_REQUEST" />
+          <s:element minOccurs="0" maxOccurs="1" name="FRIEND_REQUEST1" type="tns:ArrayOfFRIEND_REQUEST" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERies" type="tns:ArrayOfGALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOCATIONs" type="tns:ArrayOfLOCATION" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOSTs" type="tns:ArrayOfLOST" />
+          <s:element minOccurs="0" maxOccurs="1" name="PETs" type="tns:ArrayOfPET" />
+          <s:element minOccurs="0" maxOccurs="1" name="REVIEWs" type="tns:ArrayOfREVIEW" />
+          <s:element minOccurs="0" maxOccurs="1" name="STRAYs" type="tns:ArrayOfSTRAY" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfATTENDEE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ATTENDEE" nillable="true" type="tns:ATTENDEE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ATTENDEE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="AttendeeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EVENT" type="tns:EVENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="EVENT">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndDateTime" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Privacy" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GalleryID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ATTENDEEs" type="tns:ArrayOfATTENDEE" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERY" type="tns:GALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERies" type="tns:ArrayOfGALLERY" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="GALLERY">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="GalleryID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="userID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PetID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="EventID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="EVENTs" type="tns:ArrayOfEVENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="EVENT" type="tns:EVENT" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOCATION" type="tns:LOCATION" />
+          <s:element minOccurs="0" maxOccurs="1" name="PET" type="tns:PET" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="IMAGEs" type="tns:ArrayOfIMAGE" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOCATIONs" type="tns:ArrayOfLOCATION" />
+          <s:element minOccurs="0" maxOccurs="1" name="PETs" type="tns:ArrayOfPET" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfEVENT">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="EVENT" nillable="true" type="tns:EVENT" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LOCATION">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LocationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GalleryID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERies" type="tns:ArrayOfGALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERY" type="tns:GALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="REVIEWs" type="tns:ArrayOfREVIEW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfGALLERY">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="GALLERY" nillable="true" type="tns:GALLERY" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfREVIEW">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="REVIEW" nillable="true" type="tns:REVIEW" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="REVIEW">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ReviewID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Likes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Dislikes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="LocationID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="StrayID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOCATION" type="tns:LOCATION" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="STRAY" type="tns:STRAY" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="STRAY">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="StrayID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Biography" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeSeen" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Breed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="REVIEWs" type="tns:ArrayOfREVIEW" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PET">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PetID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Breed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Sex" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Biography" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="GalleryID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfileImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERies" type="tns:ArrayOfGALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERY" type="tns:GALLERY" />
+          <s:element minOccurs="0" maxOccurs="1" name="LOSTs" type="tns:ArrayOfLOST" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLOST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LOST" nillable="true" type="tns:LOST" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LOST">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LostID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DateTimeSeen" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Found" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Reward" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PetID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateTimeCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="PET" type="tns:PET" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfIMAGE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="IMAGE" nillable="true" type="tns:IMAGE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="IMAGE">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ImageID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="GalleryID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GALLERY" type="tns:GALLERY" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLOCATION">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LOCATION" nillable="true" type="tns:LOCATION" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfPET">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PET" nillable="true" type="tns:PET" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFRIEND_LIST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FRIEND_LIST" nillable="true" type="tns:FRIEND_LIST" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FRIEND_LIST">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Friend_ListID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FriendID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER1" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfFRIEND_REQUEST">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="FRIEND_REQUEST" nillable="true" type="tns:FRIEND_REQUEST" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="FRIEND_REQUEST">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Friend_RequestID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Accepted" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="FriendID" nillable="true" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER" type="tns:USER" />
+          <s:element minOccurs="0" maxOccurs="1" name="USER1" type="tns:USER" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSTRAY">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="STRAY" nillable="true" type="tns:STRAY" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSoapIn">
+    <wsdl:part name="parameters" element="tns:Get" />
+  </wsdl:message>
+  <wsdl:message name="GetSoapOut">
+    <wsdl:part name="parameters" element="tns:GetResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LoginServiceSoap">
+    <wsdl:operation name="Get">
+      <wsdl:input message="tns:GetSoapIn" />
+      <wsdl:output message="tns:GetSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LoginServiceSoap" type="tns:LoginServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get">
+      <soap:operation soapAction="http://petsociety.cloudapp.net/Get" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LoginServiceSoap12" type="tns:LoginServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get">
+      <soap12:operation soapAction="http://petsociety.cloudapp.net/Get" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LoginService">
+    <wsdl:port name="LoginServiceSoap" binding="tns:LoginServiceSoap">
+      <soap:address location="http://petsociety.cloudapp.net/Services/AccountService/LoginService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LoginServiceSoap12" binding="tns:LoginServiceSoap12">
+      <soap12:address location="http://petsociety.cloudapp.net/Services/AccountService/LoginService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

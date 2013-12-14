@@ -13,6 +13,11 @@ namespace PetSociety_for_Windows.Src.Utils
         private static string[] petTypes = { "Dog", "Cat", "Bird" };
         private static string[] pins = {"Strays","Events","Users","Lost","Locations"};//types of pins option on the main map
         
+
+        //definations
+
+
+
         //things for the main page
         private static User currentUser;
         private static List<Location> mapLocations;
