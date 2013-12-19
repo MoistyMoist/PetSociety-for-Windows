@@ -65,11 +65,15 @@
                 <Grid Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF3B5998">
                     <Button  Click="OpenClose_Left" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="86" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="-4,-8,0,-2" ClickMode="Press" Style="{StaticResource MainNavButtonStyle}">
                         <Button.Background>
-                            <ImageBrush Stretch="Fill" ImageSource="ic_drawer.png"/>
+                            <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <Button  Click="OpenClose_Right" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="80" Height="80"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="80,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <Button  Click="OpenClose_Right" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="80" Height="78" Style="{StaticResource MainNavButtonStyle}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,-2,0,0">
+                        <Button.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="ic_7-location-place.png"/>
+                        </Button.Background>
+                    </Button>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2"/>
             </Grid>
