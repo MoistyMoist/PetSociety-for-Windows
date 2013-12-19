@@ -219,6 +219,125 @@
     			</Setter.Value>
     		</Setter>
     	</Style>
+    	<Style x:Key="navEventDtyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_4-collections-go-to-today.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navLostStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_3-rating-important.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navStrayStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_2-action-search.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navAnalysisStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_7-location-map.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navNearbyStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_7-location-directions.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navAccountSettingStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_2-action-settings.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
+    	<Style x:Key="navLogoutStyle" TargetType="Button">
+    		<Setter Property="Template">
+    			<Setter.Value>
+    				<ControlTemplate TargetType="Button">
+    					<Grid>
+    						<Viewbox>
+    							<Grid Height="57" Width="394">
+    								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_10-device-access-secure.png"/>
+    							</Grid>
+    						</Viewbox>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    					</Grid>
+    				</ControlTemplate>
+    			</Setter.Value>
+    		</Setter>
+    	</Style>
     </Application.Resources>
 
     <!--Application Resources-->
