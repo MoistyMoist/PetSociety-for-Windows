@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using System.Windows.Media;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -20,17 +21,6 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-            //Touch.FrameReported += new TouchFrameEventHandler(Touch_FrameReported);
-
-
-            //load the points here
-
-
-
-
-
-
-
 
         }
 
