@@ -58,7 +58,7 @@
             </Grid.RowDefinitions>-->
             <Border Width="420"  CacheMode="BitmapCache" Background="#FF31363E" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
                 <Grid>
-                    <TextBox Name="SearchTB" Text="Search" Margin="0,0,0,713" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold"/>
+                    <TextBox Name="SearchTB" Text="Search" Margin="0,0,0,713" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold" Style="{StaticResource SearchTBStyle}"/>
                 </Grid>
             </Border>
             <Border Width="420" Margin="900,0,0,0" CacheMode="BitmapCache" Background="#FF31363E" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
