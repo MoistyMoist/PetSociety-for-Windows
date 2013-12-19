@@ -210,7 +210,7 @@
     						<Viewbox>
     							<Grid Height="57" Width="394">
     								<Rectangle HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
-    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="ic_10-device-access-accounts.png"/>
+    								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_10-device-access-accounts.png"/>
     							</Grid>
     						</Viewbox>
     						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
