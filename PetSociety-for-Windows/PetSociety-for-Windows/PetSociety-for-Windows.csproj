@@ -25,6 +25,7 @@
     <SilverlightAppEntry>PetSociety_for_Windows.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,11 +110,6 @@
     <Compile Include="Pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\LoginService\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Src\HttpRequests\Account\CheckEmailRequest.cs" />
     <Compile Include="Src\HttpRequests\Account\LoginRequest.cs" />
     <Compile Include="Src\HttpRequests\Account\RegisterUserRequest.cs" />
@@ -186,7 +182,6 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
-    <None Include="Service References\LoginService\LoginService.wsdl" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
@@ -204,13 +199,6 @@
     </Content>
     <Content Include="Resources\ic_launcher.png" />
     <Content Include="Resources\SplashScreenImage.jpg" />
-    <None Include="Service References\LoginService\LoginService.disco" />
-    <None Include="Service References\LoginService\configuration91.svcinfo" />
-    <None Include="Service References\LoginService\configuration.svcinfo" />
-    <None Include="Service References\LoginService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +208,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\LoginService\" />
+    <Resource Include="ic_drawer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

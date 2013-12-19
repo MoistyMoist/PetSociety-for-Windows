@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PetSociety_for_Windows;
 
+
 namespace PetSociety_for_Windows.Pages
 {
     public partial class LoginPage : PhoneApplicationPage
@@ -20,6 +21,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+         
            
         }
     }
