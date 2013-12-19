@@ -217,7 +217,7 @@
     										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
     											<DiscreteObjectKeyFrame KeyTime="0">
     												<DiscreteObjectKeyFrame.Value>
-    													<SolidColorBrush Color="#FF1E2A53"/>
+    													<SolidColorBrush Color="#FF173599"/>
     												</DiscreteObjectKeyFrame.Value>
     											</DiscreteObjectKeyFrame>
     										</ObjectAnimationUsingKeyFrames>
@@ -227,16 +227,12 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
-    							<VisualStateGroup x:Name="FocusStates" ec:ExtendedVisualStateManager.UseFluidLayout="True">
+    							<VisualStateGroup x:Name="FocusStates">
     								<VisualState x:Name="Unfocused"/>
     								<VisualState x:Name="Focused">
     									<Storyboard>
     										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
-    											<DiscreteObjectKeyFrame KeyTime="0">
-    												<DiscreteObjectKeyFrame.Value>
-    													<SolidColorBrush Color="#FF1E2A53"/>
-    												</DiscreteObjectKeyFrame.Value>
-    											</DiscreteObjectKeyFrame>
+    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Null}"/>
     										</ObjectAnimationUsingKeyFrames>
     									</Storyboard>
     								</VisualState>
