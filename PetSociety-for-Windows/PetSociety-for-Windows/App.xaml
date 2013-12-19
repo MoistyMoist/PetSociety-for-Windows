@@ -2,7 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
-    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" 
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:ec="clr-namespace:Microsoft.Expression.Interactivity.Core;assembly=Microsoft.Expression.Interactions" mc:Ignorable="d" 
     x:Class="PetSociety_for_Windows.App"
     >
     <Application.Resources>
@@ -208,13 +208,16 @@
     				<ControlTemplate TargetType="Button">
     					<Grid>
     						<VisualStateManager.VisualStateGroups>
-    							<VisualStateGroup x:Name="CommonStates">
+    							<VisualStateGroup x:Name="CommonStates" ec:ExtendedVisualStateManager.UseFluidLayout="True">
     								<VisualState x:Name="Pressed">
     									<Storyboard>
     										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Null}"/>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
     											<DiscreteObjectKeyFrame KeyTime="0">
     												<DiscreteObjectKeyFrame.Value>
-    													<SolidColorBrush Color="White"/>
+    													<SolidColorBrush Color="#FF1E2A53"/>
     												</DiscreteObjectKeyFrame.Value>
     											</DiscreteObjectKeyFrame>
     										</ObjectAnimationUsingKeyFrames>
@@ -224,7 +227,24 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates" ec:ExtendedVisualStateManager.UseFluidLayout="True">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF1E2A53"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
+    						<VisualStateManager.CustomVisualStateManager>
+    							<ec:ExtendedVisualStateManager/>
+    						</VisualStateManager.CustomVisualStateManager>
     						<Viewbox>
     							<Grid Height="57" Width="394">
     								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
