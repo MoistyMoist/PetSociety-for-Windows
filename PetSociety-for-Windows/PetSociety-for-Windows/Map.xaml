@@ -61,8 +61,8 @@
                     <TextBox Name="SearchTB" Text="Search" Margin="0,0,0,713" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold" Style="{StaticResource SearchTBStyle}" Cursor="Arrow" GotFocus="NavigateToSearch"/>
                     <Button Content="Home" Margin="16,83,10,660" Style="{StaticResource navHomeStyle}"/>
                     <Path Data="M10,154 L86,154" Fill="#FFA6A6A6" HorizontalAlignment="Left" Height="2" Margin="0,196,0,0" Stretch="Fill" Stroke="#FFA6A6A6" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="410"/>
-                    <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="Find Animals"/>
-                    <Button Content="Lost Pets" Margin="10,203,16,540" Style="{StaticResource navHomeStyle}"/>
+                    <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="Account"/>
+                    <Button Content="Profile" Margin="10,203,16,540" Style="{StaticResource navAccountStyle}"/>
                 </Grid>
             </Border>
             <Border Width="420" Margin="900,0,0,0" CacheMode="BitmapCache" Background="#FF31363E" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
