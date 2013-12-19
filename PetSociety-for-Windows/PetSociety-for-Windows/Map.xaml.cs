@@ -23,7 +23,6 @@ namespace PetSociety_for_Windows.Pages
             BuildLocalizedApplicationBar();
 
         }
-
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
@@ -110,6 +109,14 @@ namespace PetSociety_for_Windows.Pages
             }
 
         }
+       
+        private void NavigateToSearch(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
+        }
+
+
+
 
         // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
@@ -127,7 +134,9 @@ namespace PetSociety_for_Windows.Pages
    //         ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
-       /* double preFlickX;
+        
+
+        double preFlickX;
         double preFlickY;
         bool firstTime = false;
         int id = -1;
@@ -208,7 +217,7 @@ namespace PetSociety_for_Windows.Pages
             }
 
         }
-        double X;*/
+        double X;
 
         
     }
