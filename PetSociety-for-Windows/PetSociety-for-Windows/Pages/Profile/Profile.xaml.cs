@@ -36,21 +36,7 @@ namespace PetSociety_for_Windows.Pages.Profile
                 MoveViewWindow(0);
             }
         }
-        private void OpenClose_Right(object sender, RoutedEventArgs e)
-        {
-            var left = Canvas.GetLeft(LayoutRoot);
-            if (left > -520)
-            {
-                ApplicationBar.IsVisible = false;
-                MoveViewWindow(-840);
-            }
-            else
-            {
-                ApplicationBar.IsVisible = true;
-                MoveViewWindow(-420);
-
-            }
-        }
+        
 
         void MoveViewWindow(double left)
         {
@@ -66,8 +52,8 @@ namespace PetSociety_for_Windows.Pages.Profile
 
         private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-            if (e.DeltaManipulation.Translation.X != 0)
-                Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
+           // if (e.DeltaManipulation.Translation.X != 0)
+           //     Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
 
         double initialPosition;

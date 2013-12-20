@@ -66,8 +66,8 @@ namespace PetSociety_for_Windows.Pages
 
         private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-            if (e.DeltaManipulation.Translation.X != 0)
-                Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
+         //   if (e.DeltaManipulation.Translation.X != 0)
+         //       Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
 
         double initialPosition;
