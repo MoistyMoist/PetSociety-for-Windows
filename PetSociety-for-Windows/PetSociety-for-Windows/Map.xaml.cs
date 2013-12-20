@@ -117,9 +117,34 @@ namespace PetSociety_for_Windows.Pages
         {
             NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
         }
-
-
-
+        private void NavigateToEvent(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Event/Event.xaml", UriKind.Relative));
+        }
+        private void NavigateToLost(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Lost/Lost.xaml", UriKind.Relative));
+        }
+        private void NavigateToStray(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Stray.xaml", UriKind.Relative));
+        }
+        private void NavigateToAnalysis(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Analysis/Analysis.xaml", UriKind.Relative));
+        }
+        private void NavigateToNearby(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
+        }
+        private void NavigateToSetting(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+        }
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+           // NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
+        }
         // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
         {

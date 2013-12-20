@@ -8,11 +8,11 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 
-namespace PetSociety_for_Windows.Pages.Lost
+namespace PetSociety_for_Windows.Pages.CrowdSourcing
 {
-    public partial class ReportLost : PhoneApplicationPage
+    public partial class Nearby : PhoneApplicationPage
     {
-        public ReportLost()
+        public Nearby()
         {
             InitializeComponent();
         }

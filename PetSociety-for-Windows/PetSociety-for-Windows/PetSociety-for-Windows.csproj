@@ -93,20 +93,35 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Analysis\Analysis.xaml.cs">
+      <DependentUpon>Analysis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Analysis\AnalysisDetail.xaml.cs">
       <DependentUpon>AnalysisDetail.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Lost\ReportLost.xaml.cs">
-      <DependentUpon>ReportLost.xaml</DependentUpon>
+    <Compile Include="Pages\CrowdSourcing\Nearby.xaml.cs">
+      <DependentUpon>Nearby.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CrowdSourcing\Stray.xaml.cs">
+      <DependentUpon>Stray.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\Event.xaml.cs">
+      <DependentUpon>Event.xaml</DependentUpon>
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lost\Lost.xaml.cs">
+      <DependentUpon>Lost.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Others\SearchAddress.xaml.cs">
       <DependentUpon>SearchAddress.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Others\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Others\Setting.xaml.cs">
+      <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Profile\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
@@ -156,15 +171,31 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Pages\Analysis\Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Analysis\AnalysisDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Lost\ReportLost.xaml">
+    <Page Include="Pages\CrowdSourcing\Nearby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CrowdSourcing\Stray.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\Event.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lost\Lost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Others\Setting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -354,9 +389,7 @@
     <Content Include="Resources\SplashScreenImage.jpg" />
     <Content Include="SplashScreenImage.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\CrowdSourcing\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
