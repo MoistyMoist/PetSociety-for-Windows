@@ -79,7 +79,10 @@
                 </ScrollViewer>
             </Border>
             <Border Width="420" Margin="900,0,0,0" CacheMode="BitmapCache" Background="#FF31363E" Grid.Column="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
-                
+                <ScrollViewer>
+                    <Grid>
+                    </Grid>
+                </ScrollViewer>
             </Border>
             <Grid x:Name="grdCommands" Margin="420,0,0,0" CacheMode="BitmapCache" Grid.Column="1" Background="#FFCFD4E2" Height="{Binding ActualHeight, ElementName=canvas}" Width="480" >
                 <Grid.RowDefinitions>

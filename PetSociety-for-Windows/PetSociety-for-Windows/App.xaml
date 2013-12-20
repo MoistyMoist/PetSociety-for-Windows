@@ -214,6 +214,27 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
     							<Grid Height="57" Width="394">
@@ -232,6 +253,10 @@
     			<Setter.Value>
     				<ControlTemplate TargetType="Button">
     					<Grid>
+    						<Grid.ColumnDefinitions>
+    							<ColumnDefinition Width="124*"/>
+    							<ColumnDefinition Width="73*"/>
+    						</Grid.ColumnDefinitions>
     						<VisualStateManager.VisualStateGroups>
     							<VisualStateGroup x:Name="CommonStates" ec:ExtendedVisualStateManager.UseFluidLayout="True">
     								<VisualState x:Name="Pressed">
@@ -254,7 +279,18 @@
     								<VisualState x:Name="Focused">
     									<Storyboard>
     										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
-    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Null}"/>
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
     										</ObjectAnimationUsingKeyFrames>
     									</Storyboard>
     								</VisualState>
@@ -263,13 +299,13 @@
     						<VisualStateManager.CustomVisualStateManager>
     							<ec:ExtendedVisualStateManager/>
     						</VisualStateManager.CustomVisualStateManager>
-    						<Viewbox>
+    						<Viewbox Grid.ColumnSpan="2">
     							<Grid Height="57" Width="394">
-    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394" Stroke="#FFCF6363"/>
+    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
     								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_10-device-access-accounts.png"/>
     							</Grid>
     						</Viewbox>
-    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294" Grid.ColumnSpan="2"/>
     					</Grid>
     				</ControlTemplate>
     			</Setter.Value>
@@ -280,6 +316,11 @@
     			<Setter.Value>
     				<ControlTemplate TargetType="Button">
     					<Grid>
+    						<Grid.ColumnDefinitions>
+    							<ColumnDefinition Width="93*"/>
+    							<ColumnDefinition Width="38*"/>
+    							<ColumnDefinition Width="263*"/>
+    						</Grid.ColumnDefinitions>
     						<VisualStateManager.VisualStateGroups>
     							<VisualStateGroup x:Name="CommonStates">
     								<VisualState x:Name="Pressed">
@@ -304,14 +345,35 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
-    						<Viewbox>
+    						<Viewbox Grid.ColumnSpan="3">
     							<Grid Height="57" Width="394">
     								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
     								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_4-collections-go-to-today.png"/>
     							</Grid>
     						</Viewbox>
-    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="100,10,0,0" Width="294"/>
+    						<ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Top" Height="47" Margin="7,10,0,0" Width="294" Grid.ColumnSpan="2" Grid.Column="1"/>
     					</Grid>
     				</ControlTemplate>
     			</Setter.Value>
@@ -345,6 +407,27 @@
     								<VisualState x:Name="Normal"/>
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
     							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
@@ -392,6 +475,27 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox Grid.ColumnSpan="2">
     							<Grid Height="57" Width="394">
@@ -433,6 +537,27 @@
     								<VisualState x:Name="Normal"/>
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
     							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
@@ -476,6 +601,27 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
     							<Grid Height="57" Width="394">
@@ -518,6 +664,27 @@
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
     							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
+    							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
     							<Grid Height="57" Width="394">
@@ -559,6 +726,27 @@
     								<VisualState x:Name="Normal"/>
     								<VisualState x:Name="Disabled"/>
     								<VisualState x:Name="MouseOver"/>
+    							</VisualStateGroup>
+    							<VisualStateGroup x:Name="FocusStates">
+    								<VisualState x:Name="Unfocused"/>
+    								<VisualState x:Name="Focused">
+    									<Storyboard>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
+    											<DiscreteObjectKeyFrame KeyTime="0">
+    												<DiscreteObjectKeyFrame.Value>
+    													<SolidColorBrush Color="#FF173599"/>
+    												</DiscreteObjectKeyFrame.Value>
+    											</DiscreteObjectKeyFrame>
+    										</ObjectAnimationUsingKeyFrames>
+    									</Storyboard>
+    								</VisualState>
     							</VisualStateGroup>
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
