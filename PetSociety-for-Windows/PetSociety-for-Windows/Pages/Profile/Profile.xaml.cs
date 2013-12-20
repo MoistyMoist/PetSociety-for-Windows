@@ -15,7 +15,7 @@ namespace PetSociety_for_Windows.Pages.Profile
 {
     public partial class Profile : PhoneApplicationPage
     {
-        private void Profile(object sender, RoutedEventArgs e)
+        private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
             if (left > -100)
