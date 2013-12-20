@@ -217,7 +217,7 @@
     						</VisualStateManager.VisualStateGroups>
     						<Viewbox>
     							<Grid Height="57" Width="394">
-    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="89" VerticalAlignment="Top" Width="394" Margin="0,-18,0,-14"/>
     								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/ApplicationIcon.png"/>
     							</Grid>
     						</Viewbox>
@@ -236,9 +236,6 @@
     							<VisualStateGroup x:Name="CommonStates" ec:ExtendedVisualStateManager.UseFluidLayout="True">
     								<VisualState x:Name="Pressed">
     									<Storyboard>
-    										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="rectangle">
-    											<DiscreteObjectKeyFrame KeyTime="0" Value="{x:Null}"/>
-    										</ObjectAnimationUsingKeyFrames>
     										<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="rectangle">
     											<DiscreteObjectKeyFrame KeyTime="0">
     												<DiscreteObjectKeyFrame.Value>
@@ -268,7 +265,7 @@
     						</VisualStateManager.CustomVisualStateManager>
     						<Viewbox>
     							<Grid Height="57" Width="394">
-    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394"/>
+    								<Rectangle x:Name="rectangle" HorizontalAlignment="Left" Height="57" VerticalAlignment="Top" Width="394" Stroke="#FFCF6363"/>
     								<Image HorizontalAlignment="Left" Height="57" Margin="1,0,0,0" VerticalAlignment="Top" Width="66" Source="/Resources/Icons/ic_10-device-access-accounts.png"/>
     							</Grid>
     						</Viewbox>
