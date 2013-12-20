@@ -88,6 +88,7 @@
                     	<Button Content="Friends" Margin="16,194,10,549" Style="{StaticResource FriendPinStyle}"/>
                     	<Button Content="Events" Margin="16,251,10,492" Style="{StaticResource EventPinStyle}"/>
                     	<Button Content="Places" Margin="16,308,10,435" Style="{StaticResource placePinStyle}"/>
+                    	<TextBlock HorizontalAlignment="Left" Height="25" Margin="39,409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="329" Text="Hint: Trigger pins to display on map" FontStyle="Italic" FontSize="21.333"/>
                     </Grid>
                 </ScrollViewer>
             </Border>
