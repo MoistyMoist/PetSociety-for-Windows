@@ -11,18 +11,11 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Media;
 
-namespace PetSociety_for_Windows.Pages
+namespace PetSociety_for_Windows.Pages.Profile
 {
-    public partial class Map : PhoneApplicationPage
+    public partial class Profile : PhoneApplicationPage
     {
-        public Map()
-        {
-            InitializeComponent();
-            VisualStateManager.GoToState(this, "Normal", false);
-            // Sample code to localize the ApplicationBar
-            BuildLocalizedApplicationBar();
-        }
-        private void OpenClose_Left(object sender, RoutedEventArgs e)
+        private void Profile(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
             if (left > -100)
@@ -48,14 +41,14 @@ namespace PetSociety_for_Windows.Pages
             {
                 ApplicationBar.IsVisible = true;
                 MoveViewWindow(-420);
-               
+
             }
         }
 
         void MoveViewWindow(double left)
         {
             _viewMoved = true;
-            if (left==-420)
+            if (left == -420)
                 ApplicationBar.IsVisible = true;
             else
                 ApplicationBar.IsVisible = false;
@@ -94,28 +87,28 @@ namespace PetSociety_for_Windows.Pages
             {
                 //slide to the left
                 if (initialPosition > -420)
-                     MoveViewWindow(-420);
+                    MoveViewWindow(-420);
                 else
                     MoveViewWindow(-840);
             }
             else
             {
                 //slide to the right
-                if (initialPosition< -420)
-                      MoveViewWindow(-420);
+                if (initialPosition < -420)
+                    MoveViewWindow(-420);
                 else
                     MoveViewWindow(0);
             }
 
         }
-       
+
         private void NavigateToSearch(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
         }
         private void NavigateToProfile(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
         }
 
 
@@ -128,15 +121,15 @@ namespace PetSociety_for_Windows.Pages
 
             // Create a new button and set the text value to the localized string from AppResources.
             ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
- //           appBarButton.Text = AppResources.AppBarButtonText;
- //           ApplicationBar.Buttons.Add(appBarButton);
+            //           appBarButton.Text = AppResources.AppBarButtonText;
+            //           ApplicationBar.Buttons.Add(appBarButton);
 
             // Create a new menu item with the localized string from AppResources.
-  //          ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-   //         ApplicationBar.MenuItems.Add(appBarMenuItem);
+            //          ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
+            //         ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
 
-        
+
 
         double preFlickX;
         double preFlickY;
@@ -220,7 +213,5 @@ namespace PetSociety_for_Windows.Pages
 
         }
         double X;
-
-        
     }
 }

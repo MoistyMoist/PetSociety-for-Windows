@@ -105,10 +105,13 @@
     <Compile Include="Pages\Others\SearchAddress.xaml.cs">
       <DependentUpon>SearchAddress.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Profile\LoginPage.xaml.cs">
+    <Compile Include="Pages\Others\LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Profile\RegisterPage.xaml.cs">
+    <Compile Include="Pages\Profile\Profile.xaml.cs">
+      <DependentUpon>Profile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Others\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Settings.xaml.cs">
@@ -169,7 +172,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Profile\LoginPage.xaml">
+    <Page Include="Pages\Others\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -177,7 +180,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Profile\RegisterPage.xaml">
+    <Page Include="Pages\Profile\Profile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Others\RegisterPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
