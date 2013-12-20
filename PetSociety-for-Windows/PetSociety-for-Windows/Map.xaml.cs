@@ -86,8 +86,8 @@ namespace PetSociety_for_Windows.Pages
             if (Math.Abs(initialPosition - left) < 100)
             {
                 //bouncing back
-                MoveViewWindow(initialPosition);
-                return;
+               // MoveViewWindow(initialPosition);
+                //return;
             }
             //change of state
             if (initialPosition - left > 0)
