@@ -15,6 +15,13 @@ namespace PetSociety_for_Windows.Pages.Profile
 {
     public partial class Profile : PhoneApplicationPage
     {
+        public Profile()
+        {
+            InitializeComponent();
+            VisualStateManager.GoToState(this, "Normal", false);
+            // Sample code to localize the ApplicationBar
+            BuildLocalizedApplicationBar();
+        }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
