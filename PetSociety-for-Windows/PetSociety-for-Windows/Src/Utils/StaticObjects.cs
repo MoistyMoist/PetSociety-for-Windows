@@ -38,7 +38,11 @@ namespace PetSociety_for_Windows.Src.Utils
 
 
 
-
+        internal static User CurrentUser
+        {
+            get { return StaticObjects.currentUser; }
+            set { StaticObjects.currentUser = value; }
+        }
         public static string[] PetTypes
         {
             get { return StaticObjects.petTypes; }

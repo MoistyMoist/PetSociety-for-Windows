@@ -18,6 +18,9 @@ namespace PetSociety_for_Windows.Pages
 {
     public partial class Map : PhoneApplicationPage
     {
+        double initialPosition;
+        bool _viewMoved = false;
+
         public Map()
         {
             InitializeComponent();
@@ -73,8 +76,6 @@ namespace PetSociety_for_Windows.Pages
          //       Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
 
-        double initialPosition;
-        bool _viewMoved = false;
         private void canvas_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
         {
             _viewMoved = false;
@@ -155,22 +156,20 @@ namespace PetSociety_for_Windows.Pages
         private void Logout(object sender, RoutedEventArgs e)
         {
             IAsyncResult result = Microsoft.Xna.Framework.GamerServices.Guide.BeginShowMessageBox("Logout","Confirm logout?",new string[] { "Close", "Logout" },0,Microsoft.Xna.Framework.GamerServices.MessageBoxIcon.None,null,null);
-
             result.AsyncWaitHandle.WaitOne();
-
             int? choice = Microsoft.Xna.Framework.GamerServices.Guide.EndShowMessageBox(result);
             if (choice.HasValue)
             {
                 if (choice.Value == 1)
                 {
                     OpenClose_Left(null, null);
-                    //StaticObjects.
+                    StaticObjects.CurrentUser = null;
                     AppLifetimeHelper close = new AppLifetimeHelper();
                     close.CloseApplication();
-                   // NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
         }
+        
         // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
         {
