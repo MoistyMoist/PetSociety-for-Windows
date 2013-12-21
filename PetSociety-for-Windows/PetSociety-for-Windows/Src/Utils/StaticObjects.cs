@@ -11,7 +11,8 @@ namespace PetSociety_for_Windows.Src.Utils
     {
         private static string token = "token";
         private static string[] petTypes = { "Dog", "Cat", "Bird" };
-        private static string[] pins = {"Strays","Events","Users","Lost","Locations"};//types of pins option on the main map
+        private static string[] pins = { "Strays", "Events", "Users", "Lost", "Locations" };//types of pins option on the main map
+
         
 
         //definations
@@ -38,7 +39,16 @@ namespace PetSociety_for_Windows.Src.Utils
 
 
 
-
+        public static string[] PetTypes
+        {
+            get { return StaticObjects.petTypes; }
+            set { StaticObjects.petTypes = value; }
+        }
+        public static string[] Pins
+        {
+            get { return StaticObjects.pins; }
+            set { StaticObjects.pins = value; }
+        }
         public static string Token
         {
             get { return StaticObjects.token; }

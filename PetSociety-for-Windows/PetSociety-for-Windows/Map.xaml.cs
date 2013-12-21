@@ -3,6 +3,9 @@ using Microsoft.Phone.Shell;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using PetSociety_for_Windows.Src.Utils;
+using PetSociety_for_Windows.Src.Model;
+using PetSociety_for_Windows.Src.HttpRequests;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -161,7 +164,10 @@ namespace PetSociety_for_Windows.Pages
                 if (choice.Value == 1)
                 {
                     OpenClose_Left(null, null);
-                    NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
+                    //StaticObjects.
+                    AppLifetimeHelper close = new AppLifetimeHelper();
+                    close.CloseApplication();
+                   // NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
         }

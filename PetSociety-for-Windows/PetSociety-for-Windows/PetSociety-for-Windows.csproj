@@ -164,6 +164,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Utils\AppLifetimeHelper.cs" />
     <Compile Include="Src\Utils\JSONExtractor.cs" />
     <Compile Include="Src\Utils\StaticObjects.cs" />
     <Compile Include="Src\Utils\UploadImageRequest.cs" />
