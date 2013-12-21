@@ -8,7 +8,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PetSociety_for_Windows;
-
+using PetSociety_for_Windows.Src.Utils;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -23,6 +23,18 @@ namespace PetSociety_for_Windows.Pages
         {
          
            
+        }
+
+        private void login(object sender, RoutedEventArgs e)
+        {
+            WebClient loginRequest = new WebClient();
+            loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(loginResponse);
+            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/Login?token="+StaticObjects.Token+"&INemail="+"kaiquan88@gmail.com"+"&INpassword="+"password"));
+        }
+
+        private void loginResponse(object sender, DownloadStringCompletedEventArgs e)
+        {
+            emailTB.Text = e.Result.ToString();
         }
     }
 }
