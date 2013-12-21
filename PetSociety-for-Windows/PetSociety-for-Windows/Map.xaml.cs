@@ -28,6 +28,7 @@ namespace PetSociety_for_Windows.Pages
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
         }
+
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
@@ -75,13 +76,11 @@ namespace PetSociety_for_Windows.Pages
          //   if (e.DeltaManipulation.Translation.X != 0)
          //       Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
-
         private void canvas_ManipulationStarted(object sender, ManipulationStartedEventArgs e)
         {
             _viewMoved = false;
             initialPosition = Canvas.GetLeft(LayoutRoot);
         }
-
         private void canvas_ManipulationCompleted(object sender, ManipulationCompletedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
@@ -170,20 +169,13 @@ namespace PetSociety_for_Windows.Pages
             }
         }
         
-        // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
         {
-            // Set the page's ApplicationBar to a new instance of ApplicationBar.
             ApplicationBar = new ApplicationBar();
 
-            // Create a new button and set the text value to the localized string from AppResources.
             ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/AppbarIcon/Dark/feature.camera.png", UriKind.Relative));
-            appBarButton.Text = "Report";
+            appBarButton.Text = "Add Location";
             ApplicationBar.Buttons.Add(appBarButton);
-
-            // Create a new menu item with the localized string from AppResources.
-  //          ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-   //         ApplicationBar.MenuItems.Add(appBarMenuItem);
         }
     
     }
