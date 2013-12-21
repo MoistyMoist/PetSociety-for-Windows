@@ -13,29 +13,53 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed-->
+    <!--LayoutRoot is the root grid where all page content is placed
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
+       
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
             <TextBlock Text="Pet Society" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
-            <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
-            <TextBox HorizontalAlignment="Left" Height="72" Margin="0,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
-            <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click"/>
-            <Button Content="Register" HorizontalAlignment="Left" Margin="246,203,0,0" VerticalAlignment="Top" Width="200"/>
-            <TextBlock HorizontalAlignment="Left" Margin="201,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
+       
+        <
+    </Grid>-->
 
-        </Grid>
-    </Grid>
+    <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="800" Background="Black" ManipulationStarted="canvas_ManipulationStarted" ManipulationDelta="canvas_ManipulationDelta" ManipulationCompleted="canvas_ManipulationCompleted">
+        <Canvas.Resources>
+            <Storyboard x:Name="moveAnimation">
+                <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True" />
+            </Storyboard>
+        </Canvas.Resources>
 
+        <Canvas  CacheMode="BitmapCache" x:Name="LayoutRoot" Width="470"  VerticalAlignment="Stretch" Background="Transparent" Canvas.Left="10" Height="768">
+
+
+            <Grid x:Name="grdCommands" CacheMode="BitmapCache" Grid.Column="1" Background="#FFCFD4E2" Height="{Binding ActualHeight, ElementName=canvas}" Width="480" Canvas.Left="-10" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="76"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF3B5998">
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="315" Height="66" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                </Grid>
+                <Border Grid.Row="1" Background="#FF3B5998" RenderTransformOrigin="0.762,0.627" BorderBrush="#FF3B5998">
+                    <Grid>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="10,104,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top"/>
+                        <TextBox HorizontalAlignment="Left" Height="72" Margin="0,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
+                        <TextBox HorizontalAlignment="Left" Height="72" Margin="0,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
+                        <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click"/>
+                        <Button Content="Register" HorizontalAlignment="Left" Margin="246,203,0,0" VerticalAlignment="Top" Width="200"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="201,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
+                    <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="0,-18,0,719" Foreground="White" />
+                    </Grid>
+                </Border>
+            </Grid>
+        </Canvas>
+    </Canvas>
 </phone:PhoneApplicationPage>
