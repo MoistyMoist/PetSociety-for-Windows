@@ -45,7 +45,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF3B5998">
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="315" Height="66" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="80,0,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" Width="315" Height="66" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FF3B5998" RenderTransformOrigin="0.762,0.627" BorderBrush="#FF3B5998">
                     <Grid>
@@ -54,8 +54,8 @@
                         <TextBox HorizontalAlignment="Left" Height="72" Margin="0,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
                         <TextBox HorizontalAlignment="Left" Height="72" Margin="0,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
                         <Button Content="Login" HorizontalAlignment="Left" Margin="0,203,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click"/>
-                        <Button Content="Register" HorizontalAlignment="Left" Margin="246,203,0,0" VerticalAlignment="Top" Width="200"/>
-                        <TextBlock HorizontalAlignment="Left" Margin="201,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
+                        <Button Content="Register" HorizontalAlignment="Left" Margin="256,203,0,0" VerticalAlignment="Top" Width="200"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="211,227,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
                     <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="0,-18,0,719" Foreground="White" />
                     </Grid>
                 </Border>

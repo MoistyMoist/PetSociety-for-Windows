@@ -120,7 +120,7 @@
     <Compile Include="Pages\Others\SearchAddress.xaml.cs">
       <DependentUpon>SearchAddress.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Others\LoginPage.xaml.cs">
+    <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Others\Setting.xaml.cs">
@@ -207,7 +207,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Others\LoginPage.xaml">
+    <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
