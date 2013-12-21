@@ -177,7 +177,7 @@ namespace PetSociety_for_Windows.Pages
             ApplicationBar = new ApplicationBar();
 
             // Create a new button and set the text value to the localized string from AppResources.
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/Dark/feature.camera.png", UriKind.Relative));
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/AppbarIcon/Dark/feature.camera.png", UriKind.Relative));
             appBarButton.Text = "Report";
             ApplicationBar.Buttons.Add(appBarButton);
 
