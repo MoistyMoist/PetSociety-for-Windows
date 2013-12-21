@@ -164,7 +164,8 @@ namespace PetSociety_for_Windows.Pages
                     OpenClose_Left(null, null);
                     StaticObjects.CurrentUser = null;
                     AppLifetimeHelper close = new AppLifetimeHelper();
-                    close.CloseApplication();
+                    //close.CloseApplication();
+                    NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
         }
