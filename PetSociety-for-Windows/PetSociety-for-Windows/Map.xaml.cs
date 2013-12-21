@@ -150,7 +150,7 @@ namespace PetSociety_for_Windows.Pages
             int? choice = Microsoft.Xna.Framework.GamerServices.Guide.EndShowMessageBox(result);
             if (choice.HasValue)
             {
-                if (choice.Value == 0)
+                if (choice.Value == 1)
                 {
                     NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
                 }
