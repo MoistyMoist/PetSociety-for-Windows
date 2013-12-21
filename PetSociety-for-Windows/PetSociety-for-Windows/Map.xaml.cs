@@ -143,14 +143,7 @@ namespace PetSociety_for_Windows.Pages
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
-            IAsyncResult result = Microsoft.Xna.Framework.GamerServices.Guide.BeginShowMessageBox(
-  "Quizz",
-  "What is your favorite Windows Phone?",
-  new string[] { "Nokia Lumia 820", "Nokia Lumia 920" },
-  0,
-  Microsoft.Xna.Framework.GamerServices.MessageBoxIcon.None,
-  null,
-  null);
+            IAsyncResult result = Microsoft.Xna.Framework.GamerServices.Guide.BeginShowMessageBox("Logout","Confirm logout?",new string[] { "Close", "Logout" },0,Microsoft.Xna.Framework.GamerServices.MessageBoxIcon.None,null,null);
 
             result.AsyncWaitHandle.WaitOne();
 
@@ -159,10 +152,9 @@ namespace PetSociety_for_Windows.Pages
             {
                 if (choice.Value == 0)
                 {
-                    //User clicks on the first button
+                    NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
                 }
             }
-           // NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
         }
         // Sample code for building a localized ApplicationBar
         private void BuildLocalizedApplicationBar()
