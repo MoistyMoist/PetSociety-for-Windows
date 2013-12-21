@@ -152,7 +152,7 @@ namespace PetSociety_for_Windows.Pages
             {
                 if (choice.Value == 1)
                 {
-                    NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
         }
