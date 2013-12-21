@@ -29,7 +29,7 @@
         <
     </Grid>-->
 
-    <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="800" Background="Black" ManipulationStarted="canvas_ManipulationStarted" ManipulationDelta="canvas_ManipulationDelta" ManipulationCompleted="canvas_ManipulationCompleted">
+    <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="800" Background="Black" >
         <Canvas.Resources>
             <Storyboard x:Name="moveAnimation">
                 <DoubleAnimation Duration="0:0:0.2" To="0" Storyboard.TargetProperty="(Canvas.Left)" Storyboard.TargetName="LayoutRoot" d:IsOptimized="True" />
