@@ -9,7 +9,7 @@ namespace PetSociety_for_Windows.Src.Utils
 {
     class StaticObjects
     {
-        private static string token="token";
+        private static string token = "token";
         private static string[] petTypes = { "Dog", "Cat", "Bird" };
         private static string[] pins = {"Strays","Events","Users","Lost","Locations"};//types of pins option on the main map
         
@@ -31,6 +31,20 @@ namespace PetSociety_for_Windows.Src.Utils
         private static List<Stray> analysisStrays;
         private static List<Event> analysisEvents;
         private static List<Lost> analysisLosts;
+
+
+
+
+
+
+
+
+        public static string Token
+        {
+            get { return StaticObjects.token; }
+            set { StaticObjects.token = value; }
+        }
+
 
     }
 }

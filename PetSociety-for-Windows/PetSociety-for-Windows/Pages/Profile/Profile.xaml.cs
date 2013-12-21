@@ -95,15 +95,7 @@ namespace PetSociety_for_Windows.Pages.Profile
 
         }
 
-        private void NavigateToSearch(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
-        }
-        private void NavigateToProfile(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
-        }
-
+      
 
 
         // Sample code for building a localized ApplicationBar
@@ -206,5 +198,52 @@ namespace PetSociety_for_Windows.Pages.Profile
 
         }
         double X;
+
+
+
+
+
+
+
+
+
+
+
+        private void NavigateToSearch(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
+        }
+        private void NavigateToHome(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+        }
+        private void NavigateToEvent(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Event/Event.xaml", UriKind.Relative));
+        }
+        private void NavigateToLost(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Lost/Lost.xaml", UriKind.Relative));
+        }
+        private void NavigateToStray(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Stray.xaml", UriKind.Relative));
+        }
+        private void NavigateToAnalysis(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Analysis/Analysis.xaml", UriKind.Relative));
+        }
+        private void NavigateToNearby(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
+        }
+        private void NavigateToSetting(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+        }
+        private void Logout(object sender, RoutedEventArgs e)
+        {
+            // NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
+        }
     }
 }
