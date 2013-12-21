@@ -56,8 +56,8 @@
                         <Button Content="Login" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="178" Click="Button_Click"/>
                         <Button Content="Register" HorizontalAlignment="Left" Margin="266,204,0,0" VerticalAlignment="Top" Width="200"/>
                         <TextBlock HorizontalAlignment="Left" Margin="221,228,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
-                        <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="10,308,-10,393" Foreground="White" />
-                        <TextBlock HorizontalAlignment="Left" Margin="24,281,0,0" TextWrapping="Wrap" Text="Logging in..." VerticalAlignment="Top" Width="442" TextAlignment="Center"/>
+                        <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="10,324,-10,377" Foreground="White" />
+                        <TextBlock HorizontalAlignment="Left" Margin="24,281,0,0" TextWrapping="Wrap" Text="Logging in..." VerticalAlignment="Top" Width="442" TextAlignment="Center" Height="43" FontSize="24"/>
                     </Grid>
                 </Border>
             </Grid>
