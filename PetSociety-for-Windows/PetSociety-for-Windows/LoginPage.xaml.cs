@@ -36,9 +36,14 @@ namespace PetSociety_for_Windows.Pages
                 emailTB.Text= streamReaderFile.ReadLine();
                 passwordTB.Text = streamReaderFile.ReadLine();
                 streamReaderFile.Close();
-                login(null,null);
+                if(!emailTB.Text.Equals(""))
+                    login(null,null);
             }//end of try 
-            catch (Exception)             {            } 
+            catch (Exception) 
+            {
+
+            } 
+
         }
 
         private void login(object sender, RoutedEventArgs e)

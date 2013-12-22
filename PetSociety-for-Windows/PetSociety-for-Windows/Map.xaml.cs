@@ -13,6 +13,8 @@ using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Media;
+using System.IO;
+using System.IO.IsolatedStorage;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -161,6 +163,15 @@ namespace PetSociety_for_Windows.Pages
             {
                 if (choice.Value == 1)
                 {
+                    IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication();
+                    file.CreateDirectory("RootFolder");
+                    StreamWriter streamWriterFile = new StreamWriter(new
+                    IsolatedStorageFileStream("RootFolder\\Antuation.txt", FileMode.OpenOrCreate, file));
+                    streamWriterFile.WriteLine("");
+                    streamWriterFile.WriteLine("");
+                    streamWriterFile.Close();
+
+
                     OpenClose_Left(null, null);
                     StaticObjects.CurrentUser = null;
                     AppLifetimeHelper close = new AppLifetimeHelper();
