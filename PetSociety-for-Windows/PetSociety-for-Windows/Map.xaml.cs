@@ -211,7 +211,7 @@ namespace PetSociety_for_Windows.Pages
             WebClient loginRequest = new WebClient();
             loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
             loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
-            MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0);
+            //MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0);
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
