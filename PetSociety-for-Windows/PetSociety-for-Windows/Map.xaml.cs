@@ -29,6 +29,12 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
+
+            LoadLostPins();
+            LoadStrayPins();
+            LoadUserPins();
+            LoadEventPins();
+            LoadLocationPins();
         }
 
         private void OpenClose_Left(object sender, RoutedEventArgs e)
@@ -195,5 +201,37 @@ namespace PetSociety_for_Windows.Pages
             AppLifetimeHelper close = new AppLifetimeHelper();
             close.CloseApplication();
         }
+    
+        private void LoadLostPins()
+        {
+            DateTime date = DateTime.Now;
+            string dateSTR = date.ToString();
+
+            progressBar.Opacity = 100;
+            WebClient loginRequest = new WebClient();
+            loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
+            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INdateTimeCreated=" + dateSTR));
+        }
+        private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
+        }
+        private void LoadStrayPins()
+        {
+        
+        }
+        private void LoadUserPins()
+        {
+            
+        }
+        private void LoadEventPins()
+        {
+            
+        }
+        private void LoadLocationPins()
+        {
+            
+        }
     }
+
 }
