@@ -248,7 +248,7 @@ namespace PetSociety_for_Windows.Pages
         {
             Pushpin locationPushpin = new Pushpin();
             GeoCoordinate supermartLatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(0).X, StaticObjects.MapLosts.ElementAt(0).Y);
-
+            locationPushpin.Template = this.Resources["ic_location_place"] as ControlTemplate; 
             locationPushpin.Location = supermartLatLong;
             lostLayer.Children.Add(locationPushpin);
             mainMap.Children.Add(lostLayer);
