@@ -221,19 +221,34 @@ namespace PetSociety_for_Windows.Pages
         {
         
         }
+        private void RetrieveStrayComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
+        }
         private void LoadUserPins()
         {
             
+        }
+        private void RetrieveUserComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
         }
         private void LoadEventPins()
         {
             
         }
+        private void RetrieveEventComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
+        }
         private void LoadLocationPins()
         {
             
         }
-
+        private void RetrieveLocationComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
+        }
         
     }
 
