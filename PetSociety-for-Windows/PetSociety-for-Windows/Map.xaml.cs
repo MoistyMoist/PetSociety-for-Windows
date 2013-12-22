@@ -247,9 +247,10 @@ namespace PetSociety_for_Windows.Pages
         private void PlotLostPins()
         {
             Pushpin locationPushpin = new Pushpin();
-            GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);           
+            GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
+           
             locationPushpin.Location = supermartLatLong;
-            
+            locationPushpin.Template = this.Resources["ImagePin"] as ControlTemplate;
 
             lostLayer.Children.Add(locationPushpin);
             mainMap.Children.Add(lostLayer);

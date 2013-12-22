@@ -87,5 +87,8 @@
             </Grid>
         </Canvas>
     </Canvas>
-
+    <phone:PhoneApplicationPage.Resources>
+        <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
+            <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
+        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
