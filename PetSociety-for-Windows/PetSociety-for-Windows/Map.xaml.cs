@@ -29,10 +29,10 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-
+            
            
         }
-        protected void OnNavigatedTo(NavigationEventArgs e)
+        private void PageLoaded(object sender, RoutedEventArgs e)
         {
             LoadLostPins();
             LoadStrayPins();
@@ -233,6 +233,8 @@ namespace PetSociety_for_Windows.Pages
         {
             
         }
+
+        
     }
 
 }
