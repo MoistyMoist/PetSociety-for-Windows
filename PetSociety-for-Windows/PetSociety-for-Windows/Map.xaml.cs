@@ -251,6 +251,7 @@ namespace PetSociety_for_Windows.Pages
            
             locationPushpin.Location = supermartLatLong;
             locationPushpin.Template = this.Resources["ImagePin"] as ControlTemplate;
+            locationPushpin.Content = "wtf";
 
             lostLayer.Children.Add(locationPushpin);
             mainMap.Children.Add(lostLayer);
