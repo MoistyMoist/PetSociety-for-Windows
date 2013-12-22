@@ -217,7 +217,10 @@ namespace PetSociety_for_Windows.Pages
                 WebClient loginRequest = new WebClient();
                 loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
                 loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
-                //MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0);
+            }
+            else
+            {
+                PlotLostPins();
             }
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
@@ -228,7 +231,11 @@ namespace PetSociety_for_Windows.Pages
            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
            childlist = ser.ReadObject(ms) as LostModel;
            StaticObjects.MapLosts = childlist.Data;
-           MessageBox.Show(StaticObjects.MapLosts.ElementAt(2).Reward);
+           PlotLostPins();
+        }
+        private void PlotLostPins()
+        {
+            
         }
         private void LoadStrayPins()
         {
