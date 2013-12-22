@@ -247,11 +247,13 @@ namespace PetSociety_for_Windows.Pages
         private void PlotLostPins()
         {
             Pushpin locationPushpin = new Pushpin();
-            GeoCoordinate supermartLatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(0).X, StaticObjects.MapLosts.ElementAt(0).Y);
-            locationPushpin.Template = this.Resources["ic_location_place"] as ControlTemplate; 
+            GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);           
             locationPushpin.Location = supermartLatLong;
+            
+
             lostLayer.Children.Add(locationPushpin);
             mainMap.Children.Add(lostLayer);
+            mainMap.SetView(supermartLatLong,18.0);
         }
         private void LoadStrayPins()
         {
