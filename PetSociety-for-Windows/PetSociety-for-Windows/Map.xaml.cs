@@ -30,13 +30,16 @@ namespace PetSociety_for_Windows.Pages
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
 
+           
+        }
+        protected void OnNavigatedTo(NavigationEventArgs e)
+        {
             LoadLostPins();
             LoadStrayPins();
             LoadUserPins();
             LoadEventPins();
             LoadLocationPins();
         }
-
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
