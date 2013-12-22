@@ -29,6 +29,8 @@ namespace PetSociety_for_Windows.Pages
 
         private void login(object sender, RoutedEventArgs e)
         {
+            progressBar.Opacity = 100;
+            MessageTX.Opacity=100;
             WebClient loginRequest = new WebClient();
             loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(loginResponse);
             loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/Login?token=" + StaticObjects.Token + "&INemail=" + emailTB.Text + "&INpassword=" + passwordTB.Text));
@@ -42,17 +44,31 @@ namespace PetSociety_for_Windows.Pages
             childlist = ser.ReadObject(ms) as UserModel;
 
             USER currentUser = new USER();
-
-            foreach (var d in childlist.Data)
+            if (childlist.Status == 1)
             {
-                currentUser = d;
+                MessageTX.Text = "Login Failed";
+                progressBar.Opacity = 0;
             }
-            StaticObjects.CurrentUser = currentUser;
+            else
+            {
+                foreach (var d in childlist.Data)
+                {
+                    currentUser = d;
+                }
+                StaticObjects.CurrentUser = currentUser;
+                NavigationService.Navigate(new Uri("Map.xaml", UriKind.Relative));
+            }
+           
             ms.Close();
 
             //save the email and password in local database
 
-            emailTB.Text = StaticObjects.CurrentUser.Name;
+           
+        }
+
+        private void NavigateToRegister(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 

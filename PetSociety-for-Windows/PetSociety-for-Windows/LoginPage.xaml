@@ -13,21 +13,6 @@
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
-    <!--LayoutRoot is the root grid where all page content is placed
-    <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-       
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Pet Society" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-
-       
-        <
-    </Grid>-->
 
     <Canvas x:Name="canvas" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="800" Background="Black" >
         <Canvas.Resources>
@@ -54,10 +39,10 @@
                         <TextBox Name="passwordTB" HorizontalAlignment="Left" Height="72" Margin="10,132,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="Password"/>
                         <TextBox Name="emailTB" HorizontalAlignment="Left" Height="72" Margin="10,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="456" InputScope="EmailUserName"/>
                         <Button Content="Login" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" Width="178" Click="login"/>
-                        <Button Content="Register" HorizontalAlignment="Left" Margin="266,204,0,0" VerticalAlignment="Top" Width="200"/>
+                        <Button Content="Register" HorizontalAlignment="Left" Margin="266,204,0,0" VerticalAlignment="Top" Width="200" Click="NavigateToRegister"/>
                         <TextBlock HorizontalAlignment="Left" Margin="221,228,0,0" TextWrapping="Wrap" Text="Or" VerticalAlignment="Top"/>
-                        <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="10,330,-10,371" Foreground="White" />
-                        <TextBlock HorizontalAlignment="Left" Margin="24,281,0,0" TextWrapping="Wrap" Text="Logging in..." VerticalAlignment="Top" Width="442" TextAlignment="Center" Height="43" FontSize="24"/>
+                        <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="10,330,-10,371" Foreground="White" Opacity="0" />
+                        <TextBlock Name="MessageTX" HorizontalAlignment="Left" Margin="24,281,0,0" TextWrapping="Wrap" Text="Logging in..." VerticalAlignment="Top" Width="442" TextAlignment="Center" Height="43" FontSize="24" Opacity="0"/>
                     </Grid>
                 </Border>
             </Grid>
