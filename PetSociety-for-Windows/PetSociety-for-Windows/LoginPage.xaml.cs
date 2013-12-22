@@ -56,7 +56,7 @@ namespace PetSociety_for_Windows.Pages
                     currentUser = d;
                 }
                 StaticObjects.CurrentUser = currentUser;
-                NavigationService.Navigate(new Uri("Map.xaml", UriKind.Relative));
+                NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
             }
            
             ms.Close();
