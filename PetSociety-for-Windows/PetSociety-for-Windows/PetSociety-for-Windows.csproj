@@ -146,29 +146,39 @@
     <Compile Include="Src\HttpRequests\Event\AddEventRequest.cs" />
     <Compile Include="Src\HttpRequests\Event\UpdateEventRequest.cs" />
     <Compile Include="Src\HttpRequests\Lost\ReportLostRequest.cs" />
-    <Compile Include="Src\Model\Advert.cs" />
-    <Compile Include="Src\Model\Attendee.cs" />
-    <Compile Include="Src\Model\Event.cs" />
-    <Compile Include="Src\Model\Friend_List.cs" />
-    <Compile Include="Src\Model\Friend_Request.cs" />
-    <Compile Include="Src\Model\Gallery.cs" />
-    <Compile Include="Src\Model\Image.cs" />
-    <Compile Include="Src\Model\Location.cs" />
-    <Compile Include="Src\Model\Lost.cs" />
-    <Compile Include="Src\Model\Organization.cs" />
-    <Compile Include="Src\Model\Pet.cs" />
-    <Compile Include="Src\Model\Review.cs" />
-    <Compile Include="Src\Model\Stray.cs" />
-    <Compile Include="Src\Model\User.cs" />
     <Compile Include="Pages\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Src\Model\ADVERT.cs" />
+    <Compile Include="Src\Model\ATTENDEE.cs" />
+    <Compile Include="Src\Model\EVENT.cs" />
+    <Compile Include="Src\Model\FRIEND_LIST.cs" />
+    <Compile Include="Src\Model\FRIEND_REQUEST.cs" />
+    <Compile Include="Src\Model\GALLERY.cs" />
+    <Compile Include="Src\Model\IMAGE.cs" />
+    <Compile Include="Src\Model\LOCATION.cs" />
+    <Compile Include="Src\Model\LOST.cs" />
+    <Compile Include="Src\Model\ORGANIZATION.cs" />
+    <Compile Include="Src\Model\PET.cs" />
+    <Compile Include="Src\Model\REVIEW.cs" />
+    <Compile Include="Src\Model\STRAY.cs" />
+    <Compile Include="Src\Model\USER.cs" />
+    <Compile Include="Src\RootModel\AdvertModel.cs" />
+    <Compile Include="Src\RootModel\AttendeeModel.cs" />
+    <Compile Include="Src\RootModel\EventModel.cs" />
+    <Compile Include="Src\RootModel\GalleryModel.cs" />
+    <Compile Include="Src\RootModel\ImageModel.cs" />
+    <Compile Include="Src\RootModel\LocationModel.cs" />
+    <Compile Include="Src\RootModel\LostModel.cs" />
+    <Compile Include="Src\RootModel\PetModel.cs" />
+    <Compile Include="Src\RootModel\ReviewModel.cs" />
+    <Compile Include="Src\RootModel\StrayModel.cs" />
+    <Compile Include="Src\RootModel\TypeModel.cs" />
+    <Compile Include="Src\RootModel\UserModel.cs" />
     <Compile Include="Src\Utils\AppLifetimeHelper.cs" />
-    <Compile Include="Src\Utils\JSONExtractor.cs" />
     <Compile Include="Src\Utils\StaticObjects.cs" />
     <Compile Include="Src\Utils\UploadImageRequest.cs" />
-    <Compile Include="Src\Utils\XMLExtractor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

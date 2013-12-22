@@ -20,25 +20,25 @@ namespace PetSociety_for_Windows.Src.Utils
 
 
         //things for the main page
-        private static User currentUser;
-        private static List<Location> mapLocations;
-        private static List<Stray> mapStrays;
-        private static List<Event> mapEvents;
-        private static List<Lost> mapLosts;
+        private static USER currentUser;
+        private static List<LOCATION> mapLocations;
+        private static List<STRAY> mapStrays;
+        private static List<EVENT> mapEvents;
+        private static List<LOST> mapLosts;
 
 
         //things for the analysis page
-        private static List<Location> analysisLocations;
-        private static List<Stray> analysisStrays;
-        private static List<Event> analysisEvents;
-        private static List<Lost> analysisLosts;
+        private static List<LOCATION> analysisLocations;
+        private static List<STRAY> analysisStrays;
+        private static List<EVENT> analysisEvents;
+        private static List<LOST> analysisLosts;
 
 
 
 
 
 
-        internal static User CurrentUser
+        internal static USER CurrentUser
         {
             get { return StaticObjects.currentUser; }
             set { StaticObjects.currentUser = value; }

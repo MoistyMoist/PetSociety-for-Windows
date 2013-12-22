@@ -9,6 +9,13 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using PetSociety_for_Windows;
 using PetSociety_for_Windows.Src.Utils;
+using System.Xml.Linq;
+using System.Runtime.Serialization.Json;
+using System.Collections.ObjectModel;
+using PetSociety_for_Windows.Src.Model;
+using PetSociety_for_Windows.Src.RootModel;
+using System.IO;
+using System.Text;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -17,24 +24,36 @@ namespace PetSociety_for_Windows.Pages
         public LoginPage()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-         
-           
+            //checks the local database for email n password
         }
 
         private void login(object sender, RoutedEventArgs e)
         {
             WebClient loginRequest = new WebClient();
             loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(loginResponse);
-            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/Login?token="+StaticObjects.Token+"&INemail="+"kaiquan88@gmail.com"+"&INpassword="+"password"));
+            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/Login?token=" + StaticObjects.Token + "&INemail=" + emailTB.Text + "&INpassword=" + passwordTB.Text));
         }
 
         private void loginResponse(object sender, DownloadStringCompletedEventArgs e)
         {
-            emailTB.Text = e.Result.ToString();
+            UserModel childlist = new UserModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as UserModel;
+
+            USER currentUser = new USER();
+
+            foreach (var d in childlist.Data)
+            {
+                currentUser = d;
+            }
+            StaticObjects.CurrentUser = currentUser;
+            ms.Close();
+
+            //save the email and password in local database
+
+            emailTB.Text = StaticObjects.CurrentUser.Name;
         }
     }
+
 }
