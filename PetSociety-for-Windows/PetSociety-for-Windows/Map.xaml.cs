@@ -178,7 +178,7 @@ namespace PetSociety_for_Windows.Pages
             appBarButton.Text = "Add Location";
             ApplicationBar.Buttons.Add(appBarButton);
         }
-        protected override void PhoneApplicationPage_BackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)
+        private void PhoneApplicationPage_BackKeyPress(object sender, System.ComponentModel.CancelEventArgs e)
         {
             StaticObjects.CurrentUser = null;
             AppLifetimeHelper close = new AppLifetimeHelper();
