@@ -16,6 +16,8 @@ using PetSociety_for_Windows.Src.Model;
 using PetSociety_for_Windows.Src.RootModel;
 using System.IO;
 using System.Text;
+using System.IO;
+using System.IO.IsolatedStorage;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -25,7 +27,18 @@ namespace PetSociety_for_Windows.Pages
         {
             InitializeComponent();
             //checks the local database for email n password
-
+            IsolatedStorageFile myStore = IsolatedStorageFile.GetUserStoreForApplication();
+            //Grab contents of myFile.txt 
+            try
+            {
+                StreamReader streamReaderFile = new StreamReader(new
+                IsolatedStorageFileStream("RootFolder\\Antuation.txt", FileMode.Open, myStore));
+                emailTB.Text= streamReaderFile.ReadLine();
+                passwordTB.Text = streamReaderFile.ReadLine();
+                streamReaderFile.Close();
+                login(null,null);
+            }//end of try 
+            catch (Exception)             {            } 
         }
 
         private void login(object sender, RoutedEventArgs e)
@@ -57,6 +70,16 @@ namespace PetSociety_for_Windows.Pages
                     currentUser = d;
                 }
                 StaticObjects.CurrentUser = currentUser;
+
+                IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication();
+                file.CreateDirectory("RootFolder");
+                StreamWriter streamWriterFile = new StreamWriter(new
+                IsolatedStorageFileStream("RootFolder\\Antuation.txt", FileMode.OpenOrCreate, file));
+                streamWriterFile.WriteLine(StaticObjects.CurrentUser.Email.ToString());
+                streamWriterFile.WriteLine(StaticObjects.CurrentUser.Password.ToString());
+                streamWriterFile.Close();
+
+
                 NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
             }
            
