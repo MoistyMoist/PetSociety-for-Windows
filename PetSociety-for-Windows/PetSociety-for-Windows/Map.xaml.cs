@@ -209,12 +209,13 @@ namespace PetSociety_for_Windows.Pages
 
             progressBar.Opacity = 100;
             WebClient loginRequest = new WebClient();
-            loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
-            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INdateTimeCreated=" + dateSTR));
+           // loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
+           // loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INdateTimeCreated=" + dateSTR));
+            MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INdateTimeCreated=" + dateSTR);
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+           // MessageBox.Show(e.Result.ToString());
         }
         private void LoadStrayPins()
         {
