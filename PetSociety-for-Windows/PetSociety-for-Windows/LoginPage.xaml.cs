@@ -25,6 +25,7 @@ namespace PetSociety_for_Windows.Pages
         {
             InitializeComponent();
             //checks the local database for email n password
+
         }
 
         private void login(object sender, RoutedEventArgs e)
@@ -68,7 +69,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void NavigateToRegister(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Uri("/Pages/Others/RegisterPage.xaml", UriKind.Relative));
         }
     }
 
