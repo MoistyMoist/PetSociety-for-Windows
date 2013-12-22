@@ -41,6 +41,7 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
+            
             lostLayer = new MapLayer();
             strayLayer = new MapLayer();
             eventLayer = new MapLayer();
@@ -252,6 +253,8 @@ namespace PetSociety_for_Windows.Pages
             locationPushpin.Location = supermartLatLong;
             locationPushpin.Template = this.Resources["ImagePin"] as ControlTemplate;
             locationPushpin.Content = "wtf";
+            locationPushpin.ContentTemplate = this.Resources["content"] as DataTemplate;
+           // locationPushpin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
 
             lostLayer.Children.Add(locationPushpin);
             mainMap.Children.Add(lostLayer);
@@ -289,7 +292,15 @@ namespace PetSociety_for_Windows.Pages
         {
             MessageBox.Show(e.Result.ToString());
         }
-        
+
+
+        private void pushPin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+           
+
+            //stop the event from going to the parent map control
+            e.Handled = true;
+        }
     }
 
 }

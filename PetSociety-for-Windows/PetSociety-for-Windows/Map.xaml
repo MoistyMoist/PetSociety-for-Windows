@@ -90,5 +90,22 @@
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
+        </ControlTemplate>        <DataTemplate x:Key="content">
+            <StackPanel>
+                <ContentPresenter x:Name="content" HorizontalAlignment="Center"
+                          Content="{TemplateBinding Content}"
+                         />
+                <Path
+        Data="M0,0 L0,1 L1,0"
+        
+        Stretch="Fill"
+        Margin="32,0"
+        Height="12"
+        Width="18"
+        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
+Path=Content.Visibility, Mode=TwoWay}"
+        HorizontalAlignment="Left" />
+                <Image Source="MapPin.png" Stretch="None" HorizontalAlignment="Left"/>
+            </StackPanel>
+        </DataTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
