@@ -227,8 +227,11 @@ namespace PetSociety_for_Windows.Pages
            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
            childlist = ser.ReadObject(ms) as LostModel;
-           StaticObjects.MapLosts = childlist.Data;
-           MessageBox.Show(StaticObjects.MapLosts.ElementAt(1).Reward.ToString());
+           foreach (var d in childlist.Data)
+           {
+               MessageBox.Show(d.Reward.ToString());
+           } 
+           
         }
         private void LoadStrayPins()
         {
