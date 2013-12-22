@@ -15,6 +15,10 @@ using System.Windows.Navigation;
 using System.Windows.Media;
 using System.IO;
 using System.IO.IsolatedStorage;
+using PetSociety_for_Windows.Src.RootModel;
+using System.Runtime.Serialization.Json;
+using System.Collections.ObjectModel;
+using System.Text;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -207,15 +211,24 @@ namespace PetSociety_for_Windows.Pages
     
         private void LoadLostPins()
         {
-            progressBar.Opacity = 100;
-            WebClient loginRequest = new WebClient();
-            loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
-            loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
-            //MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0);
+            if (StaticObjects.MapLosts == null || StaticObjects.MapLosts.Count == 0)
+            {
+                progressBar.Opacity = 100;
+                WebClient loginRequest = new WebClient();
+                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
+                //MessageBox.Show("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0);
+            }
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
            MessageBox.Show(e.Result.ToString());
+           LostModel childlist = new LostModel();
+           MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+           DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+           childlist = ser.ReadObject(ms) as LostModel;
+           StaticObjects.MapLosts = childlist.Data;
+           MessageBox.Show(StaticObjects.MapLosts.ElementAt(0).Description.ToString());
         }
         private void LoadStrayPins()
         {

@@ -16,7 +16,6 @@ using PetSociety_for_Windows.Src.Model;
 using PetSociety_for_Windows.Src.RootModel;
 using System.IO;
 using System.Text;
-using System.IO;
 using System.IO.IsolatedStorage;
 
 namespace PetSociety_for_Windows.Pages
