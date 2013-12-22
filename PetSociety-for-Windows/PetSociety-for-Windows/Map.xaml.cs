@@ -19,11 +19,19 @@ using PetSociety_for_Windows.Src.RootModel;
 using System.Runtime.Serialization.Json;
 using System.Collections.ObjectModel;
 using System.Text;
+using Microsoft.Phone.Controls.Maps;
+using System.Device.Location;
 
 namespace PetSociety_for_Windows.Pages
 {
     public partial class Map : PhoneApplicationPage
     {
+        MapLayer lostLayer;
+        MapLayer strayLayer;
+        MapLayer eventLayer;
+        MapLayer userLayer;
+        MapLayer locationLayer;
+
         double initialPosition;
         bool _viewMoved = false;
 
@@ -33,8 +41,11 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-            
-           
+            lostLayer = new MapLayer();
+            strayLayer = new MapLayer();
+            eventLayer = new MapLayer();
+            userLayer = new MapLayer();
+            locationLayer = new MapLayer();
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
@@ -235,7 +246,12 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLostPins()
         {
-            
+            Pushpin locationPushpin = new Pushpin();
+            GeoCoordinate supermartLatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(0).X, StaticObjects.MapLosts.ElementAt(0).Y);
+
+            locationPushpin.Location = supermartLatLong;
+            lostLayer.Children.Add(locationPushpin);
+            mainMap.Children.Add(lostLayer);
         }
         private void LoadStrayPins()
         {
