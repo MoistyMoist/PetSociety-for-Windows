@@ -23,6 +23,7 @@ using Microsoft.Phone.Controls.Maps;
 using System.Device.Location;
 using System.Windows.Shapes;
 using PetSociety_for_Windows.Pages.Others;
+using System.Windows.Media.Imaging;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -35,6 +36,8 @@ namespace PetSociety_for_Windows.Pages
         MapLayer locationLayer;
         Pushpin selectedPin;
         int selectedPinType;
+        int selectedStrayType;
+        int selectedLocationType;
 
         double initialPosition;
         bool _viewMoved = false;
@@ -54,11 +57,11 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
-            LoadLostPins();
-            LoadStrayPins();
-            LoadUserPins();
-            LoadEventPins();
-            LoadLocationPins();
+            LoadLostPins(null,null);
+            LoadStrayPins(null, null);
+            //LoadUserPins(null, null);
+           // LoadEventPins(null, null);
+           // LoadLocationPins(null, null);
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -224,10 +227,10 @@ namespace PetSociety_for_Windows.Pages
             AppLifetimeHelper close = new AppLifetimeHelper();
             close.CloseApplication();
         }
-    
-        private void LoadLostPins()
+
+        private void LoadLostPins(object sender, RoutedEventArgs e)
         {
-            if (StaticObjects.MapLosts == null || StaticObjects.MapLosts.Count == 0)
+            if ((StaticObjects.MapLosts == null || StaticObjects.MapLosts.Count == 0)||(e!=null))
             {
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
@@ -251,39 +254,52 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLostPins()
         {
-            for(int i=0;i<StaticObjects.MapLosts.Count;i++)
+            if (lostLayer.Children.Count != 0)
+                mainMap.Children.Remove(lostLayer);
+            if (StaticObjects.MapLosts != null)
             {
-                Pushpin pushPin = new Pushpin();
-                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
-                pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
-                pushPin.Name = i+"";
-                pushPin.Location = LatLong;
-                pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-                pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
-                lostLayer.Children.Add(pushPin);
+                lostLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                    pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                    lostLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(lostLayer);
             }
-            mainMap.Children.Add(lostLayer);
         }
         private void LostPinTap(object sender, GestureEventArgs e)
         {
             Pushpin pin = (Pushpin)sender;
             if (selectedPin != null)
             {
-               if(selectedPinType==0)
-                   selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-
+                if(selectedPinType==0)
+                    selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                if(selectedPinType==1)
+                    selectedPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
+                if (selectedPinType == 2)
+                    selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
+                if (selectedPinType == 3)
+                    selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
+                if (selectedPinType == 4)
+                    selectedPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
             }
 
             selectedPin = pin;
             selectedPinType = 0;
 
-            int lostID = Convert.ToInt16(pin.Name);
+            int lostID = Convert.ToInt16(pin.TabIndex);
             pin = (Pushpin)lostLayer.Children.ElementAt(lostID);
             
             LostContentTempletControl content = new LostContentTempletControl();
             for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
             {
-                if (StaticObjects.MapLosts.ElementAt(i).LostID == lostID)
+                if (StaticObjects.MapLosts.ElementAt(i).LostID == Convert.ToInt16(pin.Tag))
                 {
                     content.title.Text = StaticObjects.MapLosts.ElementAt(i).Address;
                     break;
@@ -294,14 +310,14 @@ namespace PetSociety_for_Windows.Pages
       
             mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
-        
-        private void LoadStrayPins()
+
+        private void LoadStrayPins(object sender, RoutedEventArgs e)
         {
-            if (StaticObjects.MapStrays == null || StaticObjects.MapStrays.Count == 0)
+            if ((StaticObjects.MapStrays == null || StaticObjects.MapStrays.Count == 0)||(e!=null))
             {
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
-                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
+                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveStrayComplete);
                 loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveStray?INtoken=" + StaticObjects.Token));
             }
             else
@@ -311,18 +327,80 @@ namespace PetSociety_for_Windows.Pages
         }
         private void RetrieveStrayComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+           // MessageBox.Show(e.Result.ToString());
+            StrayModel childlist = new StrayModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as StrayModel;
+            StaticObjects.MapStrays = childlist.Data;
+            PlotStrayPins();
         }
         private void PlotStrayPins()
         {
-            
+            if (strayLayer.Children.Count != 0)
+                mainMap.Children.Remove(strayLayer);
+            if (StaticObjects.MapStrays != null)
+            {
+                strayLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.MapStrays.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapStrays.ElementAt(i).X, StaticObjects.MapStrays.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.MapStrays.ElementAt(i).StrayID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
+                    Image image = new Image();
+                    image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri( StaticObjects.MapStrays.ElementAt(i).ImageURL,UriKind.Absolute));
+                    image.Height = 50;
+                    image.Width = 50;
+                    pushPin.Content = image;
+
+                    pushPin.Tap += new EventHandler<GestureEventArgs>(StrayPinTap);
+                    strayLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(strayLayer);
+            }
         }
         private void StrayPinTap(object sender, GestureEventArgs e)
         {
-            
+            Pushpin pin = (Pushpin)sender;
+            if (selectedPin != null)
+            {
+                if (selectedPinType == 0)
+                    selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                if (selectedPinType == 1)
+                    selectedPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
+                if (selectedPinType == 2)
+                    selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
+                if (selectedPinType == 3)
+                    selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
+                if (selectedPinType == 4)
+                    selectedPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+            }
+
+            selectedPin = pin;
+            selectedPinType = 1;
+
+            int strayID = Convert.ToInt16(pin.TabIndex);
+            pin = (Pushpin)strayLayer.Children.ElementAt(strayID);
+
+            StrayContentTempletControl content = new StrayContentTempletControl();
+            for (int i = 0; i < StaticObjects.MapStrays.Count; i++)
+            {
+                if (StaticObjects.MapStrays.ElementAt(i).StrayID == Convert.ToInt16(pin.Tag))
+                {
+                    content.title.Text = StaticObjects.MapStrays.ElementAt(i).Biography;
+                    break;
+                }
+            }
+            pin.Content = content;
+            pin.Template = this.Resources["StrayPinIconClick"] as ControlTemplate;
+
+            mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
 
-        private void LoadUserPins()
+        private void LoadUserPins(object sender, RoutedEventArgs e)
         {
             
         }
@@ -330,7 +408,7 @@ namespace PetSociety_for_Windows.Pages
         {
             MessageBox.Show(e.Result.ToString());
         }
-        private void LoadEventPins()
+        private void LoadEventPins(object sender, RoutedEventArgs e)
         {
             
         }
@@ -338,7 +416,7 @@ namespace PetSociety_for_Windows.Pages
         {
             MessageBox.Show(e.Result.ToString());
         }
-        private void LoadLocationPins()
+        private void LoadLocationPins(object sender, RoutedEventArgs e)
         {
             
         }

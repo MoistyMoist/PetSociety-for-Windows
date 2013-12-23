@@ -129,6 +129,9 @@
     <Compile Include="Pages\Others\Setting.xaml.cs">
       <DependentUpon>Setting.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Others\StrayContentTempletControl.xaml.cs">
+      <DependentUpon>StrayContentTempletControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Profile\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Others\Setting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Others\StrayContentTempletControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -51,8 +51,8 @@
                     <Grid>
                         <Path Data="M10,154 L86,154" Fill="#FFA6A6A6" HorizontalAlignment="Left" Height="2" Margin="0,56,0,0" Stretch="Fill" Stroke="#FFA6A6A6" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="410"/>
                         <TextBlock HorizontalAlignment="Left" Height="44" Margin="10,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Text="Pins" FontSize="26.667" FontStyle="Italic" FontWeight="Bold"/>
-                        <Button Content="Lost Pets&#x9;" Margin="16,80,10,663" Style="{StaticResource lostPinStyle}"/>
-                        <Button Content="Stray Pets" Margin="16,137,10,606" Style="{StaticResource StrayPinStyle}"/>
+                        <Button Content="Lost Pets&#x9;" Margin="16,80,10,663" Style="{StaticResource lostPinStyle}" Click="LoadLostPins"/>
+                        <Button Content="Stray Pets" Margin="16,137,10,606" Style="{StaticResource StrayPinStyle}" Click="LoadStrayPins"/>
                         <Button Content="Friends" Margin="16,194,10,549" Style="{StaticResource FriendPinStyle}"/>
                         <Button Content="Events" Margin="16,251,10,492" Style="{StaticResource EventPinStyle}"/>
                         <Button Content="Places" Margin="16,308,10,435" Style="{StaticResource placePinStyle}"/>
@@ -131,10 +131,7 @@
         <ControlTemplate x:Key="StrayPinIcon" TargetType="my:Pushpin">
             <StackPanel>
                 <Grid>
-                    <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="White" StrokeThickness="3"/>
-                    <Grid Margin="-5,0,0,35" MaxHeight="30" MaxWidth="50"  HorizontalAlignment="Left">
-                        <Image Source="Resources/Stray.png" Stretch="Fill"  Name="Icon" />
-                    </Grid>
+                    <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill" />
                 </Grid>
             </StackPanel>
         </ControlTemplate>
