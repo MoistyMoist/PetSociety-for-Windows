@@ -103,8 +103,24 @@
                 </Grid>
             </StackPanel>
         </ControlTemplate>
-        
-        
+        <ControlTemplate x:Key="LostPinIcon2" TargetType="my:Pushpin">
+        <StackPanel>
+            <ContentPresenter x:Name="content" HorizontalAlignment="Center"
+                          Content="{TemplateBinding Content}"
+                         />
+            <Path
+        Data="M0,0 L0,1 L1,0"
+        Fill="{TemplateBinding Background}"
+        Stretch="Fill"
+        Margin="32,0"
+        Height="12"
+        Width="18"
+        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
+Path=Content.Visibility, Mode=TwoWay}"
+        HorizontalAlignment="Left" />
+            <Image Source="MapPin.png" Stretch="None" HorizontalAlignment="Left"/>
+        </StackPanel>
+        </ControlTemplate>
     </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>
