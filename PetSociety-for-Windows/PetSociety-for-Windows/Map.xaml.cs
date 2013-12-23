@@ -279,7 +279,7 @@ namespace PetSociety_for_Windows.Pages
 
             //search databse for the lost details
             pin.Content = null;
-            pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
+            pin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
             // pin.Template = pin.Template;
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
