@@ -253,10 +253,11 @@ namespace PetSociety_for_Windows.Pages
             pushPin.Tag = 1;
 
             pushPin.Location = supermartLatLong;
-            pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
-            pushPin.Content = "wtf";
+            //pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
+            pushPin.Background = new SolidColorBrush(Colors.Blue);
+           
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-           pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+           //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
 
             lostLayer.Children.Add(pushPin);
             mainMap.Children.Add(lostLayer);
@@ -270,7 +271,8 @@ namespace PetSociety_for_Windows.Pages
             int lostID = (int)pin.Tag;
 
             //search databse for the lost details
-            pin.Template.SetValue(Polygon.FillProperty, null);
+            pin.Template.SetValue(ContentControl.ContentTemplateProperty, null);
+           
             // pin.Template = pin.Template;
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
