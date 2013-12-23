@@ -94,8 +94,7 @@
         
         <ControlTemplate x:Key="LostPinIcon" TargetType="my:Pushpin">
             <StackPanel>
-                
-                    <Grid Margin="-5,0,0,0">
+                    <Grid Margin="0,0,0,0">
                     <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                 </Grid>
                 <Grid>
@@ -104,34 +103,22 @@
                     <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill" />
                 </Grid>
                 </Grid>
-
             </StackPanel>
         </ControlTemplate>
         <ControlTemplate x:Key="LostPinIconClick" TargetType="my:Pushpin">
             <StackPanel>
-
-                <Grid Margin="-5,0,0,0">
+                <Grid Margin="15,0,0,0">
                     <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                 </Grid>
-                <Grid>
-                    <Path
-        Data="M0,0 L0,1 L1,0"
-        Fill="{TemplateBinding Background}"
-        Stretch="Fill"
-        Margin="32,0"
-        Height="12"
-        Width="18"
-        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
-Path=Content.Visibility, Mode=TwoWay}"
-        HorizontalAlignment="Left" />
+                <Grid Margin="15,0,0,-40" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Fill="Red" Stretch="Fill" Margin="0,0,0,0" Height="42" Width="30" HorizontalAlignment="Left" />
                 </Grid>
-                <Grid>
+                <Grid Canvas.ZIndex="1">
                     <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="White" StrokeThickness="3"/>
                     <Grid Margin="-5,0,0,35" MaxHeight="30" MaxWidth="50"  HorizontalAlignment="Left">
                         <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill" />
                     </Grid>
                 </Grid>
-
             </StackPanel>
         </ControlTemplate>
     </phone:PhoneApplicationPage.Resources>
