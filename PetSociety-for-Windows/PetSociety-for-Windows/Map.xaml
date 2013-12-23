@@ -93,7 +93,7 @@
             <StackPanel>
             <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-            </StackPanel>            </ControlTemplate>        <DataTemplate x:Key="PushpinControlTemplate2">
+            </StackPanel>            </ControlTemplate>            <DataTemplate x:Key="PushpinControlTemplate2">
             <Grid x:Name="ContentGrid">
                 <StackPanel Orientation="Vertical">
 
@@ -103,7 +103,7 @@
                                         MinWidth="29">
                         
                     </Grid>
-                    <TextBlock Text="dsadas"/>
+                    <TextBlock Text="{Binding content}"/>
                     <Polygon Fill="Azure"
                                  Points="50,0 50,0 0,100"
                                  Width="29"                             
