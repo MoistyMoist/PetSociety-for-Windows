@@ -117,6 +117,9 @@
     <Compile Include="Pages\Lost\Lost.xaml.cs">
       <DependentUpon>Lost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Others\EventContentTempletControl.xaml.cs">
+      <DependentUpon>EventContentTempletControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Others\LostContentTempletControl.xaml.cs">
       <DependentUpon>LostContentTempletControl.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Lost\Lost.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Others\EventContentTempletControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -346,6 +353,7 @@
     <Content Include="Resources\bird.png" />
     <Content Include="Resources\cat.png" />
     <Content Include="Resources\dog.png" />
+    <Content Include="Resources\event.png" />
     <Content Include="Resources\female.png" />
     <Content Include="Resources\fish.png" />
     <Content Include="Resources\hamster.png" />
