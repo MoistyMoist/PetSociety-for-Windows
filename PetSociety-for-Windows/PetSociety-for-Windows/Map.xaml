@@ -91,5 +91,22 @@
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-        </ControlTemplate>        <DataTemplate x:Key="v">            <TextBlock Text="dsa"></TextBlock>        </DataTemplate>    </phone:PhoneApplicationPage.Resources>
+        </ControlTemplate>        <DataTemplate x:Key="PushpinControlTemplate2">
+            <Grid x:Name="ContentGrid">
+                <StackPanel Orientation="Vertical">
+
+                    <Grid Background="Purple"
+                                        HorizontalAlignment="Left"
+                                        MinHeight="10"
+                                        MinWidth="29">
+                    </Grid>
+
+                    <Polygon Fill="Azure"
+                                 Points="0,0 29,0 0,29"
+                                 Width="29"                             
+                                 Height="29"
+                                 HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
