@@ -736,7 +736,7 @@ namespace PetSociety_for_Windows.Pages
                 string currentDate = date.ToString();
                 WebClient loginRequest = new WebClient();
                 loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLocationComplete);
-                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token + "&INtodayDate=" + currentDate));
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLocation?INtoken=" + StaticObjects.Token));
             }
             else
             {
