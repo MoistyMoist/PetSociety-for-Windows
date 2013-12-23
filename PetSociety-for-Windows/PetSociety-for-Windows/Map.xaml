@@ -89,22 +89,24 @@
         </Canvas>
     </Canvas>
     <phone:PhoneApplicationPage.Resources>
-        <ControlTemplate TargetType="my:Pushpin" x:Key="lostPin">
-            <StackPanel>
-                <ContentPresenter x:Name="content" HorizontalAlignment="Center"
-                          Content="{TemplateBinding Content}"
-                         />
-                <Path
-        Data="M0,0 L0,1 L1,0"
-        Fill="Red"
-        Stretch="Fill"
-        Margin="32,0"
-        Height="12"
-        Width="18"
-        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
-Path=Content.Visibility, Mode=TwoWay}"
-        HorizontalAlignment="Left" />
-                <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-            </StackPanel>
-        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
+        <ControlTemplate x:Key="PushpinControlTemplate" TargetType="my:Pushpin">
+            <Grid x:Name="ContentGrid">
+                <StackPanel Orientation="Vertical">
+                    <Grid Background="Orange"
+                                            HorizontalAlignment="Left"
+                                            MinHeight="31"
+                                            MinWidth="29">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                           Content="{TemplateBinding Content}"
+                                           ContentTemplate="{TemplateBinding ContentTemplate}"
+                                           Margin="4"/>
+      </Grid>
+        <Polygon Fill="red"
+                                     Points="0,0 29,0 0,29"
+                                     Width="29"
+                                     Height="29"
+                                     HorizontalAlignment="Left"/>
+                            </StackPanel>
+                    </Grid>
+                    </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
