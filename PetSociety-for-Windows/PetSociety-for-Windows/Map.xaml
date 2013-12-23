@@ -90,8 +90,10 @@
     </Canvas>
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
+            <StackPanel>
+            <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-        </ControlTemplate>        <DataTemplate x:Key="PushpinControlTemplate2">
+            </StackPanel>            </ControlTemplate>        <DataTemplate x:Key="PushpinControlTemplate2">
             <Grid x:Name="ContentGrid">
                 <StackPanel Orientation="Vertical">
 
