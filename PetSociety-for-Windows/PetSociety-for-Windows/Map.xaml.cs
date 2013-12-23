@@ -253,7 +253,7 @@ namespace PetSociety_for_Windows.Pages
             locationPushpin.Location = supermartLatLong;
             locationPushpin.Template = this.Resources["ImagePin"] as ControlTemplate;
             locationPushpin.Content = "wtf";
-            locationPushpin.ContentTemplate = this.Resources["content"] as DataTemplate;
+           // locationPushpin.ContentTemplate = this.Resources["content"] as DataTemplate;
            // locationPushpin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
 
             lostLayer.Children.Add(locationPushpin);
@@ -296,8 +296,8 @@ namespace PetSociety_for_Windows.Pages
 
         private void pushPin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-           
 
+            this.border.Visibility = System.Windows.Visibility.Visible;
             //stop the event from going to the parent map control
             e.Handled = true;
         }
