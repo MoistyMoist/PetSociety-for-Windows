@@ -254,6 +254,7 @@ namespace PetSociety_for_Windows.Pages
                 Pushpin pushPin = new Pushpin();
                 GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
                 pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
+                pushPin.Name = i+"";
                 pushPin.Location = LatLong;
                 pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
@@ -270,20 +271,20 @@ namespace PetSociety_for_Windows.Pages
             mainMap.Children.Add(lostLayer);
            // mainMap.SetView(supermartLatLong,18.0);
         }
-        private void LostPinTap(object sender, System.Windows.Input.GestureEventArgs e)
+
+        private void LostPinTap(object sender, GestureEventArgs e)
         {
-            Pushpin pin = new Pushpin();
+            Pushpin pin = (Pushpin)sender;
 
-            pin = (Pushpin)lostLayer.Children.ElementAt(0);
-            int lostID = (int)pin.Tag;
-
+            int lostID = Convert.ToInt16(pin.Name);
+            MessageBox.Show(lostID + "");
+            pin = (Pushpin)lostLayer.Children.ElementAt(lostID);
             //search databse for the lost details
-            pin.Content = null;
+           
             pin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
-            // pin.Template = pin.Template;
+            
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
-            e.Handled = true;
         }
         private void LoadStrayPins()
         {
