@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace PetSociety_for_Windows.Pages.Others
 {
-    public partial class WindowsPhoneControl1 : UserControl
+    public partial class LostContentTempletControl : UserControl
     {
-        public WindowsPhoneControl1()
+        public LostContentTempletControl()
         {
             InitializeComponent();
         }

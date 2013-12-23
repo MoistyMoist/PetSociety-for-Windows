@@ -22,6 +22,7 @@ using System.Text;
 using Microsoft.Phone.Controls.Maps;
 using System.Device.Location;
 using System.Windows.Shapes;
+using PetSociety_for_Windows.Pages.Others;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -33,6 +34,7 @@ namespace PetSociety_for_Windows.Pages
         MapLayer userLayer;
         MapLayer locationLayer;
         Pushpin selectedPin;
+        int selectedPinType;
 
         double initialPosition;
         bool _viewMoved = false;
@@ -256,7 +258,6 @@ namespace PetSociety_for_Windows.Pages
                 pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
                 pushPin.Name = i+"";
                 pushPin.Location = LatLong;
-                //pushPin.Background = new SolidColorBrush(Colors.Red);
                 pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                 lostLayer.Children.Add(pushPin);
@@ -276,17 +277,32 @@ namespace PetSociety_for_Windows.Pages
         private void LostPinTap(object sender, GestureEventArgs e)
         {
             Pushpin pin = (Pushpin)sender;
+            if (selectedPin != null)
+            {
+               if(selectedPinType==0)
+                   selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+
+            }
+
+            selectedPin = pin;
+            selectedPinType = 0;
 
             int lostID = Convert.ToInt16(pin.Name);
-            MessageBox.Show(lostID + "");
             pin = (Pushpin)lostLayer.Children.ElementAt(lostID);
-            //search databse for the lost details
-           
-            pin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
+            
+            LostContentTempletControl content = new LostContentTempletControl();
+            for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
+            {
+                if (StaticObjects.MapLosts.ElementAt(i).LostID == lostID)
+                {
+                    content.title.Text = StaticObjects.MapLosts.ElementAt(i).Address;
+                    break;
+                }
+            }
+            pin.Content = content;
             pin.Template = this.Resources["LostPinIconClick"] as ControlTemplate;
-           // pin.Content = "dsa";
-            // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-            //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
+      
+            mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
         private void LoadStrayPins()
         {
