@@ -94,7 +94,7 @@
         
         <ControlTemplate x:Key="LostPinIcon" TargetType="my:Pushpin">
             <Grid MinHeight="31" MinWidth="29" Margin="0">
-                <Ellipse Fill="#FFFF7F00"
+                <Ellipse Fill="Red"
                          Opacity="0.5"
                        Margin="1"
                        HorizontalAlignment="Center"
