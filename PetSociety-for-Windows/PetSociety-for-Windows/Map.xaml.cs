@@ -630,9 +630,12 @@ namespace PetSociety_for_Windows.Pages
             if ((StaticObjects.MapEvents == null || StaticObjects.MapEvents.Count == 0) || (e != null))
             {
                 progressBar.Opacity = 100;
+                DateTime date = new DateTime();
+                string fileName = date.ToString();
                 WebClient loginRequest = new WebClient();
                 loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventComplete);
-                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?token=" + StaticObjects.Token));
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken="+StaticObjects.Token+"&INtodayDate="));
+                MessageBox.Show(fileName);   
             }
             else
             {
