@@ -746,9 +746,16 @@ namespace PetSociety_for_Windows.Pages
         private void RetrieveLocationComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             MessageBox.Show(e.Result.ToString());
+            LocationModel childlist = new LocationModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as LocationModel;
+            StaticObjects.MapLocations = childlist.Data;
+            PlotLocationPins();
         }
         private void PlotLocationPins()
         {
+
         }
         private void LocationPinTap(object sender, GestureEventArgs e)
         {
