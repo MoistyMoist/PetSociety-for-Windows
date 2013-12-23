@@ -32,6 +32,7 @@ namespace PetSociety_for_Windows.Pages
         MapLayer eventLayer;
         MapLayer userLayer;
         MapLayer locationLayer;
+        Pushpin selectedPin;
 
         double initialPosition;
         bool _viewMoved = false;
@@ -248,20 +249,26 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLostPins()
         {
-            Pushpin pushPin = new Pushpin();
-            GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
-            pushPin.Tag = 1;
+            for(int i=0;i<StaticObjects.MapLosts.Count;i++)
+            {
+                Pushpin pushPin = new Pushpin();
+                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
+                pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
+                pushPin.Location = LatLong;
+                pushPin.Background = new SolidColorBrush(Colors.Blue);
+                pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                lostLayer.Children.Add(pushPin);
+            }
+           
 
-            pushPin.Location = supermartLatLong;
-            //pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
-            pushPin.Background = new SolidColorBrush(Colors.Blue);
-            pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
+            
+           // pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
+            
+            //pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-           pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
-
-            lostLayer.Children.Add(pushPin);
+           
             mainMap.Children.Add(lostLayer);
-            mainMap.SetView(supermartLatLong,18.0);
+           // mainMap.SetView(supermartLatLong,18.0);
         }
         private void LostPinTap(object sender, System.Windows.Input.GestureEventArgs e)
         {
