@@ -128,38 +128,213 @@
             </StackPanel>
         </ControlTemplate>
 
-        <ControlTemplate x:Key="StrayPinIcon" TargetType="my:Pushpin">
+        <ControlTemplate x:Key="StrayDogPinIcon" TargetType="my:Pushpin">
             <StackPanel>
-                <Grid>
-                    <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill" />
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/dog.png" Stretch="Fill" />
                 </Grid>
             </StackPanel>
         </ControlTemplate>
-        <ControlTemplate x:Key="StrayPinIconClick" TargetType="my:Pushpin">
+        <ControlTemplate x:Key="StrayCatPinIcon" TargetType="my:Pushpin">
             <StackPanel>
-                <Grid Margin="-100,0,0,-10" Canvas.ZIndex="999">
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/cat.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayBirdPinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/bird.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayHamsterPinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/hamster.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayRabbitPinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/rabbit.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayFishPinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/fish.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayTurtlePinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/turtle.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        
+        <ControlTemplate x:Key="StrayDogPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
                     <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
                 </Grid>
-                <Grid Margin="20,0,0,-35" HorizontalAlignment="Left" Canvas.ZIndex="99">
-                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,-5" Height="25" Width="15" HorizontalAlignment="Left" >
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
                         <Path.Fill>
                             <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
                         </Path.Fill>
                     </Path>
-                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,-5" Height="25" Width="15" HorizontalAlignment="Left" >
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
                         <Path.Fill>
                             <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
                         </Path.Fill>
                     </Path>
                 </Grid>
-                <Grid Canvas.ZIndex="1">
-                    <Ellipse Fill="Red" Opacity="0.5" Margin="0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="White" StrokeThickness="3"/>
-                    <Grid Margin="-5,0,0,35" MaxHeight="30" MaxWidth="50"  HorizontalAlignment="Left">
-                        <Image Source="Resources/Stray.png" Stretch="Fill" />
-                    </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                        <Image Source="Resources/dog.png" Stretch="Fill" />
+                 </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayCatPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/cat.png" Stretch="Fill" />
                 </Grid>
             </StackPanel>
         </ControlTemplate>
+        <ControlTemplate x:Key="StrayBirdPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/bird.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayHamsterPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/hamster.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayRabbitPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/rabbit.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayFishPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/fish.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="StrayTurtlePinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/turtle.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        
+        
+        
     </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>

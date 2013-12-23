@@ -278,10 +278,26 @@ namespace PetSociety_for_Windows.Pages
             Pushpin pin = (Pushpin)sender;
             if (selectedPin != null)
             {
-                if(selectedPinType==0)
+                if (selectedPinType == 0)
                     selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-                if(selectedPinType==1)
-                    selectedPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
+                if (selectedPinType == 1)
+                {
+                    if (selectedStrayType == 0)
+                        selectedPin.Template = this.Resources["StrayDogPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 1)
+                        selectedPin.Template = this.Resources["StrayCatPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 2)
+                        selectedPin.Template = this.Resources["StrayBirdPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 3)
+                        selectedPin.Template = this.Resources["StrayhamsterPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 4)
+                        selectedPin.Template = this.Resources["StrayRabbitPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 5)
+                        selectedPin.Template = this.Resources["StrayFishPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 6)
+                        selectedPin.Template = this.Resources["StrayTurtlePinIcon"] as ControlTemplate;
+
+                }
                 if (selectedPinType == 2)
                     selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
                 if (selectedPinType == 3)
@@ -349,12 +365,42 @@ namespace PetSociety_for_Windows.Pages
                     pushPin.Tag = StaticObjects.MapStrays.ElementAt(i).StrayID;
                     pushPin.TabIndex = i;
                     pushPin.Location = LatLong;
-                    pushPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
-                    Image image = new Image();
-                    image.Source = new System.Windows.Media.Imaging.BitmapImage(new Uri( StaticObjects.MapStrays.ElementAt(i).ImageURL,UriKind.Absolute));
-                    image.Height = 50;
-                    image.Width = 50;
-                    pushPin.Content = image;
+                    string petType=StaticObjects.MapStrays.ElementAt(i).Type.ToUpper();
+                    if (petType.Equals("DOG"))
+                    {
+                        pushPin.Template = this.Resources["StrayDogPinIcon"] as ControlTemplate;
+                        selectedStrayType = 0;
+                    }
+                    if (petType.Equals("CAT"))
+                    {
+                        pushPin.Template = this.Resources["StrayCatPinIcon"] as ControlTemplate;
+                        selectedStrayType = 1;
+                    }
+                    if (petType.Equals("BIRD"))
+                    {
+                        pushPin.Template = this.Resources["StrayBirdPinIcon"] as ControlTemplate;
+                        selectedStrayType = 2;
+                    }
+                    if (petType.Equals("HAMSTER"))
+                    {
+                        pushPin.Template = this.Resources["StrayhamsterPinIcon"] as ControlTemplate;
+                        selectedStrayType = 3;
+                    }
+                    if (petType.Equals("RABBIT"))
+                    {
+                        pushPin.Template = this.Resources["StrayRabbitPinIcon"] as ControlTemplate;
+                        selectedStrayType = 4;
+                    }
+                    if (petType.Equals("FISH"))
+                    {
+                        pushPin.Template = this.Resources["StrayFishPinIcon"] as ControlTemplate;
+                        selectedStrayType = 5;
+                    }
+                    if (petType.Equals("TURTLE"))
+                    {
+                        pushPin.Template = this.Resources["StrayTurtlePinIcon"] as ControlTemplate;
+                        selectedStrayType = 6;
+                    }
 
                     pushPin.Tap += new EventHandler<GestureEventArgs>(StrayPinTap);
                     strayLayer.Children.Add(pushPin);
@@ -370,7 +416,23 @@ namespace PetSociety_for_Windows.Pages
                 if (selectedPinType == 0)
                     selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 if (selectedPinType == 1)
-                    selectedPin.Template = this.Resources["StrayPinIcon"] as ControlTemplate;
+                {
+                    if(selectedStrayType == 0)
+                        selectedPin.Template = this.Resources["StrayDogPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 1)
+                        selectedPin.Template = this.Resources["StrayCatPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 2)
+                        selectedPin.Template = this.Resources["StrayBirdPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 3)
+                        selectedPin.Template = this.Resources["StrayhamsterPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 4)
+                        selectedPin.Template = this.Resources["StrayRabbitPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 5)
+                        selectedPin.Template = this.Resources["StrayFishPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 6)
+                        selectedPin.Template = this.Resources["StrayTurtlePinIcon"] as ControlTemplate;
+
+                }
                 if (selectedPinType == 2)
                     selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
                 if (selectedPinType == 3)
@@ -381,6 +443,7 @@ namespace PetSociety_for_Windows.Pages
 
             selectedPin = pin;
             selectedPinType = 1;
+            string petType="";
 
             int strayID = Convert.ToInt16(pin.TabIndex);
             pin = (Pushpin)strayLayer.Children.ElementAt(strayID);
@@ -390,24 +453,78 @@ namespace PetSociety_for_Windows.Pages
             {
                 if (StaticObjects.MapStrays.ElementAt(i).StrayID == Convert.ToInt16(pin.Tag))
                 {
+                    petType = StaticObjects.MapStrays.ElementAt(i).Type.ToUpper();
                     content.title.Text = StaticObjects.MapStrays.ElementAt(i).Biography;
                     break;
                 }
             }
             pin.Content = content;
-            pin.Template = this.Resources["StrayPinIconClick"] as ControlTemplate;
+
+            if (petType.Equals("DOG"))
+            {
+                pin.Template = this.Resources["StrayDogPinIconClick"] as ControlTemplate;
+                selectedStrayType = 0;
+            }
+            if (petType.Equals("CAT"))
+            {
+                pin.Template = this.Resources["StrayCatPinIconClick"] as ControlTemplate;
+                selectedStrayType = 1;
+            }
+            if (petType.Equals("BIRD"))
+            {
+                pin.Template = this.Resources["StrayBirdPinIconClick"] as ControlTemplate;
+                selectedStrayType = 2;
+            }
+            if (petType.Equals("HAMSTER"))
+            {
+                pin.Template = this.Resources["StrayhamsterPinIconClick"] as ControlTemplate;
+                selectedStrayType = 3;
+            }
+            if (petType.Equals("RABBIT"))
+            {
+                pin.Template = this.Resources["StrayRabbitPinIconClick"] as ControlTemplate;
+                selectedStrayType = 4;
+            }
+            if (petType.Equals("FISH"))
+            {
+                pin.Template = this.Resources["StrayFishPinIconClick"] as ControlTemplate;
+                selectedStrayType = 5;
+            }
+            if (petType.Equals("TURTLE"))
+            {
+                pin.Template = this.Resources["StrayTurtlePinIconClick"] as ControlTemplate;
+                selectedStrayType = 6;
+            }
 
             mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
 
         private void LoadUserPins(object sender, RoutedEventArgs e)
         {
-            
+            if ((StaticObjects.MapUsers == null || StaticObjects.MapUsers.Count == 0) || (e != null))
+            {
+                progressBar.Opacity = 100;
+                WebClient loginRequest = new WebClient();
+                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveUserComplete);
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveStray?INtoken=" + StaticObjects.Token));
+            }
+            else
+            {
+                PlotUserPins();
+            }
         }
         private void RetrieveUserComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             MessageBox.Show(e.Result.ToString());
         }
+        private void PlotUserPins()
+        {
+        }
+        private void UserPinTap(object sender, GestureEventArgs e)
+        {
+        }
+
+
         private void LoadEventPins(object sender, RoutedEventArgs e)
         {
             

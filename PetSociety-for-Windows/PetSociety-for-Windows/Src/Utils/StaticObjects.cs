@@ -10,7 +10,7 @@ namespace PetSociety_for_Windows.Src.Utils
     class StaticObjects
     {
         private static string token = "token";
-        private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Goldfish"};
+        private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Fish","Turtle"};
         private static string[] pins = { "Strays", "Events", "Users", "Lost", "Locations" };//types of pins option on the main map
 
         
