@@ -82,14 +82,26 @@
                     <Grid>
                         <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom">
                             <my:Pushpin x:Name="pushPin" Tap="pushPin_Tap" >
-                                <my:Pushpin.Content>
-                                    <Border Background="Black"  Width="200" Visibility="Collapsed" x:Name="border"  HorizontalAlignment="Center" >
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Test" Margin="10"/>
-                                           
+                                <my:Pushpin.Template>
+                                    <ControlTemplate TargetType="my:Pushpin">
+                                        <StackPanel>
+                                            <ContentPresenter x:Name="content" HorizontalAlignment="Center"
+                          Content="{TemplateBinding Content}"
+                         />
+                                            <Path
+        Data="M0,0 L0,1 L1,0"
+        Fill="{TemplateBinding Background}"
+        Stretch="Fill"
+        Margin="32,0"
+        Height="12"
+        Width="18"
+        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
+Path=Content.Visibility, Mode=TwoWay}"
+        HorizontalAlignment="Left" />
+                                            <Image Source="MapPin.png" Stretch="None" HorizontalAlignment="Left"/>
                                         </StackPanel>
-                                    </Border>
-                                </my:Pushpin.Content>
+                                    </ControlTemplate>
+                                </my:Pushpin.Template>
                             </my:Pushpin>
                         </my:Map>
                         <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="0,-18,0,719" Foreground="White" />
