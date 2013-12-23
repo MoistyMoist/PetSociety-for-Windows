@@ -241,7 +241,7 @@ namespace PetSociety_for_Windows.Pages
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-           MessageBox.Show(e.Result.ToString());
+          // MessageBox.Show(e.Result.ToString());
            LostModel childlist = new LostModel();
            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -264,7 +264,6 @@ namespace PetSociety_for_Windows.Pages
             }
             mainMap.Children.Add(lostLayer);
         }
-
         private void LostPinTap(object sender, GestureEventArgs e)
         {
             Pushpin pin = (Pushpin)sender;
@@ -295,14 +294,34 @@ namespace PetSociety_for_Windows.Pages
       
             mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
+        
         private void LoadStrayPins()
         {
-        
+            if (StaticObjects.MapStrays == null || StaticObjects.MapStrays.Count == 0)
+            {
+                progressBar.Opacity = 100;
+                WebClient loginRequest = new WebClient();
+                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveStray?INtoken=" + StaticObjects.Token));
+            }
+            else
+            {
+                PlotStrayPins();
+            }
         }
         private void RetrieveStrayComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             MessageBox.Show(e.Result.ToString());
         }
+        private void PlotStrayPins()
+        {
+            
+        }
+        private void StrayPinTap(object sender, GestureEventArgs e)
+        {
+            
+        }
+
         private void LoadUserPins()
         {
             

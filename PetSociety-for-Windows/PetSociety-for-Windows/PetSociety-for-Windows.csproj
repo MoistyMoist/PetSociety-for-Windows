@@ -617,6 +617,7 @@
     <Content Include="Resources\Icons\ic_9-av-stop.png" />
     <Content Include="Resources\Icons\ic_9-av-upload.png" />
     <Content Include="Resources\ic_location_place.png" />
+    <Content Include="Resources\Stray.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
