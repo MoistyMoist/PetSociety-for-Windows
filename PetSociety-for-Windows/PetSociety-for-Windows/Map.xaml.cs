@@ -301,7 +301,7 @@ namespace PetSociety_for_Windows.Pages
             pin = (Pushpin)lostLayer.Children.ElementAt(0);
            // pin.Template = pin.Template;
             pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-            pin.DataContext = "dsa";
+            pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
             e.Handled = true;
         }
 

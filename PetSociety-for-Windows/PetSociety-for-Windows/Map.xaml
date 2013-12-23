@@ -103,7 +103,7 @@
                                         MinWidth="29">
                         
                     </Grid>
-                    <TextBlock Text="{Binding content}"/>
+                    <TextBlock Text="{Binding ElementName=Lost.Description}"/>
                     <Polygon Fill="Azure"
                                  Points="50,0 50,0 0,100"
                                  Width="29"                             
