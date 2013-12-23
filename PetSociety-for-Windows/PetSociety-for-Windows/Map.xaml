@@ -99,6 +99,7 @@
                                         HorizontalAlignment="Left"
                                         MinHeight="10"
                                         MinWidth="29">
+                        <TextBlock Text="dsadas"/>
                     </Grid>
 
                     <Polygon Fill="Azure"
