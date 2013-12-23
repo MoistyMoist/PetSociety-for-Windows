@@ -332,9 +332,66 @@
                 </Grid>
             </StackPanel>
         </ControlTemplate>
-        
-        
-        
+
+        <ControlTemplate x:Key="UserMalePinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/male.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="UserFemalePinIcon" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid MaxHeight="50" MaxWidth="50">
+                    <Image Source="Resources/female.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="UserMalePinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/male.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="UserFemalePinIconClick" TargetType="my:Pushpin">
+        <StackPanel>
+            <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+            </Grid>
+            <Grid Margin="20,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                    <Path.Fill>
+                        <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                    </Path.Fill>
+                </Path>
+                <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                    <Path.Fill>
+                        <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                    </Path.Fill>
+                </Path>
+            </Grid>
+            <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="50" MaxWidth="50"  HorizontalAlignment="Left">
+                <Image Source="Resources/female.png" Stretch="Fill" />
+            </Grid>
+        </StackPanel>
+        </ControlTemplate>
     </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>

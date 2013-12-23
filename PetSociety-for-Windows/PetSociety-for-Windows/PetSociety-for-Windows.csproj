@@ -132,6 +132,9 @@
     <Compile Include="Pages\Others\StrayContentTempletControl.xaml.cs">
       <DependentUpon>StrayContentTempletControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Others\UserContentTempletControl.xaml.cs">
+      <DependentUpon>UserContentTempletControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Profile\Profile.xaml.cs">
       <DependentUpon>Profile.xaml</DependentUpon>
     </Compile>
@@ -240,6 +243,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Others\StrayContentTempletControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Others\UserContentTempletControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

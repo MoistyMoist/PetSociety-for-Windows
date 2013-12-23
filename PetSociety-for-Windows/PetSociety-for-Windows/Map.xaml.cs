@@ -37,6 +37,7 @@ namespace PetSociety_for_Windows.Pages
         Pushpin selectedPin;
         int selectedPinType;
         int selectedStrayType;
+        int selectedUserType;
         int selectedLocationType;
 
         double initialPosition;
@@ -59,7 +60,7 @@ namespace PetSociety_for_Windows.Pages
         {
             LoadLostPins(null,null);
             LoadStrayPins(null, null);
-            //LoadUserPins(null, null);
+            LoadUserPins(null, null);
            // LoadEventPins(null, null);
            // LoadLocationPins(null, null);
         }
@@ -299,7 +300,12 @@ namespace PetSociety_for_Windows.Pages
 
                 }
                 if (selectedPinType == 2)
-                    selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
+                {
+                    if (selectedUserType == 0)
+                        selectedPin.Template = this.Resources["UserMalePinIcon"] as ControlTemplate;
+                    if (selectedUserType == 1)
+                        selectedPin.Template = this.Resources["UserFemalePinIcon"] as ControlTemplate;
+                }
                 if (selectedPinType == 3)
                     selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
                 if (selectedPinType == 4)
@@ -434,7 +440,12 @@ namespace PetSociety_for_Windows.Pages
 
                 }
                 if (selectedPinType == 2)
-                    selectedPin.Template = this.Resources["UserPinIcon"] as ControlTemplate;
+                {
+                    if(selectedUserType == 0)
+                        selectedPin.Template = this.Resources["UserMalePinIcon"] as ControlTemplate;
+                    if (selectedUserType == 1)
+                        selectedPin.Template = this.Resources["UserFemalePinIcon"] as ControlTemplate;
+                }
                 if (selectedPinType == 3)
                     selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
                 if (selectedPinType == 4)
@@ -506,7 +517,7 @@ namespace PetSociety_for_Windows.Pages
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
                 loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveUserComplete);
-                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?INtoken=" + StaticObjects.Token));
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?token=" + StaticObjects.Token));
             }
             else
             {
@@ -515,24 +526,132 @@ namespace PetSociety_for_Windows.Pages
         }
         private void RetrieveUserComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+            //MessageBox.Show(e.Result.ToString());
+            UserModel childlist = new UserModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as UserModel;
+            StaticObjects.MapUsers = childlist.Data;
+            PlotUserPins();
         }
         private void PlotUserPins()
         {
+            if (userLayer.Children.Count != 0)
+                mainMap.Children.Remove(userLayer);
+            if (StaticObjects.MapUsers != null)
+            {
+                userLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.MapUsers.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(Convert.ToDouble(StaticObjects.MapUsers.ElementAt(i).X), (Convert.ToDouble(StaticObjects.MapUsers.ElementAt(i).Y)));
+                    pushPin.Tag = StaticObjects.MapUsers.ElementAt(i).UserID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    if (StaticObjects.MapUsers.ElementAt(i).Sex.Equals("M") || StaticObjects.MapUsers.ElementAt(i).Sex.Equals("m"))
+                        pushPin.Template = this.Resources["UserMalePinIcon"] as ControlTemplate;
+                    if (StaticObjects.MapUsers.ElementAt(i).Sex.Equals("F") || StaticObjects.MapUsers.ElementAt(i).Sex.Equals("f"))
+                        pushPin.Template = this.Resources["UserFemalePinIcon"] as ControlTemplate;
+                    pushPin.Tap += new EventHandler<GestureEventArgs>(UserPinTap);
+                    userLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(userLayer);
+            }
         }
         private void UserPinTap(object sender, GestureEventArgs e)
         {
+            Pushpin pin = (Pushpin)sender;
+            if (selectedPin != null)
+            {
+                if (selectedPinType == 0)
+                    selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                if (selectedPinType == 1)
+                {
+                    if (selectedStrayType == 0)
+                        selectedPin.Template = this.Resources["StrayDogPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 1)
+                        selectedPin.Template = this.Resources["StrayCatPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 2)
+                        selectedPin.Template = this.Resources["StrayBirdPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 3)
+                        selectedPin.Template = this.Resources["StrayhamsterPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 4)
+                        selectedPin.Template = this.Resources["StrayRabbitPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 5)
+                        selectedPin.Template = this.Resources["StrayFishPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 6)
+                        selectedPin.Template = this.Resources["StrayTurtlePinIcon"] as ControlTemplate;
+                }
+                if (selectedPinType == 2)
+                {
+                    if (selectedUserType == 0)
+                        selectedPin.Template = this.Resources["UserMalePinIcon"] as ControlTemplate;
+                    if (selectedUserType == 1)
+                        selectedPin.Template = this.Resources["UserFemalePinIcon"] as ControlTemplate;
+                }
+                if (selectedPinType == 3)
+                    selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
+                if (selectedPinType == 4)
+                    selectedPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+            }
+            selectedPin = pin;
+            selectedPinType = 2;
+
+            int userID = Convert.ToInt16(pin.TabIndex);
+            pin = (Pushpin)userLayer.Children.ElementAt(userID);
+            string sex = "";
+            LostContentTempletControl content = new LostContentTempletControl();
+            for (int i = 0; i < StaticObjects.MapUsers.Count; i++)
+            {
+                if (StaticObjects.MapUsers.ElementAt(i).UserID == Convert.ToInt16(pin.Tag))
+                {
+                    sex = StaticObjects.MapUsers.ElementAt(i).Sex.ToUpper();
+                    content.title.Text = StaticObjects.MapUsers.ElementAt(i).Name;
+                    break;
+                }
+            }
+            pin.Content = content;
+            if (sex.Equals("M"))
+            {
+                selectedUserType = 0;
+                pin.Template = this.Resources["UserMalePinIconClick"] as ControlTemplate;
+            }
+            if (sex.Equals("F"))
+            {
+                selectedUserType=1;
+                pin.Template = this.Resources["UserFemalePinIconClick"] as ControlTemplate;
+            }
+            mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
 
 
         private void LoadEventPins(object sender, RoutedEventArgs e)
         {
-            
+            if ((StaticObjects.MapEvents == null || StaticObjects.MapEvents.Count == 0) || (e != null))
+            {
+                progressBar.Opacity = 100;
+                WebClient loginRequest = new WebClient();
+                loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventComplete);
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?token=" + StaticObjects.Token));
+            }
+            else
+            {
+                PlotEventPins();
+            }
         }
         private void RetrieveEventComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             MessageBox.Show(e.Result.ToString());
         }
+        private void PlotEventPins()
+        {
+        }
+        private void EventPinTap(object sender, GestureEventArgs e)
+        {
+        }
+
+
+
         private void LoadLocationPins(object sender, RoutedEventArgs e)
         {
             
