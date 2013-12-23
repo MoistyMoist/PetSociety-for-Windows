@@ -7,7 +7,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    d:DesignHeight="200" d:DesignWidth="200">
+    d:DesignHeight="100" d:DesignWidth="200" d:Margin="0,0,0,100">
     
     <Grid x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}" Margin="0,0,0,0">
         <Button Content="Button" Name="btn"  HorizontalAlignment="Left" Margin="38,26,0,0" VerticalAlignment="Top"/>
