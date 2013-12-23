@@ -256,7 +256,8 @@ namespace PetSociety_for_Windows.Pages
                 pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
                 pushPin.Name = i+"";
                 pushPin.Location = LatLong;
-                pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                pushPin.Background = new SolidColorBrush(Colors.Red);
+                //pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                 lostLayer.Children.Add(pushPin);
             }
@@ -282,7 +283,7 @@ namespace PetSociety_for_Windows.Pages
             //search databse for the lost details
            
             pin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
-            
+           // pin.Content = "dsa";
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
         }
