@@ -257,7 +257,7 @@ namespace PetSociety_for_Windows.Pages
                 pushPin.Name = i+"";
                 pushPin.Location = LatLong;
                 pushPin.Background = new SolidColorBrush(Colors.Red);
-                pushPin.Template = this.Resources["LostPinIcon2"] as ControlTemplate;
+                pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                 lostLayer.Children.Add(pushPin);
             }

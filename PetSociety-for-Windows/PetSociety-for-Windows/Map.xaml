@@ -94,33 +94,20 @@
         
         <ControlTemplate x:Key="LostPinIcon" TargetType="my:Pushpin">
             <StackPanel>
-                <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
-                <Grid MinHeight="31" MinWidth="29" Margin="0,0,0,0">
-                    <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" Stroke="White" StrokeThickness="3"/>
-                <Grid Margin="0,0,0,35" MaxHeight="40" MaxWidth="50">
-                    <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill"/>
+                
+                    <Grid Margin="-5,0,0,0">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
+                </Grid>
+                <Grid>
+                    <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="White" StrokeThickness="3"/>
+                <Grid Margin="-5,0,0,35" MaxHeight="30" MaxWidth="50"  HorizontalAlignment="Left">
+                    <Image Source="Resources/IconsDark/lostIcon.png" Stretch="Fill" />
                 </Grid>
                 </Grid>
+
             </StackPanel>
         </ControlTemplate>
-        <ControlTemplate x:Key="LostPinIcon2" TargetType="my:Pushpin">
-        <StackPanel>
-            <ContentPresenter x:Name="content" HorizontalAlignment="Center"
-                          Content="{TemplateBinding Content}"
-                         />
-            <Path
-        Data="M0,0 L0,1 L1,0"
-        Fill="{TemplateBinding Background}"
-        Stretch="Fill"
-        Margin="32,0"
-        Height="12"
-        Width="18"
-        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
-Path=Content.Visibility, Mode=TwoWay}"
-        HorizontalAlignment="Left" />
-            <Image Source="MapPin.png" Stretch="None" HorizontalAlignment="Left"/>
-        </StackPanel>
-        </ControlTemplate>
+        
     </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>
