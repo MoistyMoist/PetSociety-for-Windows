@@ -247,16 +247,16 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLostPins()
         {
-            Pushpin locationPushpin = new Pushpin();
+             pushPin = new Pushpin();
             GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
+
+            pushPin.Location = supermartLatLong;
+            pushPin.Template = this.Resources["ImagePin"] as ControlTemplate;
+            //pushPin.Content = "wtf";
            
-            locationPushpin.Location = supermartLatLong;
-            locationPushpin.Template = this.Resources["ImagePin"] as ControlTemplate;
-            locationPushpin.Content = "wtf";
-            locationPushpin.ContentTemplate = content;
            // locationPushpin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
 
-            lostLayer.Children.Add(locationPushpin);
+            lostLayer.Children.Add(pushPin);
             mainMap.Children.Add(lostLayer);
             mainMap.SetView(supermartLatLong,18.0);
         }
@@ -297,7 +297,7 @@ namespace PetSociety_for_Windows.Pages
         private void pushPin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
            
-            //this.border.Visibility = System.Windows.Visibility.Visible;
+            this.border.Visibility = System.Windows.Visibility.Visible;
             //stop the event from going to the parent map control
             e.Handled = true;
         }
