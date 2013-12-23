@@ -255,7 +255,7 @@ namespace PetSociety_for_Windows.Pages
             pushPin.Location = supermartLatLong;
             //pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
             pushPin.Background = new SolidColorBrush(Colors.Blue);
-           
+            pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
            //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
 
