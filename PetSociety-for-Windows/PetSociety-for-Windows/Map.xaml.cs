@@ -283,6 +283,7 @@ namespace PetSociety_for_Windows.Pages
             //search databse for the lost details
            
             pin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
+            Pin.Template = this.Resources["LostPinIconClick"] as ControlTemplate;
            // pin.Content = "dsa";
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
