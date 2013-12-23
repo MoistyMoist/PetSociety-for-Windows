@@ -94,7 +94,7 @@
         
         <ControlTemplate x:Key="LostPinIcon" TargetType="my:Pushpin">
             <StackPanel>
-                <ContentPresenter x:Name="content" HorizontalAlignment="Center"Content="{TemplateBinding Content}"/>
+                <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"/>
                 <Grid MinHeight="31" MinWidth="29" Margin="0,0,0,0">
                 <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" Stroke="White" StrokeThickness="3"/>
                 <Grid Margin="0,0,0,35" MaxHeight="40" MaxWidth="50">
