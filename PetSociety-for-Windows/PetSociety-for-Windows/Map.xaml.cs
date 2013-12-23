@@ -249,16 +249,31 @@ namespace PetSociety_for_Windows.Pages
         {
             Pushpin pushPin = new Pushpin();
             GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
+            pushPin.Tag = 1;
 
             pushPin.Location = supermartLatLong;
             pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
             pushPin.Content = "wtf";
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-            //pushPin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
+           pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
 
             lostLayer.Children.Add(pushPin);
             mainMap.Children.Add(lostLayer);
             mainMap.SetView(supermartLatLong,18.0);
+        }
+        private void LostPinTap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            Pushpin pin = new Pushpin();
+
+            pin = (Pushpin)lostLayer.Children.ElementAt(0);
+            int lostID = (int)pin.Tag;
+
+            //search databse for the lost details
+            pin.Template.SetValue(ContentPresenter.ContentProperty, "dsadsa");
+            // pin.Template = pin.Template;
+            // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
+            //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
+            e.Handled = true;
         }
         private void LoadStrayPins()
         {
@@ -294,16 +309,7 @@ namespace PetSociety_for_Windows.Pages
         }
 
 
-        private void pushPin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            Pushpin pin = new Pushpin();
-
-            pin = (Pushpin)lostLayer.Children.ElementAt(0);
-           // pin.Template = pin.Template;
-           // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-          //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
-            e.Handled = true;
-        }
+       
 
         public DataTemplate content { get; set; }
     }

@@ -88,25 +88,18 @@
             </Grid>
         </Canvas>
     </Canvas>
+    
+    
     <phone:PhoneApplicationPage.Resources>
+        
         <ControlTemplate x:Key="PushpinControlTemplate" TargetType="my:Pushpin">
             <Grid x:Name="ContentGrid">
                 <StackPanel Orientation="Vertical">
-                    <Grid Background="Orange"
-                                            HorizontalAlignment="Left"
-                                            MinHeight="31"
-                                            MinWidth="29">
-                        <ContentPresenter HorizontalAlignment="Center"
-                                           Content="{TemplateBinding Content}"
-                                           ContentTemplate="{TemplateBinding ContentTemplate}"
-                                           Margin="4"/>
-      </Grid>
-        <Polygon Fill="red"
-                                     Points="0,0 29,0 0,29"
-                                     Width="29"
-                                     Height="29"
-                                     HorizontalAlignment="Left"/>
-                            </StackPanel>
+                    <Grid Background="Orange" HorizontalAlignment="Left" MinHeight="31" MinWidth="29">
+                        <ContentPresenter HorizontalAlignment="Center" Tag="{TemplateBinding Tag}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="4" Visibility="{TemplateBinding Visibility}"/>
                     </Grid>
-                    </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
+                    <Polygon Fill="red" Points="0,0 29,0 0,29" Width="29" Height="29" HorizontalAlignment="Left"/>
+                </StackPanel>
+            </Grid>
+        </ControlTemplate>                    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
