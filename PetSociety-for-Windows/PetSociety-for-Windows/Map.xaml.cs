@@ -257,7 +257,7 @@ namespace PetSociety_for_Windows.Pages
             pushPin.Background = new SolidColorBrush(Colors.Blue);
             pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-           //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+           pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
 
             lostLayer.Children.Add(pushPin);
             mainMap.Children.Add(lostLayer);
@@ -271,7 +271,7 @@ namespace PetSociety_for_Windows.Pages
             int lostID = (int)pin.Tag;
 
             //search databse for the lost details
-            pin.Template.SetValue(ContentControl.ContentTemplateProperty, null);
+            pin.Content = null;
            
             // pin.Template = pin.Template;
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
