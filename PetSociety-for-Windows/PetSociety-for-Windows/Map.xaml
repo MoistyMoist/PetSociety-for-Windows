@@ -96,7 +96,7 @@
                          />
                 <Path
         Data="M0,0 L0,1 L1,0"
-        Fill="{TemplateBinding Background}"
+        Fill="Red"
         Stretch="Fill"
         Margin="32,0"
         Height="12"
@@ -104,7 +104,7 @@
         Visibility="{Binding RelativeSource={RelativeSource TemplatedParent},
 Path=Content.Visibility, Mode=TwoWay}"
         HorizontalAlignment="Left" />
-                <Image Source="MapPin.png" Stretch="None" HorizontalAlignment="Left"/>
+                <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
             </StackPanel>
         </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
