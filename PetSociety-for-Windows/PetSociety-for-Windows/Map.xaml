@@ -91,5 +91,5 @@
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-        </ControlTemplate>        <ControlTemplate TargetType="my:Pushpin" x:Key="v">            <TextBlock Text="dsa"></TextBlock>        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
+        </ControlTemplate>        <DataTemplate x:Key="v">            <TextBlock Text="dsa"></TextBlock>        </DataTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
