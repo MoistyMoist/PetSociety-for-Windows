@@ -102,7 +102,7 @@
                     </Grid>
 
                     <Polygon Fill="Azure"
-                                 Points="0,0 29,0 0,29"
+                                 Points="50,0 50,0 0,100"
                                  Width="29"                             
                                  Height="29"
                                  HorizontalAlignment="Left"/>
