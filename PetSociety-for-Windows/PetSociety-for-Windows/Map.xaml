@@ -96,8 +96,12 @@
             <Grid MinHeight="31" MinWidth="29" Margin="0">
                 <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="30" Height="30" Stroke="White" StrokeThickness="3"/>
                 <Grid Margin="0,0,0,20">
-                    <Image Source="Resources/IconsDark/ic_11-alerts-and-states-warning.png" Stretch="None" MaxHeight="10" MaxWidth="10"/>
+                    <Image Source="Resources/IconsDark/ic_11-alerts-and-states-warning.png" Stretch="None" MinHeight="20" MinWidth="20" MaxHeight="20" MaxWidth="20"/>
                 </Grid>
             </Grid>
-        </ControlTemplate>                    </phone:PhoneApplicationPage.Resources>
+        </ControlTemplate>
+        
+        
+    </phone:PhoneApplicationPage.Resources>
+
 </phone:PhoneApplicationPage>
