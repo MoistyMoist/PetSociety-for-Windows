@@ -339,6 +339,7 @@
     <Content Include="Resources\bird.png" />
     <Content Include="Resources\cat.png" />
     <Content Include="Resources\dog.png" />
+    <Content Include="Resources\female.png" />
     <Content Include="Resources\fish.png" />
     <Content Include="Resources\hamster.png" />
     <Content Include="Resources\IconsDark\ic_1-navigation-accept.png" />
@@ -629,6 +630,7 @@
     <Content Include="Resources\Icons\ic_9-av-stop.png" />
     <Content Include="Resources\Icons\ic_9-av-upload.png" />
     <Content Include="Resources\ic_location_place.png" />
+    <Content Include="Resources\male.png" />
     <Content Include="Resources\rabbit.png" />
     <Content Include="Resources\Stray.png" />
     <Content Include="Resources\turtle.png" />
