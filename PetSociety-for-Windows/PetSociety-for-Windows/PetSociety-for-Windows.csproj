@@ -472,6 +472,7 @@
     <Content Include="Resources\IconsDark\ic_9-av-shuffle.png" />
     <Content Include="Resources\IconsDark\ic_9-av-stop.png" />
     <Content Include="Resources\IconsDark\ic_9-av-upload.png" />
+    <Content Include="Resources\IconsDark\lostIcon.png" />
     <Content Include="Resources\Icons\ic_1-navigation-accept.png" />
     <Content Include="Resources\Icons\ic_1-navigation-back.png" />
     <Content Include="Resources\Icons\ic_1-navigation-cancel.png" />
