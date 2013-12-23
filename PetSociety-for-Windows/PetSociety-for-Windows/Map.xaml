@@ -103,7 +103,9 @@
                        Height="30"
                        Stroke="White"
                        StrokeThickness="3"/>
+                <Grid Margin="0,0,0,100">
                 <Image Source="Resources/ic_location_place.png" Stretch="None" />
+                </Grid>
             </Grid>
         </ControlTemplate>                    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
