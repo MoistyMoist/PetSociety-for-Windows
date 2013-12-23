@@ -251,7 +251,7 @@ namespace PetSociety_for_Windows.Pages
             GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
 
             pushPin.Location = supermartLatLong;
-            //pushPin.Template = this.Resources["ImagePin"] as ControlTemplate;
+            pushPin.Template = this.Resources["ImagePin"] as ControlTemplate;
             //pushPin.Content = "wtf";
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             pushPin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
@@ -299,6 +299,7 @@ namespace PetSociety_for_Windows.Pages
             Pushpin pin = new Pushpin();
 
             pin = (Pushpin)lostLayer.Children.ElementAt(0);
+           // pin.Template = pin.Template;
             pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             e.Handled = true;
         }
