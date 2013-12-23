@@ -247,14 +247,14 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLostPins()
         {
-             this.pushPin = new Pushpin();
+            Pushpin pushPin = new Pushpin();
             GeoCoordinate supermartLatLong = new GeoCoordinate(1.36, 103.8);
 
             pushPin.Location = supermartLatLong;
             pushPin.Template = this.Resources["ImagePin"] as ControlTemplate;
             //pushPin.Content = "wtf";
-
-            pushPin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
+            pushPin.ContentTemplate = this.Resources["v"] as DataTemplate;
+            //pushPin.Tap += new EventHandler<GestureEventArgs>(pushPin_Tap);
 
             lostLayer.Children.Add(pushPin);
             mainMap.Children.Add(lostLayer);

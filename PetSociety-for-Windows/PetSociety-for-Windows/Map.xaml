@@ -81,18 +81,6 @@
                 <Border Grid.Row="1" Background="#FFCFD4E2">
                     <Grid>
                         <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom">
-                            <my:Pushpin x:Name="pushPin" Tap="pushPin_Tap" >
-                                <my:Pushpin.Content>
-                                    <Border Background="Black"  Width="200" Visibility="Collapsed" x:Name="border"  HorizontalAlignment="Center" >
-                                        <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="Test" Margin="10"/>
-                                            <Image Source="Images/appbar.cup.png" Stretch="None" />
-                                            <Image Source="Images/appbar.gas.png" Stretch="None"/>
-                                            <Image Source="Images/appbar.home.png" Stretch="None" />
-                                        </StackPanel>
-                                    </Border>
-                                </my:Pushpin.Content>
-                            </my:Pushpin>
                         </my:Map>
                         <ProgressBar Name="progressBar" IsIndeterminate="true" Margin="0,-18,0,719" Foreground="White" />
                     </Grid>
@@ -103,5 +91,5 @@
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate TargetType="my:Pushpin" x:Key="ImagePin">
             <Image Source="Resources/ic_location_place.png" Stretch="None" HorizontalAlignment="Left"/>
-        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
+        </ControlTemplate>        <ControlTemplate TargetType="my:Pushpin" x:Key="v">            <TextBlock Text="dsa"></TextBlock>        </ControlTemplate>    </phone:PhoneApplicationPage.Resources>
 </phone:PhoneApplicationPage>
