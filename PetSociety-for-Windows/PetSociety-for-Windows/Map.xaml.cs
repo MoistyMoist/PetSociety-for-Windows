@@ -21,6 +21,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using Microsoft.Phone.Controls.Maps;
 using System.Device.Location;
+using System.Windows.Shapes;
 
 namespace PetSociety_for_Windows.Pages
 {
@@ -269,7 +270,7 @@ namespace PetSociety_for_Windows.Pages
             int lostID = (int)pin.Tag;
 
             //search databse for the lost details
-            pin.Template.SetValue(ContentPresenter.ContentProperty, "dsadsa");
+            pin.Template.SetValue(Polygon.FillProperty, "Red");
             // pin.Template = pin.Template;
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);

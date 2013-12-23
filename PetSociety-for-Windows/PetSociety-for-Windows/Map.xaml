@@ -98,7 +98,7 @@
                     <Grid Background="Orange" HorizontalAlignment="Left" MinHeight="31" MinWidth="29">
                         <ContentPresenter HorizontalAlignment="Center" Tag="{TemplateBinding Tag}" Content="{TemplateBinding Content}" ContentTemplate="{TemplateBinding ContentTemplate}" Margin="4" Visibility="{TemplateBinding Visibility}"/>
                     </Grid>
-                    <Polygon Fill="red" Points="0,0 29,0 0,29" Width="29" Height="29" HorizontalAlignment="Left"/>
+                    <Polygon Fill="{TemplateBinding Background}" Points="0,0 29,0 0,29" Width="29" Height="29" HorizontalAlignment="Left"/>
                 </StackPanel>
             </Grid>
         </ControlTemplate>                    </phone:PhoneApplicationPage.Resources>
