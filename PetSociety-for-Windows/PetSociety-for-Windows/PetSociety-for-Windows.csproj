@@ -336,6 +336,10 @@
     <Content Include="Resources\AppbarIcon\Light\transport.play.png" />
     <Content Include="Resources\AppbarIcon\Light\transport.rew.png" />
     <Content Include="Resources\AppbarIcon\Light\upload.png" />
+    <Content Include="Resources\cat.png" />
+    <Content Include="Resources\dog.png" />
+    <Content Include="Resources\fish.png" />
+    <Content Include="Resources\hamster.png" />
     <Content Include="Resources\IconsDark\ic_1-navigation-accept.png" />
     <Content Include="Resources\IconsDark\ic_1-navigation-back.png" />
     <Content Include="Resources\IconsDark\ic_1-navigation-cancel.png" />
@@ -624,6 +628,7 @@
     <Content Include="Resources\Icons\ic_9-av-stop.png" />
     <Content Include="Resources\Icons\ic_9-av-upload.png" />
     <Content Include="Resources\ic_location_place.png" />
+    <Content Include="Resources\rabbit.png" />
     <Content Include="Resources\Stray.png" />
     <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
