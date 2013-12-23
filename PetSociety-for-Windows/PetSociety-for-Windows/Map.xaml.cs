@@ -297,7 +297,7 @@ namespace PetSociety_for_Windows.Pages
         private void pushPin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
            
-            this.border.Visibility = System.Windows.Visibility.Visible;
+            //this.border.Visibility = System.Windows.Visibility.Visible;
             //stop the event from going to the parent map control
             e.Handled = true;
         }
