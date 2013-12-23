@@ -270,7 +270,7 @@ namespace PetSociety_for_Windows.Pages
             int lostID = (int)pin.Tag;
 
             //search databse for the lost details
-            pin.Template.SetValue(Polygon.FillProperty, "Red");
+            pin.Template.SetValue(Polygon.FillProperty, null);
             // pin.Template = pin.Template;
             // pin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
             //  pin.DataContext = StaticObjects.MapLosts.ElementAt(0);
