@@ -255,14 +255,14 @@ namespace PetSociety_for_Windows.Pages
                 GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
                 pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
                 pushPin.Location = LatLong;
-                pushPin.Background = new SolidColorBrush(Colors.Blue);
+                pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                 lostLayer.Children.Add(pushPin);
             }
-           
 
-            
-           // pushPin.Template = this.Resources["PushpinControlTemplate"] as ControlTemplate;
+
+
+             
             
             //pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
             //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
