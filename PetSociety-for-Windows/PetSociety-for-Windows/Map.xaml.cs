@@ -262,16 +262,7 @@ namespace PetSociety_for_Windows.Pages
                 pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                 lostLayer.Children.Add(pushPin);
             }
-
-
-
-             
-            
-            //pushPin.Content = new PetSociety_for_Windows.Pages.Others.WindowsPhoneControl1();
-            //pushPin.ContentTemplate = this.Resources["PushpinControlTemplate2"] as DataTemplate;
-           
             mainMap.Children.Add(lostLayer);
-           // mainMap.SetView(supermartLatLong,18.0);
         }
 
         private void LostPinTap(object sender, GestureEventArgs e)
