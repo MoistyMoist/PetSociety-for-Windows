@@ -192,6 +192,8 @@
     <Compile Include="Src\RootModel\TypeModel.cs" />
     <Compile Include="Src\RootModel\UserModel.cs" />
     <Compile Include="Src\Utils\AppLifetimeHelper.cs" />
+    <Compile Include="Src\Utils\PushpinClusterer.cs" />
+    <Compile Include="Src\Utils\PushpinContainer.cs" />
     <Compile Include="Src\Utils\StaticObjects.cs" />
     <Compile Include="Src\Utils\UploadImageRequest.cs" />
   </ItemGroup>
