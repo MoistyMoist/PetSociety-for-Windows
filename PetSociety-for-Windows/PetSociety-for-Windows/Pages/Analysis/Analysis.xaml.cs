@@ -28,6 +28,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             InitializeComponent();
             VisualStateManager.GoToState(this, "Normal", false);
             BuildLocalizedApplicationBar();
+            mainMap.Children.Add(buildHeatMaps());
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -172,10 +173,30 @@ namespace PetSociety_for_Windows.Pages.Analysis
         {
             ApplicationBar = new ApplicationBar();
 
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/AppbarIcon/Dark/feature.camera.png", UriKind.Relative));
+            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
             appBarButton.Text = "Add Location";
             ApplicationBar.Buttons.Add(appBarButton);
         }
-        
+
+
+        private Canvas buildHeatMaps()
+        {
+            Canvas c = new Canvas { Width = 25, Height = 50 };
+            c.Fill = new SolidColorBrush(Colors.Red);
+            var p = new System.Windows.Shapes.Polygon();
+            p.Points = new PointCollection
+                               {
+                                   new Point(0, 0), 
+                                   new Point(25, 0), 
+                                   new Point(25, 25), 
+                                   new Point(0, 50),
+                               };
+            p.Fill = new SolidColorBrush(Colors.Black);
+            p.Stroke = new SolidColorBrush(Colors.White);
+            p.StrokeThickness = 2;
+            c.Children.Add(p);
+
+            return c;
+        }
     }
 }
