@@ -217,26 +217,23 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
 
 
-        private Canvas buildHeatMaps()
+        private MapLayer buildHeatMaps()
         {
-            Canvas c = new Canvas { Width = mainMap.Width, Height = mainMap.Height };
-            
-            c.Background = new SolidColorBrush(Colors.Red);
-            c.Opacity = 0.2;
-            var p = new System.Windows.Shapes.Polygon();
-            p.Points = new PointCollection
-                               {
-                                   new Point(0, 0), 
-                                   new Point(25, 0), 
-                                   new Point(25, 25), 
-                                   new Point(0, 50),
-                               };
-            p.Fill = new SolidColorBrush(Colors.Black);
-            p.Stroke = new SolidColorBrush(Colors.White);
-            p.StrokeThickness = 2;
-            c.Children.Add(p);
+            MapLayer layer = new MapLayer();
+            List<Pushpin> pushpins = new List<Pushpin>();
+            for(int i=0;i<StaticObjects.MapLocations.Count;i++)
+            {
+                Pushpin p = new Pushpin();
+                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLocations.ElementAt(i).X, StaticObjects.MapLocations.ElementAt(i).Y);
+                p.Location = LatLong;
+                p.Template = this.Resources["HeatMap"] as ControlTemplate;
+                layer.Children.Add(p);
+            }
+            return layer;
 
-            return c;
+
+
+            //var clusterer = new ClustersGenerator(mainMap, pushpins, this.Resources["ClusterTemplate"] as DataTemplate);
         }
     }
 }

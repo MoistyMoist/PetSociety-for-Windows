@@ -310,7 +310,7 @@ namespace PetSociety_for_Windows.Pages
                     pushPin.Tag = StaticObjects.MapLosts.ElementAt(i).LostID;
                     pushPin.TabIndex = i;
                     pushPin.Location = LatLong;
-                    pushPin.Template = this.Resources["HeatMap"] as ControlTemplate;
+                    pushPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
                     pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
                     lostLayer.Children.Add(pushPin);
                 }
