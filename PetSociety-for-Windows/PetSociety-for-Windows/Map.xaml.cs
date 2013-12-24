@@ -84,6 +84,13 @@ namespace PetSociety_for_Windows.Pages
             }
             GPSLayer.Children.Add(myLocation);
             mainMap.Children.Add(GPSLayer);
+            WebClient UpdateRequest = new WebClient();
+            UpdateRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(UpdateUserLocationComplete);
+            UpdateRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
+        }
+        private void UpdateUserLocationComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show(e.Result.ToString());
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
