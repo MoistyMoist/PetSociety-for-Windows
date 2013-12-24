@@ -15,6 +15,15 @@ using System.Windows.Navigation;
 using System.Windows.Media;
 using System.IO;
 using System.IO.IsolatedStorage;
+using PetSociety_for_Windows.Src.RootModel;
+using System.Runtime.Serialization.Json;
+using System.Collections.ObjectModel;
+using System.Text;
+using Microsoft.Phone.Controls.Maps;
+using System.Device.Location;
+using System.Windows.Shapes;
+using PetSociety_for_Windows.Pages.Others;
+using System.Windows.Media.Imaging;
 
 namespace PetSociety_for_Windows.Pages.Analysis
 {
@@ -23,11 +32,22 @@ namespace PetSociety_for_Windows.Pages.Analysis
         double initialPosition;
         bool _viewMoved = false;
 
+        MapLayer LocationHeatLayer;
+        MapLayer StrayHeatLayer;
+        MapLayer EventHeatLayer;
+        MapLayer LostHeatLayer;
+
         public Analysis()
         {
             InitializeComponent();
             VisualStateManager.GoToState(this, "Normal", false);
             BuildLocalizedApplicationBar();
+
+            LocationHeatLayer = new MapLayer();
+            StrayHeatLayer = new MapLayer();
+            EventHeatLayer = new MapLayer();
+            LostHeatLayer = new MapLayer();
+
             mainMap.Children.Add(buildHeatMaps());
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
@@ -169,6 +189,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 }
             }
         }
+       
         private void BuildLocalizedApplicationBar()
         {
             ApplicationBar = new ApplicationBar();
@@ -178,11 +199,30 @@ namespace PetSociety_for_Windows.Pages.Analysis
             ApplicationBar.Buttons.Add(appBarButton);
         }
 
+        private void GetAccidentPoints()
+        {
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private Canvas buildHeatMaps()
         {
-            Canvas c = new Canvas { Width = 25, Height = 50 };
-            c.Fill = new SolidColorBrush(Colors.Red);
+            Canvas c = new Canvas { Width = mainMap.Width, Height = mainMap.Height };
+            
+            c.Background = new SolidColorBrush(Colors.Red);
+            c.Opacity = 0.2;
             var p = new System.Windows.Shapes.Polygon();
             p.Points = new PointCollection
                                {
