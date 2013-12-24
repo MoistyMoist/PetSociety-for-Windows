@@ -430,7 +430,28 @@
             </StackPanel>
         </ControlTemplate>
 
-   
+
+        <ControlTemplate x:Key="HeatMap" TargetType="my:Pushpin">
+            <Canvas>
+                <Ellipse Width="70" Height="70">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="Blue" Offset="0"/>
+                            <GradientStop Offset="3"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Ellipse Width="50" Height="50">
+                    <Ellipse.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="#7FFF0000" Offset="0"/>
+                            <GradientStop Offset="3"/>
+                        </RadialGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Canvas>
+        </ControlTemplate>
+
     </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>
