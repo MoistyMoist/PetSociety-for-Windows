@@ -59,8 +59,7 @@
                     <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Analysis" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2">
-                    <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom">
-                    </my:Map>
+                    <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom" MapZoom="MapZoom"/>
                 </Border>
             </Grid>
         </Canvas>
@@ -71,10 +70,11 @@
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate x:Key="HeatMap" TargetType="my:Pushpin">
             <Canvas>
-                <Ellipse Width="50" Height="50">
+                <Ellipse Width="50" Height="50" Opacity="0.5">
                     <Ellipse.Fill>
                         <RadialGradientBrush>
                             <GradientStop Color="#7FFF0000" Offset="0"/>
+                            <GradientStop Color="#FF2C65C9" Offset="2"/>
                             <GradientStop Offset="3"/>
                         </RadialGradientBrush>
                     </Ellipse.Fill>

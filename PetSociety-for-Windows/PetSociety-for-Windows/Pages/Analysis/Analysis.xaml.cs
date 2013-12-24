@@ -48,7 +48,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             EventHeatLayer = new MapLayer();
             LostHeatLayer = new MapLayer();
 
-            mainMap.Children.Add(buildHeatMaps());
+            buildHeatMaps();
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -217,23 +217,40 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
 
 
-        private MapLayer buildHeatMaps()
+        private void buildHeatMaps()
         {
-            MapLayer layer = new MapLayer();
+           
             List<Pushpin> pushpins = new List<Pushpin>();
-            for(int i=0;i<StaticObjects.MapLocations.Count;i++)
+            for(int i=0;i<StaticObjects.MapLosts.Count;i++)
             {
                 Pushpin p = new Pushpin();
-                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLocations.ElementAt(i).X, StaticObjects.MapLocations.ElementAt(i).Y);
+                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
                 p.Location = LatLong;
                 p.Template = this.Resources["HeatMap"] as ControlTemplate;
-                layer.Children.Add(p);
+                LostHeatLayer.Children.Add(p);
             }
-            return layer;
+            mainMap.Children.Add(LostHeatLayer);
 
 
 
             //var clusterer = new ClustersGenerator(mainMap, pushpins, this.Resources["ClusterTemplate"] as DataTemplate);
+        }
+
+
+
+        private void MapZoom(object sender, MapZoomEventArgs e)
+        {
+            //MessageBox.Show("Zoom " +Convert.ToInt16(mainMap.ZoomLevel));
+            //think of a way to redraw the pins
+            for (int i = 0; i < LostHeatLayer.Children.Count; i++)
+            {
+                Pushpin p = (Pushpin)LostHeatLayer.Children.ElementAt(i);
+                for (int x = 0+i; x < LostHeatLayer.Children.Count; x++)
+                {
+                    Pushpin p2 = (Pushpin)LostHeatLayer.Children.ElementAt(x);
+                    //compare 2 distance if distance is lesser than 2 combine the 2 circle
+                }
+            }
         }
     }
 }
