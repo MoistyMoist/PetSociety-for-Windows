@@ -86,7 +86,7 @@ namespace PetSociety_for_Windows.Pages
             mainMap.Children.Add(GPSLayer);
             WebClient UpdateRequest = new WebClient();
             UpdateRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(UpdateUserLocationComplete);
-            UpdateRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
+            UpdateRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/UpdateUser?token="+StaticObjects.Token+"&INuserID="+StaticObjects.CurrentUser.UserID+"&INname="+StaticObjects.CurrentUser.Name+"&INemail="+StaticObjects.CurrentUser.Email+"&INbirthday="+StaticObjects.CurrentUser.Birthday+"&INpassword="+StaticObjects.CurrentUser.Password+"&INaddress="+StaticObjects.CurrentUser.Address+"&INbiography="+StaticObjects.CurrentUser.Biography+"&INprivicy="+StaticObjects.CurrentUser.Privicy+"&INcredibility="+StaticObjects.CurrentUser.Credibility+"&INsex="+StaticObjects.CurrentUser.Sex+"&INcontact="+StaticObjects.CurrentUser.Contact+"&INx="+e.Position.Location.Latitude+"&INy="+e.Position.Location.Longitude));
         }
         private void UpdateUserLocationComplete(object sender, DownloadStringCompletedEventArgs e)
         {
