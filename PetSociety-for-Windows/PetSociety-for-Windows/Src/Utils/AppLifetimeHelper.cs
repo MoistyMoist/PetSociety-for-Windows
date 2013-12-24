@@ -48,5 +48,9 @@ namespace PetSociety_for_Windows.Src.Utils
             { }
         }
 
+        internal double GetDistanceTo(System.Device.Location.GeoCoordinate p1, System.Device.Location.GeoCoordinate p2)
+        {
+            return Math.Sqrt((p1.Latitude - p2.Latitude) * (p1.Latitude - p2.Latitude) + (p1.Longitude - p2.Longitude) * (p1.Longitude - p2.Longitude));
+        }
     }
 }

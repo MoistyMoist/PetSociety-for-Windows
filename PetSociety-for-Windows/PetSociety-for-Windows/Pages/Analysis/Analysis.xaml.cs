@@ -236,7 +236,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             //var clusterer = new ClustersGenerator(mainMap, pushpins, this.Resources["ClusterTemplate"] as DataTemplate);
         }
 
-
+        
 
         private void MapZoom(object sender, MapZoomEventArgs e)
         {
@@ -248,13 +248,13 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 for (int x = 0+i; x < LostHeatLayer.Children.Count; x++)
                 {
                     Pushpin p2 = (Pushpin)LostHeatLayer.Children.ElementAt(x);
+                    AppLifetimeHelper helper = new AppLifetimeHelper();
+                    double d = helper.GetDistanceTo(p.Location, p2.Location);
                     //compare 2 distance if distance is lesser than 2 combine the 2 circle
+                    MessageBox.Show(d+"");
                 }
             }
         }
-        public static double GetDistanceTo(this Point p1, Point p2)
-        {
-            return Math.Sqrt((p1.X - p2.X) * (p1.X - p2.X) + (p1.Y - p2.Y) * (p1.Y - p2.Y));
-        }
+       
     }
 }
