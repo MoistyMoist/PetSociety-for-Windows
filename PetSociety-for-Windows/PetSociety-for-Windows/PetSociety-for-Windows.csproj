@@ -198,6 +198,7 @@
     <Compile Include="Src\RootModel\TypeModel.cs" />
     <Compile Include="Src\RootModel\UserModel.cs" />
     <Compile Include="Src\Utils\AppLifetimeHelper.cs" />
+    <Compile Include="Src\Utils\Converter.cs" />
     <Compile Include="Src\Utils\StaticObjects.cs" />
     <Compile Include="Src\Utils\UploadImageRequest.cs" />
   </ItemGroup>
