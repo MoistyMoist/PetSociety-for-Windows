@@ -92,6 +92,13 @@
 
     <phone:PhoneApplicationPage.Resources>
 
+        <ControlTemplate x:Key="GPSIcon" TargetType="my:Pushpin">
+            <Canvas>
+                <Ellipse Fill="Blue" Opacity="0.5" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="Azure" StrokeThickness="3"/>
+                <Ellipse Fill="Transparent" Opacity="0.5" Margin="-30,-30,0,-35" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="100" Stroke="Blue" StrokeThickness="3"/>
+            </Canvas>
+        </ControlTemplate>
+        
         <ControlTemplate x:Key="LostPinIcon" TargetType="my:Pushpin">
             <StackPanel>
                 <Grid>

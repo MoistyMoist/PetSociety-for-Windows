@@ -29,6 +29,8 @@ namespace PetSociety_for_Windows.Pages
 {
     public partial class Map : PhoneApplicationPage
     {
+        GeoCoordinateWatcher gps;
+        MapLayer GPSLayer;
         MapLayer lostLayer;
         MapLayer strayLayer;
         MapLayer eventLayer;
@@ -49,15 +51,43 @@ namespace PetSociety_for_Windows.Pages
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
-            
+
+            GPSLayer = new MapLayer();
             lostLayer = new MapLayer();
             strayLayer = new MapLayer();
             eventLayer = new MapLayer();
             userLayer = new MapLayer();
             locationLayer = new MapLayer();
+
+
+            if (gps == null)
+            {
+                gps = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+                gps.MovementThreshold = 20;
+                gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
+            }
+            gps.Start();
+
+
+        }
+
+        private void GpsPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            mainMap.Center = new GeoCoordinate(e.Position.Location.Latitude, e.Position.Location.Longitude);
+            Pushpin myLocation = new Pushpin();
+            myLocation.Location = e.Position.Location;
+            myLocation.Template = this.Resources["GPSIcon"] as ControlTemplate;
+            if (GPSLayer.Children.Count != 0)
+            {
+                GPSLayer.Children.Clear();
+                mainMap.Children.Remove(GPSLayer);
+            }
+            GPSLayer.Children.Add(myLocation);
+            mainMap.Children.Add(GPSLayer);
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
+            
             LoadLostPins(null,null);
             LoadStrayPins(null, null);
             LoadUserPins(null, null);
