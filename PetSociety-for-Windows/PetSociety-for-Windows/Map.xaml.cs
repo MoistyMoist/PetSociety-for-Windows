@@ -49,7 +49,6 @@ namespace PetSociety_for_Windows.Pages
         {
             InitializeComponent();
             VisualStateManager.GoToState(this, "Normal", false);
-            // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
 
             GPSLayer = new MapLayer();
@@ -59,7 +58,6 @@ namespace PetSociety_for_Windows.Pages
             userLayer = new MapLayer();
             locationLayer = new MapLayer();
 
-
             if (gps == null)
             {
                 gps = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
@@ -67,8 +65,6 @@ namespace PetSociety_for_Windows.Pages
                 gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
             gps.Start();
-
-
         }
 
         private void GpsPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
@@ -90,11 +86,16 @@ namespace PetSociety_for_Windows.Pages
         }
         private void UpdateUserLocationComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+           // MessageBox.Show(e.Result.ToString());
+            UserModel childlist = new UserModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as UserModel;
+            if(childlist.Status!=1)
+                StaticObjects.CurrentUser = childlist.Data.ElementAt(0);
         }
         private void PageLoaded(object sender, RoutedEventArgs e)
         {
-            
             LoadLostPins(null,null);
             LoadStrayPins(null, null);
             LoadUserPins(null, null);
@@ -287,7 +288,8 @@ namespace PetSociety_for_Windows.Pages
            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
            childlist = ser.ReadObject(ms) as LostModel;
-           StaticObjects.MapLosts = childlist.Data;
+           if (childlist.Status != 1)
+                StaticObjects.MapLosts = childlist.Data;
            PlotLostPins();
         }
         private void PlotLostPins()
@@ -391,7 +393,8 @@ namespace PetSociety_for_Windows.Pages
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as StrayModel;
-            StaticObjects.MapStrays = childlist.Data;
+            if (childlist.Status != 1)
+                StaticObjects.MapStrays = childlist.Data;
             PlotStrayPins();
         }
         private void PlotStrayPins()
@@ -554,7 +557,7 @@ namespace PetSociety_for_Windows.Pages
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
                 loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveUserComplete);
-                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?token=" + StaticObjects.Token));
+                loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveUser?INtoken=" + StaticObjects.Token+"&INuserID="+StaticObjects.CurrentUser.UserID));
             }
             else
             {
@@ -568,7 +571,8 @@ namespace PetSociety_for_Windows.Pages
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as UserModel;
-            StaticObjects.MapUsers = childlist.Data;
+            if (childlist.Status != 1)
+                StaticObjects.MapUsers = childlist.Data;
             PlotUserPins();
         }
         private void PlotUserPins()
@@ -642,7 +646,7 @@ namespace PetSociety_for_Windows.Pages
             {
                 if (StaticObjects.MapUsers.ElementAt(i).UserID == Convert.ToInt16(pin.Tag))
                 {
-                    sex = StaticObjects.MapUsers.ElementAt(i).Sex.ToUpper();
+                    sex = StaticObjects.MapUsers.ElementAt(i).Sex.ToUpper();                    
                     content.title.Text = StaticObjects.MapUsers.ElementAt(i).Name;
                     break;
                 }
@@ -684,7 +688,8 @@ namespace PetSociety_for_Windows.Pages
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as EventModel;
-            StaticObjects.MapEvents = childlist.Data;
+            if (childlist.Status != 1)
+                StaticObjects.MapEvents = childlist.Data;
             PlotEventPins();
         }
         private void PlotEventPins()
@@ -782,7 +787,7 @@ namespace PetSociety_for_Windows.Pages
         }
         private void RetrieveLocationComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+            //MessageBox.Show(e.Result.ToString());
             LocationModel childlist = new LocationModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
