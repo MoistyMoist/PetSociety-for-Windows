@@ -196,9 +196,24 @@ namespace PetSociety_for_Windows.Pages.Analysis
         {
             ApplicationBar = new ApplicationBar();
 
-            ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
-            appBarButton.Text = "Add Location";
-            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBarIconButton Accidents = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            Accidents.Text = "Accidents";
+            ApplicationBar.Buttons.Add(Accidents);
+
+            ApplicationBarIconButton LostPets = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            LostPets.Text = "Lost pets";
+            ApplicationBar.Buttons.Add(LostPets);
+
+            ApplicationBarIconButton Strays = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            Strays.Text = "Stray Animales";
+            ApplicationBar.Buttons.Add(Strays);
+
+            ApplicationBarIconButton Events = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            Events.Text = "Events";
+            ApplicationBar.Buttons.Add(Events);
+
+            ApplicationBarMenuItem item = new ApplicationBarMenuItem();
+            item.Text = "haha";
         }
 
         private void GetAccidentPoints()
