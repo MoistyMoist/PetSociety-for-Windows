@@ -270,12 +270,17 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 pin.Height = 40;
                 pin.Width = 40;
 
+                LinearGradientBrush myBrush = new LinearGradientBrush();
 
-                LinearGradientBrush brush = new LinearGradientBrush();
-                brush.StartPoint= new Point(0,10);
-                brush.EndPoint=new Point(200,10);
+                myBrush.SetValue(LinearGradientBrush.StartPointProperty, ("0,0"));
+                myBrush.GradientStops.ElementAt(1).Offset = 0.5;
 
-                pin.Fill= brush;
+                myBrush.SetValue(LinearGradientBrush.EndPointProperty, ("1,1"));
+                myBrush.GradientStops.ElementAt(0).Color = Colors.Red;
+
+                myBrush.GradientStops.ElementAt(1).Color = Colors.Green;
+
+                pin.Fill = myBrush;
                 c.Children.Add(pin);
                 MapLayer layer = new MapLayer();
 
