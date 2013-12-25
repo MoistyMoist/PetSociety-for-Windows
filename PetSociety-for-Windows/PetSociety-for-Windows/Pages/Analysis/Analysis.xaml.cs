@@ -245,7 +245,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             if (StaticObjects.MapLosts != null)
             {
                 EventHeatLayer = new MapLayer();
-                for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
+                for (int i = 0; i < StaticObjects.AnalysisEvents.Count; i++)
                 {
                     Pushpin pushPin = new Pushpin();
                     GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisEvents.ElementAt(i).X, StaticObjects.AnalysisEvents.ElementAt(i).Y);
