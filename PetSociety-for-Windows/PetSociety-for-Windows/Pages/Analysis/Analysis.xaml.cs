@@ -229,10 +229,10 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 
                 GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
                 p.Location = LatLong;
-                p.Template = this.Resources["HeatMap"] as ControlTemplate;
+                p.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
                 LostHeatLayer.Children.Add(p);
             }
-           // mainMap.Children.Add(LostHeatLayer);
+            mainMap.Children.Add(LostHeatLayer);
 
 
 
@@ -317,7 +317,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 
             }
             
-            mainMap.Children.Add(c);
+            //mainMap.Children.Add(c);
         }
        
     }
