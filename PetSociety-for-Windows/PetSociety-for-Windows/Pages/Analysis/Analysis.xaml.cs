@@ -219,7 +219,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
-            if(StaticObjects.AnalysisEvents.Count==0||StaticObjects.AnalysisEvents==null)
+            if(StaticObjects.AnalysisEvents==null||StaticObjects.AnalysisEvents.Count==0)
             {
                 progressBar.Opacity = 100;
                 WebClient Request = new WebClient();
