@@ -32,7 +32,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         double initialPosition;
         bool _viewMoved = false;
 
-        MapLayer LocationHeatLayer;
+        MapLayer AccidentHeatLayer;
         MapLayer StrayHeatLayer;
         MapLayer EventHeatLayer;
         MapLayer LostHeatLayer;
@@ -44,12 +44,12 @@ namespace PetSociety_for_Windows.Pages.Analysis
             VisualStateManager.GoToState(this, "Normal", false);
             BuildLocalizedApplicationBar();
 
-            LocationHeatLayer = new MapLayer();
+            AccidentHeatLayer = new MapLayer();
             StrayHeatLayer = new MapLayer();
             EventHeatLayer = new MapLayer();
             LostHeatLayer = new MapLayer();
 
-            MapZoom(null,null);
+            //MapZoom(null,null);
             buildHeatMaps();
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
@@ -230,6 +230,34 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             MessageBox.Show(e.Result.ToString());
+            EventModel childlist = new EventModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as EventModel;
+            if (childlist.Status != 1)
+                StaticObjects.AnalysisEvents = childlist.Data;
+            DrawEventHeatMap();
+        }
+        private void DrawEventHeatMap()
+        {
+            if (mainMap.Children.Contains(EventHeatLayer))
+                mainMap.Children.Remove(EventHeatLayer);
+            if (StaticObjects.MapLosts != null)
+            {
+                EventHeatLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisEvents.ElementAt(i).X, StaticObjects.AnalysisEvents.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.AnalysisEvents.ElementAt(i).EventID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
+                    //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                    EventHeatLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(EventHeatLayer);
+            }
         }
 
         private void LoadAccidentHeatMap(object sender, EventArgs e)
