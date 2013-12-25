@@ -219,13 +219,10 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
-            if(StaticObjects.AnalysisEvents==null||StaticObjects.AnalysisEvents.Count==0)
-            {
-                progressBar.Opacity = 100;
-                WebClient Request = new WebClient();
-                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
-                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
-            }
+            progressBar.Opacity = 100;
+            WebClient Request = new WebClient();
+            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
+            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
         }
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
