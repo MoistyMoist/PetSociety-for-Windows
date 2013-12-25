@@ -198,29 +198,63 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
             ApplicationBarIconButton Accidents = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
             Accidents.Text = "Accidents";
+            Accidents.Click += new EventHandler(LoadAccidentHeatMap);
             ApplicationBar.Buttons.Add(Accidents);
 
-            ApplicationBarIconButton LostPets = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            ApplicationBarIconButton LostPets = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_3-rating-important.png", UriKind.Relative));
             LostPets.Text = "Lost pets";
+            LostPets.Click += new EventHandler(LoadLostHeatMap);
             ApplicationBar.Buttons.Add(LostPets);
 
-            ApplicationBarIconButton Strays = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            ApplicationBarIconButton Strays = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_2-action-search.png", UriKind.Relative));
             Strays.Text = "Stray Animales";
+            Strays.Click += new EventHandler(LoadStrayHeatMap);
             ApplicationBar.Buttons.Add(Strays);
 
-            ApplicationBarIconButton Events = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
+            ApplicationBarIconButton Events = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_4-collections-go-to-today.png", UriKind.Relative));
             Events.Text = "Events";
+            Events.Click += new EventHandler(LoadEventHeatMap);
             ApplicationBar.Buttons.Add(Events);
 
-            ApplicationBarMenuItem item = new ApplicationBarMenuItem();
-            item.Text = "haha";
+            ApplicationBarIconButton Events2 = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_4-collections-go-to-today.png", UriKind.Relative));
+            Events2.Text = "Events2";
+            Events2.Click += new EventHandler(LoadEventHeatMap);
+            ApplicationBar.Buttons.Add(Events2);
         }
-
-        private void GetAccidentPoints()
+        private void BuildLostPetApplicationBar()
         {
+            //private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Fish","Turtle"};
 
         }
+        private void BuildStrayPetApplicationBar()
+        {
+            //private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Fish","Turtle"};
+        }
 
+        private void LoadLostHeatMap(object sender, EventArgs e)
+        {
+            MessageBox.Show("load lost heatmaps");
+            BuildLostPetApplicationBar();
+            //retrieve all lost()
+        }
+        private void LoadEventHeatMap(object sender, EventArgs e)
+        {
+            MessageBox.Show("load event heatmaps");
+            //retrieve all events()
+        }
+        private void LoadStrayHeatMap(object sender, EventArgs e)
+        {
+            MessageBox.Show("load stray heatmaps");
+            BuildStrayPetApplicationBar();
+            //retrieve all strays()
+        }
+        private void LoadAccidentHeatMap(object sender, EventArgs e)
+        {
+            MessageBox.Show("load accidents heatmaps");
+            //retrieve all accidents()
+        }
+        
+      
 
 
 
@@ -236,8 +270,6 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void buildHeatMaps()
         {
-           
-            List<Pushpin> pushpins = new List<Pushpin>();
             for(int i=0;i<StaticObjects.MapLosts.Count;i++)
             {
                 Pushpin p = new Pushpin();
