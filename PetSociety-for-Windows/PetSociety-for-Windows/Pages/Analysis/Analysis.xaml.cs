@@ -36,6 +36,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         MapLayer StrayHeatLayer;
         MapLayer EventHeatLayer;
         MapLayer LostHeatLayer;
+        Canvas c;
 
         public Analysis()
         {
@@ -48,6 +49,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             EventHeatLayer = new MapLayer();
             LostHeatLayer = new MapLayer();
 
+            MapZoom(null,null);
             buildHeatMaps();
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
@@ -224,6 +226,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             for(int i=0;i<StaticObjects.MapLosts.Count;i++)
             {
                 Pushpin p = new Pushpin();
+                
                 GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
                 p.Location = LatLong;
                 p.Template = this.Resources["HeatMap"] as ControlTemplate;
@@ -240,20 +243,44 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void MapZoom(object sender, MapZoomEventArgs e)
         {
-            //MessageBox.Show("Zoom " +Convert.ToInt16(mainMap.ZoomLevel));
-            //think of a way to redraw the pins
-            for (int i = 0; i < LostHeatLayer.Children.Count; i++)
+            mainMap.ViewChangeEnd += new EventHandler<MapEventArgs>(ReDrawHeatMap);
+            
+           
+        }
+
+        private void ReDrawHeatMap(object sender, MapEventArgs e)
+        {
+            Converter conveter = new Converter(mainMap.ZoomLevel);
+            c = new Canvas { Width = mainMap.ViewportSize.Width, Height = mainMap.ViewportSize.Height };
+
+            for (int i = 0; i < StaticObjects.MapLosts.Count; i++)
             {
-                Pushpin p = (Pushpin)LostHeatLayer.Children.ElementAt(i);
-                for (int x = 0+i; x < LostHeatLayer.Children.Count; x++)
-                {
-                    Pushpin p2 = (Pushpin)LostHeatLayer.Children.ElementAt(x);
-                    AppLifetimeHelper helper = new AppLifetimeHelper();
-                    double d = helper.GetDistanceTo(p.Location, p2.Location);
-                    //compare 2 distance if distance is lesser than 2 combine the 2 circle
-                    MessageBox.Show(d+"");
-                }
+                Ellipse pin = new Ellipse();
+                GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLosts.ElementAt(i).X, StaticObjects.MapLosts.ElementAt(i).Y);
+                Point pixPoint = conveter.FromCoordinatesToPixel(LatLong);
+
+                Point point = new Point();
+                Thickness margin = pin.Margin;
+                mainMap.TryLocationToViewportPoint(LatLong, out point);
+
+                margin.Left = point.X;
+                margin.Top = point.Y;
+                pin.Margin = margin;
+
+                pin.Height = 40;
+                pin.Width = 40;
+
+
+                LinearGradientBrush brush = new LinearGradientBrush();
+                brush.StartPoint= new Point(0,10);
+                brush.EndPoint=new Point(200,10);
+
+                pin.Fill= brush;
+                c.Children.Add(pin);
+                MapLayer layer = new MapLayer();
+
             }
+            mainMap.Children.Add(c);
         }
        
     }

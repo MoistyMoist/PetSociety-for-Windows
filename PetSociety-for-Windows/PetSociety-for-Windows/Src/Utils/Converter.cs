@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections.;
+using System.Collections;
 using System.Windows;
 using System.Device.Location;
 
@@ -30,8 +30,8 @@ namespace PetSociety_for_Windows.Src.Utils
 
         public Point FromCoordinatesToPixel(GeoCoordinate coordinates)
         {
-            var x = Math.Round(this.PixelGlobeCenter.X + (coordinates.X * this.XPixelsToDegreesRatio));
-            var f = Math.Min(Math.Max(Math.Sin(coordinates.Y * RadiansToDegreesRatio), -0.9999d), 0.9999d);
+            var x = Math.Round(this.PixelGlobeCenter.X + (coordinates.Latitude * this.XPixelsToDegreesRatio));
+            var f = Math.Min(Math.Max(Math.Sin(coordinates.Longitude * RadiansToDegreesRatio), -0.9999d), 0.9999d);
             var y = Math.Round(this.PixelGlobeCenter.Y + .5d * Math.Log((1d + f) / (1d - f)) * -this.YPixelsToRadiansRatio);
             return new Point(Convert.ToSingle(x), Convert.ToSingle(y));
         }
