@@ -196,7 +196,6 @@ namespace PetSociety_for_Windows.Pages.Analysis
         {
             ApplicationBar = new ApplicationBar();
             
-
             ApplicationBarIconButton Accidents = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
             Accidents.Text = "Accidents";
             Accidents.Click += new EventHandler(LoadAccidentHeatMap);
@@ -216,38 +215,102 @@ namespace PetSociety_for_Windows.Pages.Analysis
             Events.Text = "Events";
             Events.Click += new EventHandler(LoadEventHeatMap);
             ApplicationBar.Buttons.Add(Events);
-
-            ApplicationBarIconButton Events2 = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_4-collections-go-to-today.png", UriKind.Relative));
-            Events2.Text = "Events2";
-            Events2.Click += new EventHandler(LoadEventHeatMap);
-            ApplicationBar.Buttons.Add(Events2);
         }
 
-
-        private void LoadLostHeatMap(object sender, EventArgs e)
-        {
-            MessageBox.Show("load lost heatmaps");
-            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
-            Dog.Text = "Dogs";
-            ApplicationBar.MenuItems.Add(Dog);
-            //retrieve all lost()
-        }
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
             MessageBox.Show("load event heatmaps");
             //retrieve all events()
+           // progressBar.Opacity = 100;
+           // WebClient loginRequest = new WebClient();
+           // loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
+           // loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
         }
-        private void LoadStrayHeatMap(object sender, EventArgs e)
+        private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show("load stray heatmaps");
-            
-            //retrieve all strays()
+            throw new NotImplementedException();
         }
+
         private void LoadAccidentHeatMap(object sender, EventArgs e)
         {
             MessageBox.Show("load accidents heatmaps");
             //retrieve all accidents()
         }
+        private void RetrieveAccidentsComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        private void LoadLostHeatMap(object sender, EventArgs e)
+        {
+            ApplicationBar.MenuItems.Clear();
+
+            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
+            Dog.Text = "Show lost Dogs";
+            ApplicationBar.MenuItems.Add(Dog);
+
+            ApplicationBarMenuItem Cat = new ApplicationBarMenuItem();
+            Cat.Text = "Show lost Cats";
+            ApplicationBar.MenuItems.Add(Cat);
+
+            ApplicationBarMenuItem Fish = new ApplicationBarMenuItem();
+            Fish.Text = "Show lost Fishes";
+            ApplicationBar.MenuItems.Add(Fish);
+
+            ApplicationBarMenuItem Bird = new ApplicationBarMenuItem();
+            Bird.Text = "Show lost Birds";
+            ApplicationBar.MenuItems.Add(Bird);
+
+            ApplicationBarMenuItem Hamster = new ApplicationBarMenuItem();
+            Hamster.Text = "Show lost Hamsters";
+            ApplicationBar.MenuItems.Add(Hamster);
+
+            ApplicationBarMenuItem Rabbit = new ApplicationBarMenuItem();
+            Rabbit.Text = "Show Lost Rabbits";
+            ApplicationBar.MenuItems.Add(Rabbit);
+
+            ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
+            Turtle.Text = "Show Lost Turtles";
+            ApplicationBar.MenuItems.Add(Turtle);
+        }
+        
+        private void LoadStrayHeatMap(object sender, EventArgs e)
+        {
+            ApplicationBar.MenuItems.Clear();
+
+            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
+            Dog.Text = "Show stray Dogs";
+            ApplicationBar.MenuItems.Add(Dog);
+
+            ApplicationBarMenuItem Cat = new ApplicationBarMenuItem();
+            Cat.Text = "Show stray Cats";
+            ApplicationBar.MenuItems.Add(Cat);
+
+            ApplicationBarMenuItem Fish = new ApplicationBarMenuItem();
+            Fish.Text = "Show stray Fishes";
+            ApplicationBar.MenuItems.Add(Fish);
+
+            ApplicationBarMenuItem Bird = new ApplicationBarMenuItem();
+            Bird.Text = "Show stray Birds";
+            ApplicationBar.MenuItems.Add(Bird);
+
+            ApplicationBarMenuItem Hamster = new ApplicationBarMenuItem();
+            Hamster.Text = "Show stray Hamsters";
+            ApplicationBar.MenuItems.Add(Hamster);
+
+            ApplicationBarMenuItem Rabbit = new ApplicationBarMenuItem();
+            Rabbit.Text = "Show stray Rabbits";
+            ApplicationBar.MenuItems.Add(Rabbit);
+
+            ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
+            Turtle.Text = "Show stray Turtles";
+            ApplicationBar.MenuItems.Add(Turtle);
+            
+            //retrieve all strays()
+        }
+        
         
       
 
