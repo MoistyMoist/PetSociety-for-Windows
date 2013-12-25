@@ -74,7 +74,7 @@
 
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate x:Key="HeatMapCluster" TargetType="my:Pushpin">
-            <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Canvas HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-25,0,0,15">
                 <Ellipse Width="50" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Ellipse.Fill>
                         <RadialGradientBrush>

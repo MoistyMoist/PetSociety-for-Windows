@@ -229,7 +229,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         }
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+            //MessageBox.Show(e.Result.ToString());
             EventModel childlist = new EventModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
