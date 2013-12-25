@@ -219,16 +219,17 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
-            MessageBox.Show("load event heatmaps");
-            //retrieve all events()
-           // progressBar.Opacity = 100;
-           // WebClient loginRequest = new WebClient();
-           // loginRequest.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
-           // loginRequest.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token + "&INfound=" + 0));
+            if(StaticObjects.AnalysisEvents.Count==0||StaticObjects.AnalysisEvents==null)
+            {
+                progressBar.Opacity = 100;
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
+            }
         }
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(e.Result.ToString());
         }
 
         private void LoadAccidentHeatMap(object sender, EventArgs e)

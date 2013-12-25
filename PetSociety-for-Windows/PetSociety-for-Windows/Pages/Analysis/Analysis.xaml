@@ -51,12 +51,17 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF3B5998">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="19*"/>
+                        <ColumnDefinition Width="13*"/>
+                    </Grid.ColumnDefinitions>
                     <Button  Click="OpenClose_Left" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="82" Height="86" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="-4,-8,0,-2" ClickMode="Press" Style="{StaticResource MainNavButtonStyle}">
                         <Button.Background>
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Analysis" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Analysis" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center" Grid.ColumnSpan="2"/>
+                    <ProgressBar x:Name="progressBar" IsIndeterminate="true" Margin="0,57,0,-4" Foreground="White" Grid.ColumnSpan="2" />
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2">
                     <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom" MapZoom="MapZoom"/>
@@ -64,9 +69,9 @@
             </Grid>
         </Canvas>
     </Canvas>
-    
-    
-    
+
+
+
     <phone:PhoneApplicationPage.Resources>
         <ControlTemplate x:Key="HeatMap" TargetType="my:Pushpin">
             <Canvas>

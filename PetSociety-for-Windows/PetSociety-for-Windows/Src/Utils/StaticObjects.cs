@@ -27,10 +27,8 @@ namespace PetSociety_for_Windows.Src.Utils
         private static List<LOST> mapLosts;
         private static List<USER> mapUsers;
 
-
-
         //things for the analysis page
-        private static List<LOCATION> analysisLocations;
+        private static List<LOCATION> analysisAccidents;
         private static List<STRAY> analysisStrays;
         private static List<EVENT> analysisEvents;
         private static List<LOST> analysisLosts;
@@ -39,6 +37,33 @@ namespace PetSociety_for_Windows.Src.Utils
 
 
 
+
+
+
+
+
+
+
+        public static List<LOCATION> AnalysisAccidents
+        {
+            get { return StaticObjects.analysisAccidents; }
+            set { StaticObjects.analysisAccidents = value; }
+        }
+        public static List<STRAY> AnalysisStrays
+        {
+            get { return StaticObjects.analysisStrays; }
+            set { StaticObjects.analysisStrays = value; }
+        }
+        public static List<EVENT> AnalysisEvents
+        {
+            get { return StaticObjects.analysisEvents; }
+            set { StaticObjects.analysisEvents = value; }
+        }
+        public static List<LOST> AnalysisLosts
+        {
+            get { return StaticObjects.analysisLosts; }
+            set { StaticObjects.analysisLosts = value; }
+        }
         public static List<LOCATION> MapLocations
         {
             get { return StaticObjects.mapLocations; }
