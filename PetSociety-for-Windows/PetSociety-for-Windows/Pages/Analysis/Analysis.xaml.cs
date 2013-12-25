@@ -195,6 +195,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void BuildLocalizedApplicationBar()
         {
             ApplicationBar = new ApplicationBar();
+            
 
             ApplicationBarIconButton Accidents = new ApplicationBarIconButton(new Uri("/Resources/hamster.png", UriKind.Relative));
             Accidents.Text = "Accidents";
@@ -221,20 +222,14 @@ namespace PetSociety_for_Windows.Pages.Analysis
             Events2.Click += new EventHandler(LoadEventHeatMap);
             ApplicationBar.Buttons.Add(Events2);
         }
-        private void BuildLostPetApplicationBar()
-        {
-            //private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Fish","Turtle"};
 
-        }
-        private void BuildStrayPetApplicationBar()
-        {
-            //private static string[] petTypes = { "Dog", "Cat", "Bird","Hamster","Rabbit","Fish","Turtle"};
-        }
 
         private void LoadLostHeatMap(object sender, EventArgs e)
         {
             MessageBox.Show("load lost heatmaps");
-            BuildLostPetApplicationBar();
+            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
+            Dog.Text = "Dogs";
+            ApplicationBar.MenuItems.Add(Dog);
             //retrieve all lost()
         }
         private void LoadEventHeatMap(object sender, EventArgs e)
@@ -245,7 +240,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void LoadStrayHeatMap(object sender, EventArgs e)
         {
             MessageBox.Show("load stray heatmaps");
-            BuildStrayPetApplicationBar();
+            
             //retrieve all strays()
         }
         private void LoadAccidentHeatMap(object sender, EventArgs e)
