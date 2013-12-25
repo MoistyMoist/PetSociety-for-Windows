@@ -270,7 +270,26 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 pin.Height = 40;
                 pin.Width = 40;
 
-                
+                LinearGradientBrush gradient = new LinearGradientBrush();
+                gradient.StartPoint = new Point(0, 0);
+                gradient.EndPoint = new Point(1, 1);
+
+                GradientStop color1 = new GradientStop();
+                color1.Color = Colors.Yellow;
+                color1.Offset = 0.2;
+                gradient.GradientStops.Add(color1);
+
+                GradientStop color2 = new GradientStop();
+                color2.Color = Colors.Orange;
+                color2.Offset = 0.5;
+                gradient.GradientStops.Add(color2);
+
+                GradientStop color3 = new GradientStop();
+                color3.Color = Colors.Red;
+                color3.Offset = 0.8;
+                gradient.GradientStops.Add(color3);
+
+                pin.Fill = gradient;
 
                 
                 c.Children.Add(pin);
