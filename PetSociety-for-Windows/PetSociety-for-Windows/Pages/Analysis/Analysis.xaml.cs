@@ -50,7 +50,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             LostHeatLayer = new MapLayer();
 
             //MapZoom(null,null);
-            buildHeatMaps();
+            LoadAccidentHeatMap(null,null);
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -281,6 +281,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void RetrieveAccidentsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
             LocationModel childlist = new LocationModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -359,6 +360,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void RetrieveAllLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
             LostModel childlist = new LostModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -437,6 +439,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         private void RetrieveAllStrayComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
             StrayModel childlist = new StrayModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
