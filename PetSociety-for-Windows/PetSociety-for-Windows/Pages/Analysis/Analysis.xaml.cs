@@ -219,14 +219,21 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
-            progressBar.Opacity = 100;
-            WebClient Request = new WebClient();
-            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
-            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
+            if (mainMap.Children.Contains(EventHeatLayer))
+            {
+                mainMap.Children.Remove(EventHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
+            }    
         }
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            //MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
             EventModel childlist = new EventModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -259,12 +266,21 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadAccidentHeatMap(object sender, EventArgs e)
         {
-            MessageBox.Show("load accidents heatmaps");
-            //retrieve all accidents()
+            if(mainMap.Children.Contains(AccidentHeatLayer))
+            {
+                mainMap.Children.Remove(AccidentHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+            WebClient Request = new WebClient();
+            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAccidentsComplete);
+            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLocation?INtoken="+StaticObjects.Token+"&INtype=Accidents"));
+            }
         }
         private void RetrieveAccidentsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            //MessageBox.Show(e.Result.ToString());
+            MessageBox.Show(e.Result.ToString());
             LocationModel childlist = new LocationModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -275,24 +291,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         }
         private void DrawAccidentHeatMap()
         {
-            if (mainMap.Children.Contains(AccidentHeatLayer))
-                mainMap.Children.Remove(AccidentHeatLayer);
-            if (StaticObjects.MapLosts != null)
-            {
-                AccidentHeatLayer = new MapLayer();
-                for (int i = 0; i < StaticObjects.AnalysisAccidents.Count; i++)
-                {
-                    Pushpin pushPin = new Pushpin();
-                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisAccidents.ElementAt(i).X, StaticObjects.AnalysisAccidents.ElementAt(i).Y);
-                    pushPin.Tag = StaticObjects.AnalysisAccidents.ElementAt(i).LocationID;
-                    pushPin.TabIndex = i;
-                    pushPin.Location = LatLong;
-                    pushPin.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
-                    //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
-                    AccidentHeatLayer.Children.Add(pushPin);
-                }
-                mainMap.Children.Add(AccidentHeatLayer);
-            }
+            
         }
 
 
