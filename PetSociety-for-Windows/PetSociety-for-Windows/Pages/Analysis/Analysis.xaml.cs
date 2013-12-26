@@ -219,14 +219,21 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadEventHeatMap(object sender, EventArgs e)
         {
-            progressBar.Opacity = 100;
-            WebClient Request = new WebClient();
-            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
-            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
+            if (mainMap.Children.Contains(EventHeatLayer))
+            {
+                mainMap.Children.Remove(EventHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventsComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
+            }    
         }
         private void RetrieveEventsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            //MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
             EventModel childlist = new EventModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -259,12 +266,32 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadAccidentHeatMap(object sender, EventArgs e)
         {
-            MessageBox.Show("load accidents heatmaps");
-            //retrieve all accidents()
+            if(mainMap.Children.Contains(AccidentHeatLayer))
+            {
+                mainMap.Children.Remove(AccidentHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+            WebClient Request = new WebClient();
+            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAccidentsComplete);
+            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLocation?INtoken="+StaticObjects.Token+"&INtype=Accidents"));
+            }
         }
         private void RetrieveAccidentsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(e.Result.ToString());
+            LocationModel childlist = new LocationModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as LocationModel;
+            if (childlist.Status != 1)
+                StaticObjects.AnalysisAccidents = childlist.Data;
+            DrawAccidentHeatMap();
+        }
+        private void DrawAccidentHeatMap()
+        {
+            
         }
 
 
