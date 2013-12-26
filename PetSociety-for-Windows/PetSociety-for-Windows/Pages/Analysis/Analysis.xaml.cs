@@ -291,7 +291,24 @@ namespace PetSociety_for_Windows.Pages.Analysis
         }
         private void DrawAccidentHeatMap()
         {
-            
+            if (mainMap.Children.Contains(AccidentHeatLayer))
+                mainMap.Children.Remove(AccidentHeatLayer);
+            if (StaticObjects.MapLosts != null)
+            {
+                AccidentHeatLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.AnalysisAccidents.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisAccidents.ElementAt(i).X, StaticObjects.AnalysisAccidents.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.AnalysisAccidents.ElementAt(i).LocationID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
+                    //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                    AccidentHeatLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(AccidentHeatLayer);
+            }
         }
 
 
