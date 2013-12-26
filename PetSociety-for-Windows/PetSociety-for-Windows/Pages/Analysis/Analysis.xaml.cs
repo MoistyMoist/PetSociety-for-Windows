@@ -365,7 +365,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             childlist = ser.ReadObject(ms) as LostModel;
             if (childlist.Status != 1)
                 StaticObjects.AnalysisLosts = childlist.Data;
-            DrawAccidentHeatMap();
+            DrawLostHeatMap();
         }
         private void DrawLostHeatMap()
         {
@@ -443,7 +443,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
             childlist = ser.ReadObject(ms) as StrayModel;
             if (childlist.Status != 1)
                 StaticObjects.AnalysisStrays = childlist.Data;
-            DrawAccidentHeatMap();
+            DrawStrayHeatMap();
         }
         private void DrawStrayHeatMap()
         {
