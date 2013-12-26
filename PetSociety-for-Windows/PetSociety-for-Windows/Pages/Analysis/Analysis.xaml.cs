@@ -246,7 +246,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         {
             if (mainMap.Children.Contains(EventHeatLayer))
                 mainMap.Children.Remove(EventHeatLayer);
-            if (StaticObjects.MapLosts != null)
+            if (StaticObjects.AnalysisEvents != null)
             {
                 EventHeatLayer = new MapLayer();
                 for (int i = 0; i < StaticObjects.AnalysisEvents.Count; i++)
@@ -273,14 +273,14 @@ namespace PetSociety_for_Windows.Pages.Analysis
             else
             {
                 progressBar.Opacity = 100;
-            WebClient Request = new WebClient();
-            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAccidentsComplete);
-            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLocation?INtoken="+StaticObjects.Token+"&INtype=Accidents"));
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAccidentsComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLocation?INtoken="+StaticObjects.Token+"&INtype=Accidents"));
             }
         }
         private void RetrieveAccidentsComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show(e.Result.ToString());
+            //MessageBox.Show(e.Result.ToString());
             LocationModel childlist = new LocationModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -293,7 +293,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
         {
             if (mainMap.Children.Contains(AccidentHeatLayer))
                 mainMap.Children.Remove(AccidentHeatLayer);
-            if (StaticObjects.MapLosts != null)
+            if (StaticObjects.AnalysisAccidents != null)
             {
                 AccidentHeatLayer = new MapLayer();
                 for (int i = 0; i < StaticObjects.AnalysisAccidents.Count; i++)
@@ -310,7 +310,6 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 mainMap.Children.Add(AccidentHeatLayer);
             }
         }
-
 
 
         private void LoadLostHeatMap(object sender, EventArgs e)
@@ -344,7 +343,52 @@ namespace PetSociety_for_Windows.Pages.Analysis
             ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
             Turtle.Text = "Show Lost Turtles";
             ApplicationBar.MenuItems.Add(Turtle);
+
+            if (mainMap.Children.Contains(LostHeatLayer))
+            {
+                mainMap.Children.Remove(LostHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAllLostComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token));
+            }
         }
+        private void RetrieveAllLostComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Result.ToString());
+            LostModel childlist = new LostModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as LostModel;
+            if (childlist.Status != 1)
+                StaticObjects.AnalysisLosts = childlist.Data;
+            DrawAccidentHeatMap();
+        }
+        private void DrawLostHeatMap()
+        {
+            if (mainMap.Children.Contains(LostHeatLayer))
+                mainMap.Children.Remove(LostHeatLayer);
+            if (StaticObjects.AnalysisLosts != null)
+            {
+                LostHeatLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.AnalysisLosts.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisLosts.ElementAt(i).X, StaticObjects.AnalysisLosts.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.AnalysisLosts.ElementAt(i).LostID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
+                    //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                    LostHeatLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(LostHeatLayer);
+            }
+        }
+
         
         private void LoadStrayHeatMap(object sender, EventArgs e)
         {
@@ -377,10 +421,52 @@ namespace PetSociety_for_Windows.Pages.Analysis
             ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
             Turtle.Text = "Show stray Turtles";
             ApplicationBar.MenuItems.Add(Turtle);
-            
-            //retrieve all strays()
+
+            if (mainMap.Children.Contains(StrayHeatLayer))
+            {
+                mainMap.Children.Remove(StrayHeatLayer);
+            }
+            else
+            {
+                progressBar.Opacity = 100;
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAllStrayComplete);
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token));
+            }
         }
-        
+
+        private void RetrieveAllStrayComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Result.ToString());
+            StrayModel childlist = new StrayModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as StrayModel;
+            if (childlist.Status != 1)
+                StaticObjects.AnalysisStrays = childlist.Data;
+            DrawAccidentHeatMap();
+        }
+        private void DrawStrayHeatMap()
+        {
+            if (mainMap.Children.Contains(StrayHeatLayer))
+                mainMap.Children.Remove(StrayHeatLayer);
+            if (StaticObjects.AnalysisStrays != null)
+            {
+                StrayHeatLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.AnalysisStrays.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.AnalysisStrays.ElementAt(i).X, StaticObjects.AnalysisStrays.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.AnalysisStrays.ElementAt(i).StrayID;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["HeatMapCluster"] as ControlTemplate;
+                    //pushPin.Tap += new EventHandler<GestureEventArgs>(LostPinTap);
+                    StrayHeatLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(StrayHeatLayer);
+            }
+        }
         
       
 
