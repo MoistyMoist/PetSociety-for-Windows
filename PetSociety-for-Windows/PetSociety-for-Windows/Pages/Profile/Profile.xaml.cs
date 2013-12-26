@@ -10,6 +10,9 @@ using System.Windows.Input;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using System.Windows.Media;
+using System.IO;
+using System.IO.IsolatedStorage;
+using PetSociety_for_Windows.Src.Utils;
 
 namespace PetSociety_for_Windows.Pages.Profile
 {
@@ -243,7 +246,29 @@ namespace PetSociety_for_Windows.Pages.Profile
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
-            // NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml", UriKind.Relative));
+            IAsyncResult result = Microsoft.Xna.Framework.GamerServices.Guide.BeginShowMessageBox("Logout", "Confirm logout?", new string[] { "Close", "Logout" }, 0, Microsoft.Xna.Framework.GamerServices.MessageBoxIcon.None, null, null);
+            result.AsyncWaitHandle.WaitOne();
+            int? choice = Microsoft.Xna.Framework.GamerServices.Guide.EndShowMessageBox(result);
+            if (choice.HasValue)
+            {
+                if (choice.Value == 1)
+                {
+                    IsolatedStorageFile file = IsolatedStorageFile.GetUserStoreForApplication();
+                    file.CreateDirectory("RootFolder");
+                    StreamWriter streamWriterFile = new StreamWriter(new
+                    IsolatedStorageFileStream("RootFolder\\Antuation.txt", FileMode.OpenOrCreate, file));
+                    streamWriterFile.WriteLine("");
+                    streamWriterFile.WriteLine("");
+                    streamWriterFile.Close();
+
+
+                    OpenClose_Left(null, null);
+                    StaticObjects.CurrentUser = null;
+                    AppLifetimeHelper close = new AppLifetimeHelper();
+                    //close.CloseApplication();
+                    NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
+                }
+            }
         }
     }
 }
