@@ -431,10 +431,9 @@ namespace PetSociety_for_Windows.Pages.Analysis
                 progressBar.Opacity = 100;
                 WebClient Request = new WebClient();
                 Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAllStrayComplete);
-                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token));
+                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveStray?INtoken=" + StaticObjects.Token));
             }
         }
-
         private void RetrieveAllStrayComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
