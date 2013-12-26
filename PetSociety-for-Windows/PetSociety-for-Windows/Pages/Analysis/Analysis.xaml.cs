@@ -201,17 +201,17 @@ namespace PetSociety_for_Windows.Pages.Analysis
             Accidents.Click += new EventHandler(LoadAccidentHeatMap);
             ApplicationBar.Buttons.Add(Accidents);
 
-            ApplicationBarIconButton LostPets = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_3-rating-important.png", UriKind.Relative));
+            ApplicationBarIconButton LostPets = new ApplicationBarIconButton(new Uri("/Resources/cat.png", UriKind.Relative));
             LostPets.Text = "Lost pets";
             LostPets.Click += new EventHandler(LoadLostHeatMap);
             ApplicationBar.Buttons.Add(LostPets);
 
-            ApplicationBarIconButton Strays = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_2-action-search.png", UriKind.Relative));
+            ApplicationBarIconButton Strays = new ApplicationBarIconButton(new Uri("/Resources/dog.png", UriKind.Relative));
             Strays.Text = "Stray Animales";
             Strays.Click += new EventHandler(LoadStrayHeatMap);
             ApplicationBar.Buttons.Add(Strays);
 
-            ApplicationBarIconButton Events = new ApplicationBarIconButton(new Uri("/Resources/Icons/ic_4-collections-go-to-today.png", UriKind.Relative));
+            ApplicationBarIconButton Events = new ApplicationBarIconButton(new Uri("/Resources/bird.png", UriKind.Relative));
             Events.Text = "Events";
             Events.Click += new EventHandler(LoadEventHeatMap);
             ApplicationBar.Buttons.Add(Events);
@@ -315,36 +315,6 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void LoadLostHeatMap(object sender, EventArgs e)
         {
-            ApplicationBar.MenuItems.Clear();
-
-            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
-            Dog.Text = "Show lost Dogs";
-            ApplicationBar.MenuItems.Add(Dog);
-
-            ApplicationBarMenuItem Cat = new ApplicationBarMenuItem();
-            Cat.Text = "Show lost Cats";
-            ApplicationBar.MenuItems.Add(Cat);
-
-            ApplicationBarMenuItem Fish = new ApplicationBarMenuItem();
-            Fish.Text = "Show lost Fishes";
-            ApplicationBar.MenuItems.Add(Fish);
-
-            ApplicationBarMenuItem Bird = new ApplicationBarMenuItem();
-            Bird.Text = "Show lost Birds";
-            ApplicationBar.MenuItems.Add(Bird);
-
-            ApplicationBarMenuItem Hamster = new ApplicationBarMenuItem();
-            Hamster.Text = "Show lost Hamsters";
-            ApplicationBar.MenuItems.Add(Hamster);
-
-            ApplicationBarMenuItem Rabbit = new ApplicationBarMenuItem();
-            Rabbit.Text = "Show Lost Rabbits";
-            ApplicationBar.MenuItems.Add(Rabbit);
-
-            ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
-            Turtle.Text = "Show Lost Turtles";
-            ApplicationBar.MenuItems.Add(Turtle);
-
             if (mainMap.Children.Contains(LostHeatLayer))
             {
                 mainMap.Children.Remove(LostHeatLayer);
@@ -353,11 +323,11 @@ namespace PetSociety_for_Windows.Pages.Analysis
             {
                 progressBar.Opacity = 100;
                 WebClient Request = new WebClient();
-                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAllLostComplete);
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
                 Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token));
             }
         }
-        private void RetrieveAllLostComplete(object sender, DownloadStringCompletedEventArgs e)
+        private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
             progressBar.Opacity = 0;
@@ -394,36 +364,6 @@ namespace PetSociety_for_Windows.Pages.Analysis
         
         private void LoadStrayHeatMap(object sender, EventArgs e)
         {
-            ApplicationBar.MenuItems.Clear();
-
-            ApplicationBarMenuItem Dog = new ApplicationBarMenuItem();
-            Dog.Text = "Show stray Dogs";
-            ApplicationBar.MenuItems.Add(Dog);
-
-            ApplicationBarMenuItem Cat = new ApplicationBarMenuItem();
-            Cat.Text = "Show stray Cats";
-            ApplicationBar.MenuItems.Add(Cat);
-
-            ApplicationBarMenuItem Fish = new ApplicationBarMenuItem();
-            Fish.Text = "Show stray Fishes";
-            ApplicationBar.MenuItems.Add(Fish);
-
-            ApplicationBarMenuItem Bird = new ApplicationBarMenuItem();
-            Bird.Text = "Show stray Birds";
-            ApplicationBar.MenuItems.Add(Bird);
-
-            ApplicationBarMenuItem Hamster = new ApplicationBarMenuItem();
-            Hamster.Text = "Show stray Hamsters";
-            ApplicationBar.MenuItems.Add(Hamster);
-
-            ApplicationBarMenuItem Rabbit = new ApplicationBarMenuItem();
-            Rabbit.Text = "Show stray Rabbits";
-            ApplicationBar.MenuItems.Add(Rabbit);
-
-            ApplicationBarMenuItem Turtle = new ApplicationBarMenuItem();
-            Turtle.Text = "Show stray Turtles";
-            ApplicationBar.MenuItems.Add(Turtle);
-
             if (mainMap.Children.Contains(StrayHeatLayer))
             {
                 mainMap.Children.Remove(StrayHeatLayer);
@@ -432,11 +372,11 @@ namespace PetSociety_for_Windows.Pages.Analysis
             {
                 progressBar.Opacity = 100;
                 WebClient Request = new WebClient();
-                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveAllStrayComplete);
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveStrayComplete);
                 Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveStray?INtoken=" + StaticObjects.Token));
             }
         }
-        private void RetrieveAllStrayComplete(object sender, DownloadStringCompletedEventArgs e)
+        private void RetrieveStrayComplete(object sender, DownloadStringCompletedEventArgs e)
         {
             //MessageBox.Show(e.Result.ToString());
             progressBar.Opacity = 0;
@@ -506,7 +446,7 @@ namespace PetSociety_for_Windows.Pages.Analysis
 
         private void MapZoom(object sender, MapZoomEventArgs e)
         {
-            mainMap.ViewChangeEnd += new EventHandler<MapEventArgs>(ReDrawHeatMap);
+            //mainMap.ViewChangeEnd += new EventHandler<MapEventArgs>(ReDrawHeatMap);
             
            
         }

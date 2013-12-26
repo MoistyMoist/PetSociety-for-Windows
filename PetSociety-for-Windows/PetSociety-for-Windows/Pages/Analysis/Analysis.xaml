@@ -64,7 +64,7 @@
                     <ProgressBar x:Name="progressBar" IsIndeterminate="true" Margin="0,57,0,-4" Foreground="White" Grid.ColumnSpan="2" />
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2">
-                    <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom" MapZoom="MapZoom"/>
+                    <my:Map x:Name="mainMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed"  ZoomBarVisibility="Visible" Center="1.358751,103.844624" Height="724" VerticalAlignment="Bottom"/>
                 </Border>
             </Grid>
         </Canvas>
