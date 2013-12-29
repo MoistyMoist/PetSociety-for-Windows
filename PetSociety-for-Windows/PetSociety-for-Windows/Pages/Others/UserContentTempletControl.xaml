@@ -9,15 +9,16 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="100" d:DesignWidth="250" d:Margin="0,0,0,0" Background="White" BorderBrush="Black">
 
-    <StackPanel MinHeight="50" MinWidth="200">
+    <StackPanel MinHeight="100" MinWidth="200">
         <StackPanel.Background>
             <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
         </StackPanel.Background>
-
-        <TextBlock TextWrapping="Wrap" Text="dsa" Name="title"/>
-        <TextBlock Text="Date" Name="Date"/>
-        <TextBlock TextWrapping="Wrap" Text="Description" Height="92" Name="Description"/>
-
+        <Grid>
+            <TextBlock TextWrapping="Wrap" Text="dsa" x:Name="title" Margin="60,0,0,0"/>
+            <Image x:Name="male" Height="43" Margin="0,0,195,0" Source="/Resources/male.png" />
+            <Image x:Name="female" Height="43" Margin="0,0,195,0" Source="/Resources/female.png" />
+            <TextBlock TextWrapping="Wrap" Text="Description" x:Name="Description" Margin="0,43,0,-27" VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="16"/>
+        </Grid>
     </StackPanel>
 
 </UserControl>

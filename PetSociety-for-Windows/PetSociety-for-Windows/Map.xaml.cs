@@ -509,7 +509,8 @@ namespace PetSociety_for_Windows.Pages
                 if (StaticObjects.MapStrays.ElementAt(i).StrayID == Convert.ToInt16(pin.Tag))
                 {
                     petType = StaticObjects.MapStrays.ElementAt(i).Type.ToUpper();
-                    content.title.Text = StaticObjects.MapStrays.ElementAt(i).Biography;
+                    content.title.Text = StaticObjects.MapStrays.ElementAt(i).Title;
+                    content.Description.Text = StaticObjects.MapStrays.ElementAt(i).Biography;
                     break;
                 }
             }
@@ -570,7 +571,7 @@ namespace PetSociety_for_Windows.Pages
         }
         private void RetrieveUserComplete(object sender, DownloadStringCompletedEventArgs e)
         {
-            //MessageBox.Show(e.Result.ToString());
+           // MessageBox.Show(e.Result.ToString());
             UserModel childlist = new UserModel();
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -645,13 +646,22 @@ namespace PetSociety_for_Windows.Pages
             int userID = Convert.ToInt16(pin.TabIndex);
             pin = (Pushpin)userLayer.Children.ElementAt(userID);
             string sex = "";
-            LostContentTempletControl content = new LostContentTempletControl();
+            UserContentTempletControl content = new UserContentTempletControl();
             for (int i = 0; i < StaticObjects.MapUsers.Count; i++)
             {
                 if (StaticObjects.MapUsers.ElementAt(i).UserID == Convert.ToInt16(pin.Tag))
                 {
                     sex = StaticObjects.MapUsers.ElementAt(i).Sex.ToUpper();                    
                     content.title.Text = StaticObjects.MapUsers.ElementAt(i).Name;
+                    content.Description.Text = StaticObjects.MapUsers.ElementAt(i).Biography;
+                    if(sex.Equals("M"))
+                    {
+                        content.female.Visibility = 0;
+                    }
+                    else
+                    {
+                        content.male.Visibility = 0;
+                    }
                     break;
                 }
             }
@@ -764,6 +774,8 @@ namespace PetSociety_for_Windows.Pages
                 if (StaticObjects.MapEvents.ElementAt(i).EventID == Convert.ToInt16(pin.Tag))
                 {
                     content.title.Text = StaticObjects.MapEvents.ElementAt(i).Name;
+                    content.Description.Text = StaticObjects.MapEvents.ElementAt(i).Description;
+                    content.Date.Text = StaticObjects.MapEvents.ElementAt(i).StartDateTime.ToShortDateString();
                     break;
                 }
             }
