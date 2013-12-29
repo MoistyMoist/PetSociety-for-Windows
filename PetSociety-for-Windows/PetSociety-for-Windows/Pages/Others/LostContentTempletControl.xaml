@@ -14,6 +14,8 @@
             <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
         </StackPanel.Background>
 
-        <TextBlock Text="dsa" Name="title"/>
+        <TextBlock TextWrapping="Wrap" Text="dsa" Name="title"/>
+        <TextBlock Text="Date" Name="Date"/>
+        <TextBlock TextWrapping="Wrap" Text="Description" Height="92" Name="Description"/>
     </StackPanel>
 </UserControl>
