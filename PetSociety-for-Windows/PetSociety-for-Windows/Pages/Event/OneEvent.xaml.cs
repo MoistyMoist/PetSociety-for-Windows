@@ -34,20 +34,19 @@ namespace PetSociety_for_Windows.Pages.Event
             eventDescription.Text = StaticObjects.SelectedEvent.Description.ToString();
             eventStartDate.Text = StaticObjects.SelectedEvent.StartDateTime.ToString();
             eventEndDate.Text = StaticObjects.SelectedEvent.EndDateTime.ToString();
-
-
         }
+
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
             if (left > -100)
             {
-                ApplicationBar.IsVisible = true;
+                //ApplicationBar.IsVisible = true;
                 MoveViewWindow(-420);
             }
             else
             {
-                ApplicationBar.IsVisible = false;
+                // ApplicationBar.IsVisible = false;
                 MoveViewWindow(0);
             }
         }
@@ -56,7 +55,7 @@ namespace PetSociety_for_Windows.Pages.Event
         void MoveViewWindow(double left)
         {
             _viewMoved = true;
-         
+
             ((Storyboard)canvas.Resources["moveAnimation"]).SkipToFill();
             ((DoubleAnimation)((Storyboard)canvas.Resources["moveAnimation"]).Children[0]).To = left;
             ((Storyboard)canvas.Resources["moveAnimation"]).Begin();
