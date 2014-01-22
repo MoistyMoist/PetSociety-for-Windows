@@ -35,6 +35,8 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             InitializeComponent();
         }
 
+      
+
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -43,10 +45,27 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             string lan;
             string longg;
             NavigationContext.QueryString.TryGetValue("lan", out lan);
-            NavigationContext.QueryString.TryGetValue("long", out longg);
+            NavigationContext.QueryString.TryGetValue("lon", out longg);
 
-            MessageBox.Show(lan + " " + longg);
+            tb_Lat.Text = lan.ToString();
+            tb_Long.Text = longg.ToString();
+
+     
                 
         }
+
+      
+        private void btn_create_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_cancel_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml?", UriKind.Relative)); 
+        }
+    
+
+        
     }
 }
