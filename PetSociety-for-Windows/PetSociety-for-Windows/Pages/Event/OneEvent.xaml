@@ -1,11 +1,13 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="PetSociety_for_Windows.Pages.Profile.Profile"
+    x:Class="PetSociety_for_Windows.Pages.Event.EventList"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
+
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
@@ -55,18 +57,26 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Events" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
-                <Border Grid.Row="1" Background="#FFCFD4E2">
-                    <ListBox x:Name="lostListBox" Height="441" Margin="12,10,0,0" VerticalAlignment="Top" Width="456" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible">
-                        <ListBox.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding Address}"/>
-                            </DataTemplate>
-                        </ListBox.ItemTemplate>
-                    </ListBox>
+                <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
+
+                    
+                    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+                        <Image Height="200" HorizontalAlignment="Left" Margin="122,21,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="200" />
+                        <TextBlock Height="114" HorizontalAlignment="Left" Margin="20,248,0,0" Name="textBlock1" Text="Mingle with other pets this coming saturday
+at Bishan Park! Food and drinks will be
+provided! Come on down and have a great
+time!" VerticalAlignment="Top" Width="417" />
+                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,368,0,0" Name="textBlock2" Text="Time: 1pm - 5pm" VerticalAlignment="Top" Width="417" />
+                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,404,0,0" Name="textBlock3" Text="Location: Bishan Park" VerticalAlignment="Top" Width="417" />
+                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,464,0,0" Name="textBlock4" Text="How to go there?" VerticalAlignment="Top" />
+                        <my:Map Height="128" HorizontalAlignment="Left" Margin="20,500,0,0" Name="map1" VerticalAlignment="Top" Width="430" />
+                    </Grid>
+
                 </Border>
             </Grid>
         </Canvas>
     </Canvas>
+
 </phone:PhoneApplicationPage>
