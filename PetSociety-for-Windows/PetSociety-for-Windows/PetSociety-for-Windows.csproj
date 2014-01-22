@@ -316,6 +316,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="ic_add.png" />
     <Content Include="Resources\AppbarIcon\Dark\add.png" />
     <Content Include="Resources\AppbarIcon\Dark\back.png" />
     <Content Include="Resources\AppbarIcon\Dark\basecircle.png" />
@@ -544,6 +545,7 @@
     <Content Include="Resources\IconsDark\ic_9-av-stop.png" />
     <Content Include="Resources\IconsDark\ic_9-av-upload.png" />
     <Content Include="Resources\IconsDark\lostIcon.png" />
+    <Content Include="Resources\Icons\ic_add.png" />
     <Content Include="Resources\vetIcon.jpg" />
     <Content Include="Resources\Icons\ic_1-navigation-accept.png" />
     <Content Include="Resources\Icons\ic_1-navigation-back.png" />
