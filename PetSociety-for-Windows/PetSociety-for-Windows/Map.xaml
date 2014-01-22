@@ -53,9 +53,9 @@
                         <TextBlock HorizontalAlignment="Left" Height="44" Margin="10,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="157" Text="Pins" FontSize="26.667" FontStyle="Italic" FontWeight="Bold"/>
                         <Button Content="Lost Pets&#x9;" Margin="16,80,10,663" Style="{StaticResource lostPinStyle}" Click="LoadLostPins"/>
                         <Button Content="Stray Pets" Margin="16,137,10,606" Style="{StaticResource StrayPinStyle}" Click="LoadStrayPins"/>
-                        <Button Content="Friends" Margin="16,194,10,549" Style="{StaticResource FriendPinStyle}"/>
-                        <Button Content="Events" Margin="16,251,10,492" Style="{StaticResource EventPinStyle}"/>
-                        <Button Content="Places" Margin="16,308,10,435" Style="{StaticResource placePinStyle}"/>
+                        <Button Content="Friends" Margin="16,194,10,549" Style="{StaticResource FriendPinStyle}" Click="LoadUserPins"/>
+                        <Button Content="Events" Margin="16,251,10,492" Style="{StaticResource EventPinStyle}" Click="LoadEventPins"/>
+                        <Button Content="Places" Margin="16,308,10,435" Style="{StaticResource placePinStyle}" Click="LoadLocationPins"/>
                         <TextBlock HorizontalAlignment="Left" Height="61" Margin="39,409,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="349" Text="Hint: Trigger pins to display on map" FontStyle="Italic" FontSize="21.333"/>
                     </Grid>
                 </ScrollViewer>

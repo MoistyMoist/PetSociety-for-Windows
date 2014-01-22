@@ -282,7 +282,22 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotLostPins();
+                bool removeLayer = false;
+                for(int i=0;i<mainMap.Children.Count;i++)
+                {
+                    if(mainMap.Children.ElementAt(i).Equals(lostLayer))
+                    {
+                        removeLayer = true;
+                    }
+                }
+                if(removeLayer)
+                {
+                    mainMap.Children.Remove(lostLayer);
+                }
+                else
+                {
+                    PlotLostPins();
+                }
             }
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
