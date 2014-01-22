@@ -123,12 +123,6 @@
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Event\CreateEvent.xaml.cs">
-      <DependentUpon>CreateEvent.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Event\EditEvent.xaml.cs">
-      <DependentUpon>EditEvent.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Event\Event.xaml.cs">
       <DependentUpon>Event.xaml</DependentUpon>
     </Compile>
@@ -250,14 +244,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Map.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Event\CreateEvent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Event\EditEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

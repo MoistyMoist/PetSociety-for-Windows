@@ -16,7 +16,19 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="#FF31363E">
     	<TextBox x:Name="SearchTB" Text="Search" Margin="0,0,10,675" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold" Style="{StaticResource SearchTBStyle}" Cursor="Arrow" InputScope="Search" KeyDown="SearchTB_KeyDown"/>
-        <ListBox x:Name="AddressResult"  Margin="10,98,24,10" />
+        <ListBox x:Name="AddressResult"  Margin="10,98,24,10">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Name="Address" Text="{Binding SEARCHVAL}"/>
+                        <TextBlock Name="X" Text="{Binding X}"/>
+                        <TextBlock Name="Y" Text="{Binding Y}"/>
+                        <Rectangle Fill="#FFA6A6A6" Height="3" Stroke="#FFA6A6A6" StrokeThickness="5"/>
+                    </StackPanel>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
         <!--ContentPanel - place additional content here-->
     </Grid>
 
