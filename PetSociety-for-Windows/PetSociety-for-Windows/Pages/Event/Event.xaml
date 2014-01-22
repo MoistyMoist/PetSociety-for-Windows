@@ -65,15 +65,13 @@
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
 
-                    <ListBox x:Name="eventListBox" Height="441" Margin="12,10,0,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="eventListBox_Tap">
+                    <ListBox x:Name="eventListBox" Height="681" Margin="18,10,28,0" VerticalAlignment="Top" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="eventListBox_Tap">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding Name}"/>
-                                    <TextBlock Text="{Binding Description}"/>
-                                    <TextBlock Text="{Binding StartDateTime}"/>
-                                    <TextBlock Text="{Binding EndDateTime}"/>
-                                    <Rectangle Fill="#FFA6A6A6" Height="3" Stroke="#FFA6A6A6" StrokeThickness="5"/>
+                                    <TextBlock Text="{Binding Name}" FontSize="25"/>
+                                    <TextBlock Text="{Binding Description}" FontSize="25"/>
+                                    <Rectangle Fill="#FFA6A6A6" Height="2" Stroke="#FFA6A6A6" StrokeThickness="3" Margin="0,2"/>
                                 </StackPanel>
 
                             </DataTemplate>

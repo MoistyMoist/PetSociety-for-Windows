@@ -7,8 +7,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
-
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+ FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -27,8 +26,8 @@
             <Border Width="420"  CacheMode="BitmapCache" Background="#FF31363E" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Height="{Binding ActualHeight, ElementName=canvas}">
                 <ScrollViewer>
                     <Grid>
-                        <TextBox  Name="SearchTB" Text="Search" Margin="0,0,0,707" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold" Style="{StaticResource SearchTBStyle}" Cursor="Arrow" GotFocus="NavigateToSearch"/>
-                        <Button Click="NavigateToHome" Name="HomeBtn" Content="Home" Margin="16,81,16,626" Style="{StaticResource navHomeStyle}"/>
+                        <TextBox  x:Name="SearchTB" Text="Search" Margin="0,0,0,707" Background="#FF434C59" BorderBrush="#FF2C3038" FontSize="36" Foreground="#FFE0E1CA" FontWeight="Bold" Style="{StaticResource SearchTBStyle}" Cursor="Arrow" GotFocus="NavigateToSearch"/>
+                        <Button Click="NavigateToHome" x:Name="HomeBtn" Content="Home" Margin="16,81,16,626" Style="{StaticResource navHomeStyle}"/>
                         <Path Data="M10,154 L86,154" Fill="#FFA6A6A6" HorizontalAlignment="Left" Height="2" Margin="0,206,0,0" Stretch="Fill" Stroke="#FFA6A6A6" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="410"/>
                         <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="Account" FontStyle="Italic" FontSize="21.333"/>
                         <Button Content="Profile" Margin="10,213,16,530" Style="{StaticResource navAccountStyle}"/>
@@ -57,26 +56,24 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Events" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
-                <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
+                <Border Grid.Row="1" Background="#FFCFD4E2">
+                    <ScrollViewer>
+                        <StackPanel>
+                            <TextBlock Margin="0,10,0,0" Height="30" TextWrapping="Wrap" Text="Event Title:" Width="120" FontSize="23"/>
+                            <TextBlock x:Name="eventTitle" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="438" FontSize="28" TextAlignment="Center"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Description:" Width="120" FontSize="23"/>
+                            <TextBlock x:Name="eventDescription" Margin="0,0,0,0" Height="120" TextWrapping="Wrap" Text="" Width="432" FontSize="28" TextAlignment="Center"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Start Date and Time:" Width="211" FontSize="23"/>
+                            <TextBlock x:Name="eventStartDate" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="400" FontSize="28" TextAlignment="Center"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="End Date and Time:" Width="203" FontSize="23"/>
+                            <TextBlock x:Name="eventEndDate" Margin="0,0,00,0" Height="72" TextWrapping="Wrap" Text="" Width="400"  FontSize="28" TextAlignment="Center"/>
 
-                    
-                    <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-                        <Image Height="200" HorizontalAlignment="Left" Margin="122,21,0,0" Name="image1" Stretch="Fill" VerticalAlignment="Top" Width="200" />
-                        <TextBlock Height="114" HorizontalAlignment="Left" Margin="20,248,0,0" Name="textBlock1" Text="Mingle with other pets this coming saturday
-at Bishan Park! Food and drinks will be
-provided! Come on down and have a great
-time!" VerticalAlignment="Top" Width="417" />
-                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,368,0,0" Name="textBlock2" Text="Time: 1pm - 5pm" VerticalAlignment="Top" Width="417" />
-                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,404,0,0" Name="textBlock3" Text="Location: Bishan Park" VerticalAlignment="Top" Width="417" />
-                        <TextBlock Height="30" HorizontalAlignment="Left" Margin="20,464,0,0" Name="textBlock4" Text="How to go there?" VerticalAlignment="Top" />
-                        <my:Map Height="128" HorizontalAlignment="Left" Margin="20,500,0,0" Name="map1" VerticalAlignment="Top" Width="430" />
-                    </Grid>
-
+                        </StackPanel>
+                    </ScrollViewer>
                 </Border>
             </Grid>
         </Canvas>
     </Canvas>
-
 </phone:PhoneApplicationPage>

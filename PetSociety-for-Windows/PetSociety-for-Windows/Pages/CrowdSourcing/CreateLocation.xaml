@@ -30,7 +30,7 @@
                         <Button Click="NavigateToHome" Name="HomeBtn" Content="Home" Margin="16,81,16,626" Style="{StaticResource navHomeStyle}"/>
                         <Path Data="M10,154 L86,154" Fill="#FFA6A6A6" HorizontalAlignment="Left" Height="2" Margin="0,206,0,0" Stretch="Fill" Stroke="#FFA6A6A6" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="410"/>
                         <TextBlock HorizontalAlignment="Left" Height="25" Margin="10,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128" Text="Account" FontStyle="Italic" FontSize="21.333"/>
-                        <Button Content="Profile" Margin="10,213,16,530" Style="{StaticResource navAccountStyle}"/>
+                        <Button  Click="NavigateToProfile" Content="Profile" Margin="10,213,16,530" Style="{StaticResource navAccountStyle}"/>
                         <Button Click="NavigateToEvent" Content="Events" Margin="10,275,16,468" Style="{StaticResource navEventDtyle}"/>
                         <Path Data="M10,154 L86,154" Fill="#FFA6A6A6" HorizontalAlignment="Left" Height="2" Margin="0,377,0,0" Stretch="Fill" Stroke="#FFA6A6A6" StrokeThickness="5" UseLayoutRounding="False" VerticalAlignment="Top" Width="410"/>
                         <TextBlock HorizontalAlignment="Left" Height="27" Margin="10,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167" Text="Find Pets" FontSize="21.333" FontStyle="Italic"/>
@@ -58,24 +58,25 @@
                     </Button>
                     <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
-                <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,10">
+                <Border Grid.Row="1" Background="#FF435EAA" Margin="0,5,0,15">
                     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-                        <TextBox Name="tb_Lat" HorizontalAlignment="Left" Height="69" Margin="85,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="149"/>
-                        <TextBox Name="tb_Long" HorizontalAlignment="Left" Height="69" Margin="275,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="171"/>
-                        <TextBox Name="tb_Title" HorizontalAlignment="Left" Height="69" Margin="146,158,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="271"/>
-                        <TextBox Name ="tb_Desc" HorizontalAlignment="Left" Height="106" Margin="146,274,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
-                        <TextBox Name ="tb_Address" HorizontalAlignment="Left" Height="106" Margin="146,380,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="258"/>
-                        <Button Name="btn_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="58,504,0,0" VerticalAlignment="Top" Click="btn_cancel_Click_1"/>
-                        <Button Name="btn_create" Content="Create" HorizontalAlignment="Left" Margin="254,504,0,0" VerticalAlignment="Top" Click="btn_create_Click_1"/>
+                        <TextBox Name="tb_Lat" HorizontalAlignment="Left" Height="69" Margin="85,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="149"/>
+                        <TextBox Name="tb_Long" HorizontalAlignment="Left" Height="69" Margin="275,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="171"/>
+                        <TextBox Name="tb_Title" HorizontalAlignment="Left" Height="69" Margin="146,158,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="271"/>
+                        <TextBox Name ="tb_Desc" HorizontalAlignment="Left" Height="106" Margin="146,274,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="258"/>
+                        <TextBox Name ="tb_Address" HorizontalAlignment="Left" Height="106" Margin="146,380,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="258"/>
+                        <Button Name="btn_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="57,545,0,0" VerticalAlignment="Top" Click="btn_cancel_Click_1" Foreground="#FFFFDBDB"/>
+                        <Button Name="btn_create" Content="Create" HorizontalAlignment="Left" Margin="253,545,0,0" VerticalAlignment="Top" Click="btn_create_Click_1"/>
 
+                        <RadioButton Margin="43,486,273,146" GroupName="rb_type" Content="Vet" />
+                        <RadioButton GroupName="rb_type" Content="Pet Store" Margin="253,491,39,143" />
+                        <TextBlock HorizontalAlignment="Left" Margin="34,10,0,0" TextWrapping="Wrap" Text="Current Location" VerticalAlignment="Top" Height="61" Width="345" FontSize="30"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="34,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="X :" VerticalAlignment="Top" Height="61" Width="200"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="253,58,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" Height="41" Width="33" Grid.Row="1"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="13,155,0,0" TextWrapping="Wrap" Text="Name of  Location" VerticalAlignment="Top" Height="75" Width="149" FontSize="25"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="14,283,0,0" TextWrapping="Wrap" Text="Description of Location" VerticalAlignment="Top" Height="75" Width="149" FontSize="25"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="19,393,0,0" TextWrapping="Wrap" Text="Address of Location" VerticalAlignment="Top" Height="75" Width="149" FontSize="25"/>
 
-                    
-                    <TextBlock HorizontalAlignment="Left" Margin="34,10,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Current Location" VerticalAlignment="Top" Height="61" Width="200"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="X :" VerticalAlignment="Top" Height="61" Width="200"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="253,58,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" Height="41" Width="33" Grid.Row="1"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,155,0,0" TextWrapping="Wrap" Text="Name of  Location" VerticalAlignment="Top" Height="75" Width="149" Grid.Row="1"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,283,0,0" TextWrapping="Wrap" Text="Description of Location" VerticalAlignment="Top" Height="75" Width="149" Grid.Row="1"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="34,393,0,0" TextWrapping="Wrap" Text="Address of Location" VerticalAlignment="Top" Height="75" Width="149" Grid.Row="1"/>
 
                     </Grid>
                 </Border>
@@ -83,7 +84,7 @@
         </Canvas>
     </Canvas>
     <!--ContentPanel - place additional content here-->
-       
-    
+
+
 
 </phone:PhoneApplicationPage>
