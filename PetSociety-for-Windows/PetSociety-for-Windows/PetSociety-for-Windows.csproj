@@ -111,6 +111,12 @@
     <Compile Include="Pages\CrowdSourcing\Nearby.xaml.cs">
       <DependentUpon>Nearby.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CrowdSourcing\NearbyCrowdSource.xaml.cs">
+      <DependentUpon>NearbyCrowdSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CrowdSourcing\NearbyDetails.xaml.cs">
+      <DependentUpon>NearbyDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CrowdSourcing\Stray.xaml.cs">
       <DependentUpon>Stray.xaml</DependentUpon>
     </Compile>
@@ -216,6 +222,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CrowdSourcing\Nearby.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CrowdSourcing\NearbyCrowdSource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CrowdSourcing\NearbyDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -515,6 +529,7 @@
     <Content Include="Resources\IconsDark\ic_9-av-stop.png" />
     <Content Include="Resources\IconsDark\ic_9-av-upload.png" />
     <Content Include="Resources\IconsDark\lostIcon.png" />
+    <Content Include="Resources\vetIcon.jpg" />
     <Content Include="Resources\Icons\ic_1-navigation-accept.png" />
     <Content Include="Resources\Icons\ic_1-navigation-back.png" />
     <Content Include="Resources\Icons\ic_1-navigation-cancel.png" />
@@ -660,6 +675,7 @@
     <Content Include="Resources\Icons\ic_9-av-upload.png" />
     <Content Include="Resources\ic_location_place.png" />
     <Content Include="Resources\male.png" />
+    <Content Include="Resources\petStore.jpg" />
     <Content Include="Resources\rabbit.png" />
     <Content Include="Resources\Stray.png" />
     <Content Include="Resources\turtle.png" />
