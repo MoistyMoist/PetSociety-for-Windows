@@ -114,12 +114,12 @@ namespace PetSociety_for_Windows.Pages.Lost
             var left = Canvas.GetLeft(LayoutRoot);
             if (left > -100)
             {
-                ApplicationBar.IsVisible = true;
+                //ApplicationBar.IsVisible = true;
                 MoveViewWindow(-420);
             }
             else
             {
-                ApplicationBar.IsVisible = false;
+                //ApplicationBar.IsVisible = false;
                 MoveViewWindow(0);
             }
         }
@@ -308,15 +308,15 @@ namespace PetSociety_for_Windows.Pages.Lost
         }
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
         }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Event/Event.xaml", UriKind.Relative));
         }
-        private void NavigateToLost(object sender, RoutedEventArgs e)
+        private void NavigateToProfile(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Lost/Lost.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
         }
         private void NavigateToStray(object sender, RoutedEventArgs e)
         {

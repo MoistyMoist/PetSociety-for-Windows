@@ -27,12 +27,12 @@ namespace PetSociety_for_Windows.Pages.Lost
             var left = Canvas.GetLeft(LayoutRoot);
             if (left > -100)
             {
-                ApplicationBar.IsVisible = true;
+                //ApplicationBar.IsVisible = true;
                 MoveViewWindow(-420);
             }
             else
             {
-                ApplicationBar.IsVisible = false;
+                //ApplicationBar.IsVisible = false;
                 MoveViewWindow(0);
             }
         }
@@ -168,12 +168,12 @@ namespace PetSociety_for_Windows.Pages.Lost
                                 //right flick
                                 if (((VisualStateGroup)VisualStateManager.GetVisualStateGroups(canvas as FrameworkElement)[0]).CurrentState.Name == "RightMenuOpened")
                                 {
-                                    ApplicationBar.IsVisible = true;
+                                    //ApplicationBar.IsVisible = true;
                                     VisualStateManager.GoToState(this, "Normal", true);
                                 }
                                 else
                                 {
-                                    ApplicationBar.IsVisible = false;
+                                    //ApplicationBar.IsVisible = false;
                                     VisualStateManager.GoToState(this, "LeftMenuOpened", true);
                                 }
                                 return;
@@ -217,7 +217,7 @@ namespace PetSociety_for_Windows.Pages.Lost
         }
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
         }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {
@@ -242,6 +242,10 @@ namespace PetSociety_for_Windows.Pages.Lost
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+        }
+        private void NavigateToProfile(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
