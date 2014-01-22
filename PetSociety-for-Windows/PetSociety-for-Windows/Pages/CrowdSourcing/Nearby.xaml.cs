@@ -67,6 +67,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             myLocation.Location = e.Position.Location;
           currentLat=  nearbyMap.Center.Latitude.ToString();
           currentLong = nearbyMap.Center.Longitude.ToString();
+
          
         }
 
@@ -146,7 +147,8 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 
         private void nearbyCSBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/CreateLocation.xaml?msg=" + currentLat, UriKind.Relative)); 
+            NavigationService.Navigate(new Uri("/CreateLocation.xaml?msg=" + currentLat, UriKind.Relative)); 
+
         }
 
     }
