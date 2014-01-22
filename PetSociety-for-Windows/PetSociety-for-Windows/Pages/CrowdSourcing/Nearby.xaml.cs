@@ -135,17 +135,16 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
         private void NearbyPinIconClick(object sender, GestureEventArgs e)
         {
             Pushpin pin = (Pushpin)sender;
-            //  for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
-            //   {
+              for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
+               {
 
             // tb.Text = StaticObjects.MapLocations.ElementAt(i).LocationID.ToString();
-            //  locationId = StaticObjects.MapLocations.ElementAt(i).LocationID.ToString();
+              locationId = StaticObjects.MapLocations.ElementAt(i).LocationID.ToString();
 
-            //Application.Current.Resources.Add("NavigationParam", <);
+           
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/NearbyDetails.xaml?locationID=" + locationId.ToString(), UriKind.Relative)); 
 
-            NavigationService.Navigate(new Uri("/NearbyDetails.xaml?msg=", UriKind.Relative));
-
-            // }
+             }
 
         }
 

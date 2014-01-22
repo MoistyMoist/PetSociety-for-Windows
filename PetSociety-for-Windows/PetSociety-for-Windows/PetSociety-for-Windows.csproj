@@ -108,6 +108,9 @@
     <Compile Include="Pages\CrowdSourcing\CreateLocation.xaml.cs">
       <DependentUpon>CreateLocation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CrowdSourcing\NearbyDetails.xaml.cs">
+      <DependentUpon>NearbyDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CrowdSourcing\Nearby.xaml.cs">
       <DependentUpon>Nearby.xaml</DependentUpon>
     </Compile>
@@ -219,6 +222,10 @@
     <Page Include="Pages\Analysis\Analysis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CrowdSourcing\NearbyDetails.xaml">
+       <SubType>Designer</SubType>
+        <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Event\CreateEvent.xaml">
       <SubType>Designer</SubType>
