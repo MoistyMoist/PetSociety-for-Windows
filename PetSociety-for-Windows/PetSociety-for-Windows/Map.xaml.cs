@@ -105,6 +105,9 @@ namespace PetSociety_for_Windows.Pages
             LoadUserPins(null, null);
             LoadEventPins(null, null);
             LoadLocationPins(null, null);
+
+
+
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
