@@ -40,11 +40,13 @@ namespace PetSociety_for_Windows.Pages.Event
 
         void MoveViewWindow(double left)
         {
+            /*
             _viewMoved = true;
             if (left == -420)
                 ApplicationBar.IsVisible = true;
             else
                 ApplicationBar.IsVisible = false;
+             */
             ((Storyboard)canvas.Resources["moveAnimation"]).SkipToFill();
             ((DoubleAnimation)((Storyboard)canvas.Resources["moveAnimation"]).Children[0]).To = left;
             ((Storyboard)canvas.Resources["moveAnimation"]).Begin();
@@ -266,6 +268,34 @@ namespace PetSociety_for_Windows.Pages.Event
                     NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Uri createEvent = new System.Uri("http://petsociety.cloudapp.net/api/AddEvent?token=" + StaticObjects.Token
+                                   + "&INname="  + eventTitle.Text
+                                   + "&INdescription=" + eventDescription.Text
+                                   + "&INstartDateTime=" + "01/01/1994 03:14:20"
+                                   + "&INendDateTime=" + "01/01/199403:14:20"
+                                   + "&INx=" + StaticObjects.CurrentUser.X
+                                   + "&INy=" + StaticObjects.CurrentUser.Y
+                                   + "&INstatus=" + "1"
+                                   + "&INprivacy=" + "1"
+                                   + "&INuserID=" + StaticObjects.CurrentUser.UserID);
+            MessageBox.Show(createEvent.ToString());
+
+            WebClient Request = new WebClient();
+            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(AddEvent);
+            Request.DownloadStringAsync(createEvent);
+
+
+        }
+
+        private void AddEvent(object sender, DownloadStringCompletedEventArgs e)
+        {
+            MessageBox.Show("Event added");
+                        NavigationService.Navigate(new Uri("/Pages/Event/Event.xaml", UriKind.Relative));
+
         }
     }
 }
