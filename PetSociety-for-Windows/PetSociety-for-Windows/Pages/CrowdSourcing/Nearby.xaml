@@ -61,7 +61,7 @@
                     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
                         <my:Map x:Name="nearbyMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" ZoomBarVisibility="Visible" Center="1.358751,103.844624" Margin="0,91,0,10" />
-                        <Button Name="nearbyCSBtn" Content="View A" HorizontalAlignment="Left" Margin="0,-9,0,618" Click="nearbyCSBtn_Click" Width="456"/>
+                        <Button Name="nearbyCSBtn" Content="Add a Location " HorizontalAlignment="Left" Margin="0,-9,0,618" Click="nearbyCSBtn_Click" Width="456"/>
                     </Grid>
                 </Border>
             </Grid>

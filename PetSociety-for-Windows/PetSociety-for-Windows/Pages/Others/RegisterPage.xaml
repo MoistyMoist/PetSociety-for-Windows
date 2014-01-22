@@ -33,7 +33,9 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2">
 
+
                 </Border>
+               
             </Grid>
         </Canvas>
     </Canvas>

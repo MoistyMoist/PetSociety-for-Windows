@@ -63,13 +63,17 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
       
         private void btn_create_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
+            RadioButton rb = sender as RadioButton;
+            String type = rb.Name.ToString();
+            MessageBox.Show(type);
+
             System.Uri createLocation = new System.Uri("http://petsociety.cloudapp.net/api/AddLocation?token=" + StaticObjects.Token
                                  + "&INx=" + tb_Lat.Text
                                  + "&INy=" + tb_Long.Text
                                  + "&INdescription=" + tb_Desc.Text.ToString()
                                  + "&INtitle=" + tb_Title.Text.ToString()
                                  + "&INaddress=" + tb_Address.Text.ToString()
-                                 + "&INtype=" + "Shop"
+                                 + "&INtype=" + type
                                  + "&INuserID=" + StaticObjects.CurrentUser.UserID);
             MessageBox.Show(createLocation.ToString());
 
