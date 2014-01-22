@@ -57,7 +57,11 @@
                     <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,10">
-                  
+                    <Button Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="460" Height="369" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="20,132,0,0" ClickMode="Press" Style="{StaticResource MainNavButtonStyle}">
+                        <Button.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Resources/coming-soon.png"/>
+                        </Button.Background>
+                    </Button>
                 </Border>
             </Grid>
         </Canvas>

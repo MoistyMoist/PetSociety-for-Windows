@@ -102,9 +102,6 @@
     <Compile Include="Pages\Analysis\Analysis.xaml.cs">
       <DependentUpon>Analysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Analysis\AnalysisDetail.xaml.cs">
-      <DependentUpon>AnalysisDetail.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CrowdSourcing\CreateLocation.xaml.cs">
       <DependentUpon>CreateLocation.xaml</DependentUpon>
     </Compile>
@@ -235,10 +232,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Event\OneEvent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Analysis\AnalysisDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -401,6 +394,7 @@
     <Content Include="Resources\AppbarIcon\Light\upload.png" />
     <Content Include="Resources\bird.png" />
     <Content Include="Resources\cat.png" />
+    <Content Include="Resources\coming-soon.png" />
     <Content Include="Resources\dog.png" />
     <Content Include="Resources\event.png" />
     <Content Include="Resources\female.png" />
