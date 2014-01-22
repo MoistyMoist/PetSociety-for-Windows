@@ -227,7 +227,7 @@ namespace PetSociety_for_Windows.Pages
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
             OpenClose_Left(null, null);
-            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+           // NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
@@ -273,7 +273,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void LoadLostPins(object sender, RoutedEventArgs e)
         {
-            if ((StaticObjects.MapLosts == null || StaticObjects.MapLosts.Count == 0)||(e!=null))
+            if ((StaticObjects.MapLosts == null || StaticObjects.MapLosts.Count == 0))
             {
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
@@ -282,7 +282,19 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotLostPins();
+                bool removeLayer = false;
+                for(int i=0;i<mainMap.Children.Count;i++)
+                {
+                    if(mainMap.Children.ElementAt(i).Equals(lostLayer))
+                    {
+                        removeLayer = true;
+                        mainMap.Children.RemoveAt(i);
+                    }
+                }
+                if(removeLayer==false)
+                {
+                    PlotLostPins();
+                }
             }
         }
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
@@ -378,7 +390,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void LoadStrayPins(object sender, RoutedEventArgs e)
         {
-            if ((StaticObjects.MapStrays == null || StaticObjects.MapStrays.Count == 0)||(e!=null))
+            if ((StaticObjects.MapStrays == null || StaticObjects.MapStrays.Count == 0))
             {
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
@@ -387,7 +399,19 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotStrayPins();
+                bool removeLayer = false;
+                for (int i = 0; i < mainMap.Children.Count; i++)
+                {
+                    if (mainMap.Children.ElementAt(i).Equals(strayLayer))
+                    {
+                        removeLayer = true;
+                        mainMap.Children.RemoveAt(i);
+                    }
+                }
+                if (removeLayer == false)
+                {
+                    PlotStrayPins();
+                }
             }
         }
         private void RetrieveStrayComplete(object sender, DownloadStringCompletedEventArgs e)
@@ -557,7 +581,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void LoadUserPins(object sender, RoutedEventArgs e)
         {
-            if ((StaticObjects.MapUsers == null || StaticObjects.MapUsers.Count == 0) || (e != null))
+            if ((StaticObjects.MapUsers == null || StaticObjects.MapUsers.Count == 0))
             {
                 progressBar.Opacity = 100;
                 WebClient loginRequest = new WebClient();
@@ -566,7 +590,19 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotUserPins();
+                bool removeLayer = false;
+                for (int i = 0; i < mainMap.Children.Count; i++)
+                {
+                    if (mainMap.Children.ElementAt(i).Equals(userLayer))
+                    {
+                        removeLayer = true;
+                        mainMap.Children.RemoveAt(i);
+                    }
+                }
+                if (removeLayer == false)
+                {
+                    PlotUserPins();
+                }
             }
         }
         private void RetrieveUserComplete(object sender, DownloadStringCompletedEventArgs e)
@@ -681,7 +717,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void LoadEventPins(object sender, RoutedEventArgs e)
         {
-            if ((StaticObjects.MapEvents == null || StaticObjects.MapEvents.Count == 0) || (e != null))
+            if ((StaticObjects.MapEvents == null || StaticObjects.MapEvents.Count == 0))
             {
                 progressBar.Opacity = 100;
                 DateTime date = new DateTime();
@@ -692,7 +728,19 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotEventPins();
+                bool removeLayer = false;
+                for (int i = 0; i < mainMap.Children.Count; i++)
+                {
+                    if (mainMap.Children.ElementAt(i).Equals(eventLayer))
+                    {
+                        removeLayer = true;
+                        mainMap.Children.RemoveAt(i);
+                    }
+                }
+                if (removeLayer == false)
+                {
+                    PlotEventPins();
+                }
             }
         }
         private void RetrieveEventComplete(object sender, DownloadStringCompletedEventArgs e)
@@ -787,7 +835,7 @@ namespace PetSociety_for_Windows.Pages
 
         private void LoadLocationPins(object sender, RoutedEventArgs e)
         {
-            if ((StaticObjects.MapLocations == null || StaticObjects.MapLocations.Count == 0) || (e != null))
+            if ((StaticObjects.MapLocations == null || StaticObjects.MapLocations.Count == 0))
             {
                 progressBar.Opacity = 100;
                 DateTime date = new DateTime();
@@ -798,7 +846,20 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
-                PlotLocationPins();
+                bool removeLayer = false;
+                for (int i = 0; i < mainMap.Children.Count; i++)
+                {
+                    if (mainMap.Children.ElementAt(i).Equals(locationLayer))
+                    {
+                        removeLayer = true;
+                        mainMap.Children.RemoveAt(i);
+                    }
+                }
+                if (removeLayer == false)
+                {
+                    PlotLocationPins();
+                }
+
             }
         }
         private void RetrieveLocationComplete(object sender, DownloadStringCompletedEventArgs e)
