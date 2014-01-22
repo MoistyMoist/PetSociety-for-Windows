@@ -276,7 +276,7 @@ namespace PetSociety_for_Windows.Pages.Event
                                    + "&INname="  + eventTitle.Text
                                    + "&INdescription=" + eventDescription.Text
                                    + "&INstartDateTime=" + eventStartDate.Text + "/" + eventStartMonth.Text + "/" + eventStartYear.Text + "/" + " " + eventStartHour.Text + ":" + eventStartMinute.Text + ":" + eventStartSecond
-                                   + "&INendDateTime=" + "01/01/199403:14:20"
+                                   + "&INendDateTime=" + eventEndDate.Text + "/" + eventEndMonth.Text + "/" + eventEndYear.Text + "/" + " " + eventEndHour.Text + ":" + eventEndMinute.Text + ":" + eventEndSecond
                                    + "&INx=" + StaticObjects.CurrentUser.X
                                    + "&INy=" + StaticObjects.CurrentUser.Y
                                    + "&INstatus=" + "1"
