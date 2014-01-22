@@ -102,9 +102,6 @@
     <Compile Include="Pages\Analysis\Analysis.xaml.cs">
       <DependentUpon>Analysis.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Analysis\AnalysisDetail.xaml.cs">
-      <DependentUpon>AnalysisDetail.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\CrowdSourcing\CreateLocation.xaml.cs">
       <DependentUpon>CreateLocation.xaml</DependentUpon>
     </Compile>
@@ -238,10 +235,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Analysis\AnalysisDetail.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\CrowdSourcing\CreateLocation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -323,6 +316,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="ic_add.png" />
     <Content Include="Resources\AppbarIcon\Dark\add.png" />
     <Content Include="Resources\AppbarIcon\Dark\back.png" />
     <Content Include="Resources\AppbarIcon\Dark\basecircle.png" />
@@ -401,6 +395,7 @@
     <Content Include="Resources\AppbarIcon\Light\upload.png" />
     <Content Include="Resources\bird.png" />
     <Content Include="Resources\cat.png" />
+    <Content Include="Resources\coming-soon.png" />
     <Content Include="Resources\dog.png" />
     <Content Include="Resources\event.png" />
     <Content Include="Resources\female.png" />
@@ -550,6 +545,7 @@
     <Content Include="Resources\IconsDark\ic_9-av-stop.png" />
     <Content Include="Resources\IconsDark\ic_9-av-upload.png" />
     <Content Include="Resources\IconsDark\lostIcon.png" />
+    <Content Include="Resources\Icons\ic_add.png" />
     <Content Include="Resources\vetIcon.jpg" />
     <Content Include="Resources\Icons\ic_1-navigation-accept.png" />
     <Content Include="Resources\Icons\ic_1-navigation-back.png" />

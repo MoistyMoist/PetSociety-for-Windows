@@ -55,11 +55,16 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
+                    <Button  Click="OpenClose_Right" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="80" Height="78" Foreground="{x:Null}" BorderBrush="{x:Null}" Margin="0,-2,0,0" Style="{StaticResource MainNavButtonStyle}">
+                        <Button.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="/Resources/AppbarIcon/Dark/add.png"/>
+                        </Button.Background>
+                    </Button>
                     <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Lost Pets" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
 
-                    <ListBox x:Name="lostListBox" Height="441" Margin="12,10,0,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="lostListBox_Tap">
+                    <ListBox x:Name="lostListBox" Height="669" Margin="18,10,6,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="lostListBox_Tap">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
