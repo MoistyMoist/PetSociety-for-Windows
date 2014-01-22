@@ -228,6 +228,10 @@ namespace PetSociety_for_Windows.Pages.Profile
         {
             NavigationService.Navigate(new Uri("/Pages/Lost/Lost.xaml", UriKind.Relative));
         }
+        private void NavigateToProfile(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
+        }
         private void NavigateToStray(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Stray.xaml", UriKind.Relative));
@@ -242,7 +246,7 @@ namespace PetSociety_for_Windows.Pages.Profile
         }
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Others/Settings.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {

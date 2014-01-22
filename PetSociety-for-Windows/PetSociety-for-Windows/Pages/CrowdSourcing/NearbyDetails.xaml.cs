@@ -338,7 +338,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
         }
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Others/Settings.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {

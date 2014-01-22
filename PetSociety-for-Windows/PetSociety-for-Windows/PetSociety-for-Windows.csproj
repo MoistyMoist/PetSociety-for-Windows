@@ -148,9 +148,6 @@
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Others\Setting.xaml.cs">
-      <DependentUpon>Setting.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Others\StrayContentTempletControl.xaml.cs">
       <DependentUpon>StrayContentTempletControl.xaml</DependentUpon>
     </Compile>
@@ -163,7 +160,7 @@
     <Compile Include="Pages\Others\RegisterPage.xaml.cs">
       <DependentUpon>RegisterPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Settings.xaml.cs">
+    <Compile Include="Pages\Others\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Src\HttpRequests\Account\CheckEmailRequest.cs" />
@@ -287,10 +284,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Others\Setting.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Pages\Others\StrayContentTempletControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -307,7 +300,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Settings.xaml">
+    <Page Include="Pages\Others\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
