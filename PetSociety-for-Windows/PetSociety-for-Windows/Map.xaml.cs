@@ -913,10 +913,81 @@ namespace PetSociety_for_Windows.Pages
         }
         private void PlotLocationPins()
         {
-
+            if (locationLayer.Children.Count != 0)
+                mainMap.Children.Remove(locationLayer);
+            if (StaticObjects.MapLocations != null)
+            {
+                locationLayer = new MapLayer();
+                for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
+                {
+                    Pushpin pushPin = new Pushpin();
+                    GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLocations.ElementAt(i).X, StaticObjects.MapLocations.ElementAt(i).Y);
+                    pushPin.Tag = StaticObjects.MapLocations.ElementAt(i).Title;
+                    pushPin.TabIndex = i;
+                    pushPin.Location = LatLong;
+                    pushPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+                    pushPin.Tap += new EventHandler<GestureEventArgs>(LocationPinTap);
+                    locationLayer.Children.Add(pushPin);
+                }
+                mainMap.Children.Add(locationLayer);
+            }
         }
         private void LocationPinTap(object sender, GestureEventArgs e)
         {
+            Pushpin pin = (Pushpin)sender;
+            if (selectedPin != null)
+            {
+                if (selectedPinType == 0)
+                    selectedPin.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+                if (selectedPinType == 1)
+                {
+                    if (selectedStrayType == 0)
+                        selectedPin.Template = this.Resources["StrayDogPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 1)
+                        selectedPin.Template = this.Resources["StrayCatPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 2)
+                        selectedPin.Template = this.Resources["StrayBirdPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 3)
+                        selectedPin.Template = this.Resources["StrayhamsterPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 4)
+                        selectedPin.Template = this.Resources["StrayRabbitPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 5)
+                        selectedPin.Template = this.Resources["StrayFishPinIcon"] as ControlTemplate;
+                    if (selectedStrayType == 6)
+                        selectedPin.Template = this.Resources["StrayTurtlePinIcon"] as ControlTemplate;
+                }
+                if (selectedPinType == 2)
+                {
+                    if (selectedUserType == 0)
+                        selectedPin.Template = this.Resources["UserMalePinIcon"] as ControlTemplate;
+                    if (selectedUserType == 1)
+                        selectedPin.Template = this.Resources["UserFemalePinIcon"] as ControlTemplate;
+                }
+                if (selectedPinType == 3)
+                    selectedPin.Template = this.Resources["EventPinIcon"] as ControlTemplate;
+                if (selectedPinType == 4)
+                    selectedPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+            }
+            selectedPin = pin;
+            selectedPinType = 4;
+
+            int locationID = Convert.ToInt16(pin.TabIndex);
+            pin = (Pushpin)eventLayer.Children.ElementAt(locationID);
+            EventContentTempletControl content = new EventContentTempletControl();
+            for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
+            {
+                if (StaticObjects.MapLocations.ElementAt(i).LocationID == Convert.ToInt16(pin.Tag))
+                {
+                    content.title.Text = StaticObjects.MapLocations.ElementAt(i).Title;
+                    content.Description.Text = StaticObjects.MapLocations.ElementAt(i).Description;
+                    content.Date.Text = StaticObjects.MapLocations.ElementAt(i).Address;
+                    break;
+                }
+            }
+            pin.Content = content;
+            pin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+
+            mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
 
 
