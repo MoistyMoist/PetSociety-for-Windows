@@ -216,7 +216,7 @@ namespace PetSociety_for_Windows.Pages
         }
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
         }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {
