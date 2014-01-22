@@ -128,10 +128,12 @@ namespace PetSociety_for_Windows.Pages.Lost
         void MoveViewWindow(double left)
         {
             _viewMoved = true;
+            /*
             if (left == -420)
                 ApplicationBar.IsVisible = true;
             else
                 ApplicationBar.IsVisible = false;
+             */
             ((Storyboard)canvas.Resources["moveAnimation"]).SkipToFill();
             ((DoubleAnimation)((Storyboard)canvas.Resources["moveAnimation"]).Children[0]).To = left;
             ((Storyboard)canvas.Resources["moveAnimation"]).Begin();

@@ -132,6 +132,9 @@
     <Compile Include="Pages\Event\OneEvent.xaml.cs">
       <DependentUpon>OneEvent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Lost\AddLost.xaml.cs">
+      <DependentUpon>AddLost.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Lost\ListBoxLost.cs" />
     <Compile Include="Pages\Lost\Lost.xaml.cs">
       <DependentUpon>Lost.xaml</DependentUpon>
@@ -227,8 +230,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\CrowdSourcing\NearbyDetails.xaml">
-       <SubType>Designer</SubType>
-        <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Event\CreateEvent.xaml">
       <SubType>Designer</SubType>
@@ -259,6 +262,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Event\Event.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lost\AddLost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
