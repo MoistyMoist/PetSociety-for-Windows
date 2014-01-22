@@ -308,14 +308,17 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 
 
 
-
         private void NavigateToSearch(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Others/SearchAddress.xaml", UriKind.Relative));
         }
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
+        }
+        private void NavigateToProfile(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
         }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {

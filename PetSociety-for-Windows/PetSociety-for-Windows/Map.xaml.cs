@@ -101,11 +101,6 @@ namespace PetSociety_for_Windows.Pages
                 mainMap.Children.Add(addressLayer);
                
             }
-
-           
-
-
-
         }
 
         private void GpsPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
