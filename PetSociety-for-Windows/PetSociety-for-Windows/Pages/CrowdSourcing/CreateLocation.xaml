@@ -28,6 +28,10 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox Name="tb_Lat" HorizontalAlignment="Left" Height="69" Margin="68,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="tb_Long" HorizontalAlignment="Left" Height="69" Margin="275,46,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name="tb_Title" HorizontalAlignment="Left" Height="69" Margin="85,245,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="171"/>
+            <TextBox Name ="tb_Desc" HorizontalAlignment="Left" Height="69" Margin="275,232,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="171"/>
 
         </Grid>
     </Grid>

@@ -148,7 +148,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 
         private void nearbyCSBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/CreateLocation.xaml?msg=" + currentLocation, UriKind.Relative)); 
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/CreateLocation.xaml?msg=" + currentLocation, UriKind.Relative)); 
             
         }
 
