@@ -76,7 +76,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
                      tb_Name.Text = StaticObjects.MapLocations.ElementAt(i).Title.ToString();
                      tb_Desc.Text = StaticObjects.MapLocations.ElementAt(i).Description.ToString();
                      tb_Address.Text = StaticObjects.MapLocations.ElementAt(i).Address.ToString();
-                     tb_type.Text = StaticObjects.MapLocations.ElementAt(i).Type.ToString();
+                    // tb_type.Text = StaticObjects.MapLocations.ElementAt(i).Type.ToString();
                   } }
         }
 

@@ -56,7 +56,7 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Create Location" VerticalAlignment="Top" Width="366" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FF435EAA" Margin="0,5,0,15">
                     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
@@ -68,8 +68,8 @@
                         <Button Name="btn_cancel" Content="Cancel" HorizontalAlignment="Left" Margin="57,545,0,0" VerticalAlignment="Top" Click="btn_cancel_Click_1" Foreground="#FFFFDBDB"/>
                         <Button Name="btn_create" Content="Create" HorizontalAlignment="Left" Margin="253,545,0,0" VerticalAlignment="Top" Click="btn_create_Click_1"/>
 
-                        <RadioButton Margin="43,486,273,146" GroupName="rb_type" Content="Vet" />
-                        <RadioButton GroupName="rb_type" Content="Pet Store" Margin="253,491,39,143" />
+                        
+
                         <TextBlock HorizontalAlignment="Left" Margin="34,10,0,0" TextWrapping="Wrap" Text="Current Location" VerticalAlignment="Top" Height="61" Width="345" FontSize="30"/>
                         <TextBlock HorizontalAlignment="Left" Margin="34,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="X :" VerticalAlignment="Top" Height="61" Width="200"/>
                         <TextBlock HorizontalAlignment="Left" Margin="253,58,0,0" TextWrapping="Wrap" Text="Y:" VerticalAlignment="Top" Height="41" Width="33" Grid.Row="1"/>

@@ -55,7 +55,7 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Nearby Location" VerticalAlignment="Top" Width="382" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,10">
                     <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">

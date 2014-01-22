@@ -55,7 +55,7 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text=" Details" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FF8EA3DC" Margin="0,10,0,250">
                     <!--ContentPanel - place additional content here-->
@@ -66,7 +66,6 @@
                         <TextBlock Name="tb_Desc" HorizontalAlignment="Left" Margin="181,231,0,0" TextWrapping="Wrap" Text="This shop has the most cat rel related items in Sengkang!" VerticalAlignment="Top" Height="110" Width="265"/>
                         <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="10,344,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Height="43" Width="142"/>
                         <TextBlock Name="tb_Address" HorizontalAlignment="Left" Margin="181,341,0,-19" TextWrapping="Wrap" Text="Sengkang Community Club" VerticalAlignment="Top" Height="142" Width="240"/>
-                        <TextBlock FontSize="30" HorizontalAlignment="Left" Margin="10,481,0,-60" TextWrapping="Wrap" Text="Location Type :" VerticalAlignment="Top" Height="43" Width="214"/>
                     </Grid>
 
                 </Border>
@@ -74,7 +73,6 @@
             </Grid>
             <TextBlock FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Height="43" Width="142" Canvas.Left="10" Canvas.Top="344"/>
         </Canvas>
-        <TextBlock FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Name="tb_type" Text="" VerticalAlignment="Top" Height="43" Width="142" Canvas.Left="275" Canvas.Top="575" RenderTransformOrigin="1.107,4.793"/>
     </Canvas>
 
 
