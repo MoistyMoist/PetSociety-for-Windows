@@ -65,6 +65,8 @@ namespace PetSociety_for_Windows.Pages
                 gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
             gps.Start();
+
+           
            
 
             

@@ -36,7 +36,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 {
     public partial class Nearby : PhoneApplicationPage
     {
-
+        GeoCoordinateWatcher gps;
         MapLayer NearbyLocationsLayer;
         Pushpin selectedPin;
         String locationId;
@@ -46,8 +46,18 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             InitializeComponent();
             NearbyLocationsLayer = new MapLayer();
             LoadNearbyLocation(null, null);
+
+            if (gps == null)
+            {
+                gps = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
+                gps.MovementThreshold = 20;
+                gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
+            }
+            gps.Start();
         }
 
+        
+          
 
 
 
