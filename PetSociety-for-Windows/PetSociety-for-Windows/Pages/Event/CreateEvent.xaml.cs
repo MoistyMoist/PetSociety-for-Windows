@@ -275,7 +275,7 @@ namespace PetSociety_for_Windows.Pages.Event
             System.Uri createEvent = new System.Uri("http://petsociety.cloudapp.net/api/AddEvent?token=" + StaticObjects.Token
                                    + "&INname="  + eventTitle.Text
                                    + "&INdescription=" + eventDescription.Text
-                                   + "&INstartDateTime=" + "01/01/1994 03:14:20"
+                                   + "&INstartDateTime=" + eventStartDate.Text + "/" + eventStartMonth.Text + "/" + eventStartYear.Text + "/" + " " + eventStartHour.Text + ":" + eventStartMinute.Text + ":" + eventStartSecond
                                    + "&INendDateTime=" + "01/01/199403:14:20"
                                    + "&INx=" + StaticObjects.CurrentUser.X
                                    + "&INy=" + StaticObjects.CurrentUser.Y
