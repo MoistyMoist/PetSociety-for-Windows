@@ -30,10 +30,12 @@ namespace PetSociety_for_Windows.Pages.Others
 {
     public partial class SearchAddress : PhoneApplicationPage
     {
+
+        private AddressSearchModel address;
         public SearchAddress()
         {
             InitializeComponent();
-
+            address = new AddressSearchModel();
         }
 
 
@@ -57,21 +59,20 @@ namespace PetSociety_for_Windows.Pages.Others
 
             for (int i = 0; i < childlist.SEARCHVAL.Count; i++)
             {
-               // AddressResult.Items.Add(childlist.SEARCHVAL.ElementAt(i).SEARCHVAL.ToString());
-
-        
                 AddressResult.Items.Add(childlist.SEARCHVAL.ElementAt(i));
             }
         }
-      
-        protected void PlotOnMainMap()
+
+        private void SelectAddress(object sender, SelectionChangedEventArgs e)
         {
-            
+            ADDRESS address=(ADDRESS)AddressResult.SelectedItem;
+
+
+
+
+            NavigationService.Navigate(new Uri("/Map.xaml?lan=" + address.X.ToString() + "&lon=" + address.Y.ToString()+"&content="+address.SEARCHVAL, UriKind.Relative)); 
         }
 
-        
-
-
-
+     
     }
 }
