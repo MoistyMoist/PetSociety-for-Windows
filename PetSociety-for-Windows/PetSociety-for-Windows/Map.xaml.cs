@@ -227,7 +227,7 @@ namespace PetSociety_for_Windows.Pages
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
             OpenClose_Left(null, null);
-            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+           // NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
