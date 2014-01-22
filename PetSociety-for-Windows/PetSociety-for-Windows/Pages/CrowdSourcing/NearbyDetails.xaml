@@ -30,11 +30,11 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <TextBlock Name="textBox" HorizontalAlignment="Left" Margin="27,10,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="58" Width="128"/>
             <TextBlock HorizontalAlignment="Left" Margin="34,98,0,0" TextWrapping="Wrap" Text="Name of Location: " VerticalAlignment="Top" Height="65" Width="142"/>
-            <TextBlock HorizontalAlignment="Left" Margin="181,98,0,0" TextWrapping="Wrap" Text="Sengkang Pet Store" VerticalAlignment="Top" Height="85" Width="240" FontSize="30"/>
+            <TextBlock Name="tb_Name" HorizontalAlignment="Left" Margin="181,98,0,0" TextWrapping="Wrap" Text="Sengkang Pet Store" VerticalAlignment="Top" Height="85" Width="240" FontSize="30"/>
             <TextBlock HorizontalAlignment="Left" Margin="34,188,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" RenderTransformOrigin="0.66,3.718" Height="44" Width="121"/>
-            <TextBlock HorizontalAlignment="Left" Margin="181,188,0,0" TextWrapping="Wrap" Text="This shop has the most cat rel related items in Sengkang!" VerticalAlignment="Top" Height="110" Width="265"/>
+            <TextBlock Name="tb_Desc" HorizontalAlignment="Left" Margin="181,188,0,0" TextWrapping="Wrap" Text="This shop has the most cat rel related items in Sengkang!" VerticalAlignment="Top" Height="110" Width="265"/>
             <TextBlock HorizontalAlignment="Left" Margin="34,313,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Height="43" Width="86"/>
-            <TextBlock HorizontalAlignment="Left" Margin="181,313,0,0" TextWrapping="Wrap" Text="Sengkang Community Club" VerticalAlignment="Top" Height="142" Width="240"/>
+            <TextBlock Name="tb_Address" HorizontalAlignment="Left" Margin="181,313,0,0" TextWrapping="Wrap" Text="Sengkang Community Club" VerticalAlignment="Top" Height="142" Width="240"/>
         </Grid>
     </Grid>
 
