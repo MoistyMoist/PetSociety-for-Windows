@@ -37,6 +37,7 @@ namespace PetSociety_for_Windows.Src.Utils
         private StaticObjects currentLocations;
 
 
+        private static EVENT selectedEvent;
 
 
 
@@ -44,6 +45,12 @@ namespace PetSociety_for_Windows.Src.Utils
 
 
 
+
+        public static EVENT SelectedEvent
+        {
+            get { return StaticObjects.selectedEvent; }
+            set { StaticObjects.selectedEvent = value; }
+        }
 
 
         public static List<LOCATION> AnalysisAccidents

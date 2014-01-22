@@ -65,7 +65,7 @@
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
 
-                    <ListBox x:Name="eventListBox" Height="441" Margin="12,10,0,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="eventListBox_Tap">
+                    <ListBox x:Name="eventListBox" Height="681" Margin="18,10,6,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="eventListBox_Tap">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>

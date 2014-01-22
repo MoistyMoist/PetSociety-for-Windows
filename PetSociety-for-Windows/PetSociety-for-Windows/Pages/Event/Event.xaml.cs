@@ -16,6 +16,7 @@ using PetSociety_for_Windows.Src.Utils;
 using PetSociety_for_Windows.Src.RootModel;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using PetSociety_for_Windows.Src.Model;
 
 namespace PetSociety_for_Windows.Pages.Event
 {
@@ -50,14 +51,13 @@ namespace PetSociety_for_Windows.Pages.Event
              if (childlist.Status != 1)
                  StaticObjects.AnalysisEvents = childlist.Data;
 
-             /*
-             for (int i = 0; i < StaticObjects.AnalysisLosts.Count;i++ )
+             
+             for (int i = 0; i < StaticObjects.AnalysisEvents.Count;i++ )
              {
-                 lostListBox.Items.Add("" + StaticObjects.AnalysisLosts[i].PetID.ToString() + " | " + StaticObjects.AnalysisLosts[i].Address.ToString());
-                 lostListBox.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-             } */
+                 eventListBox.Items.Add(StaticObjects.AnalysisEvents.ElementAt(i));
+             } 
 
-             eventListBox.ItemsSource = StaticObjects.AnalysisEvents;
+             //eventListBox.ItemsSource = StaticObjects.AnalysisEvents;
 
          }
 
@@ -78,7 +78,10 @@ namespace PetSociety_for_Windows.Pages.Event
         
         private void OpenClose_Right(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Event/CreateEvent.xaml", UriKind.Relative));
+            
+            
+           // NavigationService.Navigate(new Uri("/Pages/Event/OneEvent.xaml?eventTitle=" + eventTitle.ToString(), UriKind.Relative)); 
+
         }
 
         void MoveViewWindow(double left)
@@ -313,6 +316,10 @@ namespace PetSociety_for_Windows.Pages.Event
 
         private void eventListBox_Tap(object sender, GestureEventArgs e)
         {
+            EVENT selectedEvent = (EVENT)eventListBox.SelectedItem;
+            MessageBox.Show(selectedEvent.Name.ToString());
+            StaticObjects.SelectedEvent = selectedEvent;
+
             NavigationService.Navigate(new Uri("/Pages/Event/OneEvent.xaml", UriKind.Relative));
         }
     }

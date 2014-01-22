@@ -30,6 +30,12 @@ namespace PetSociety_for_Windows.Pages.Event
         public EventList()
         {
             InitializeComponent();
+            eventTitle.Text = StaticObjects.SelectedEvent.Name.ToString();
+            eventDescription.Text = StaticObjects.SelectedEvent.Description.ToString();
+            eventStartDate.Text = StaticObjects.SelectedEvent.StartDateTime.ToString();
+            eventEndDate.Text = StaticObjects.SelectedEvent.EndDateTime.ToString();
+
+
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -50,10 +56,7 @@ namespace PetSociety_for_Windows.Pages.Event
         void MoveViewWindow(double left)
         {
             _viewMoved = true;
-            if (left == -420)
-                ApplicationBar.IsVisible = true;
-            else
-                ApplicationBar.IsVisible = false;
+         
             ((Storyboard)canvas.Resources["moveAnimation"]).SkipToFill();
             ((DoubleAnimation)((Storyboard)canvas.Resources["moveAnimation"]).Children[0]).To = left;
             ((Storyboard)canvas.Resources["moveAnimation"]).Begin();
