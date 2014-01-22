@@ -36,6 +36,8 @@ namespace PetSociety_for_Windows.Pages
         MapLayer eventLayer;
         MapLayer userLayer;
         MapLayer locationLayer;
+        MapLayer addressLayer;
+
         Pushpin selectedPin;
         int selectedPinType;
         int selectedStrayType;
@@ -65,11 +67,44 @@ namespace PetSociety_for_Windows.Pages
                 gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
             gps.Start();
+        }
 
-           
-           
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            GeoCoordinate currentLocation;
 
+            string lan;
+            string lon;
+            string content;
+            NavigationContext.QueryString.TryGetValue("lan", out lan);
+            NavigationContext.QueryString.TryGetValue("lon", out lon);
+            NavigationContext.QueryString.TryGetValue("content", out content);
             
+            if(content!=null)
+            {
+                MessageBox.Show(Convert.ToDouble(lan).ToString());
+                MessageBox.Show(Convert.ToDouble(lon).ToString());
+
+
+
+                addressLayer = new MapLayer();
+
+                Pushpin pushPin = new Pushpin();
+                GeoCoordinate LatLong = new GeoCoordinate();
+                LatLong.Latitude = Convert.ToDouble(1.3599);
+                LatLong.Longitude = Convert.ToDouble(103.7);
+                pushPin.Content = content;
+                pushPin.Location = LatLong;
+                addressLayer.Children.Add(pushPin);
+
+                mainMap.Children.Add(addressLayer);
+               
+            }
+
+           
+
+
 
         }
 
