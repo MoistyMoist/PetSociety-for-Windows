@@ -36,10 +36,6 @@ namespace PetSociety_for_Windows.Pages.Lost
                 MoveViewWindow(0);
             }
         }
-        private void OpenClose_Right(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/Lost/AddLost.xaml", UriKind.Relative));
-        }
 
 
         void MoveViewWindow(double left)
