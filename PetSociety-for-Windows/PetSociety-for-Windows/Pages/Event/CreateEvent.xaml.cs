@@ -282,8 +282,6 @@ namespace PetSociety_for_Windows.Pages.Event
                                    + "&INstatus=" + "1"
                                    + "&INprivacy=" + "1"
                                    + "&INuserID=" + StaticObjects.CurrentUser.UserID);
-            MessageBox.Show(createEvent.ToString());
-
             WebClient Request = new WebClient();
             Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(AddEvent);
             Request.DownloadStringAsync(createEvent);

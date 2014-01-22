@@ -62,20 +62,13 @@
                     <ScrollViewer>
                         <StackPanel>
                             <TextBlock Margin="0,10,0,0" Height="30" TextWrapping="Wrap" Text="Event Title:" Width="120" FontSize="23"/>
-                            <TextBlock x:Name="eventTitle" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="456" FontSize="26"/>
+                            <TextBlock x:Name="eventTitle" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="438" FontSize="28" TextAlignment="Center"/>
                             <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Description:" Width="120" FontSize="23"/>
-                            <TextBlock x:Name="eventDescription" Margin="0,0,0,0" Height="120" TextWrapping="Wrap" Text="" Width="456" FontSize="26"/>
-                            <TextBlock Margin="0,0,200,0" Height="30" TextWrapping="Wrap" Text="Start Date:" Width="118" FontSize="23"/>
-                            <TextBlock x:Name="eventStartDate" Margin="0,0,370,0" Height="72" TextWrapping="Wrap" Text="" Width="226" FontSize="26" />
-                            <TextBlock Margin="0,0,200,0" Height="30" TextWrapping="Wrap" Text="End Date:" Width="100" FontSize="23"/>
-                            <TextBlock x:Name="eventEndDate" Margin="0,0,370,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock x:Name="eventEndMonth" Margin="0,-72,230,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock x:Name="eventEndYear" Margin="0,-72,90,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock x:Name="eventStartMinute" Margin="230,-276,0,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock Margin="220,-170,0,0" Height="30" TextWrapping="Wrap" Text="End Time:" Width="118" FontSize="23"/>
-                            <TextBlock x:Name="eventEndHour" Margin="90,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock x:Name="eventEndMinute" Margin="230,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
-                            <TextBlock x:Name="eventEndSecond" Margin="370,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="90"  FontSize="26"/>
+                            <TextBlock x:Name="eventDescription" Margin="0,0,0,0" Height="120" TextWrapping="Wrap" Text="" Width="432" FontSize="28" TextAlignment="Center"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Start Date and Time:" Width="211" FontSize="23"/>
+                            <TextBlock x:Name="eventStartDate" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="400" FontSize="28" TextAlignment="Center"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="End Date and Time:" Width="203" FontSize="23"/>
+                            <TextBlock x:Name="eventEndDate" Margin="0,0,00,0" Height="72" TextWrapping="Wrap" Text="" Width="400"  FontSize="28" TextAlignment="Center"/>
 
                         </StackPanel>
                     </ScrollViewer>

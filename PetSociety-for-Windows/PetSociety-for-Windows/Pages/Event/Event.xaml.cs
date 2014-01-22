@@ -78,9 +78,9 @@ namespace PetSociety_for_Windows.Pages.Event
         
         private void OpenClose_Right(object sender, RoutedEventArgs e)
         {
-            
-            
-           // NavigationService.Navigate(new Uri("/Pages/Event/OneEvent.xaml?eventTitle=" + eventTitle.ToString(), UriKind.Relative)); 
+
+
+            NavigationService.Navigate(new Uri("/Pages/Event/CreateEvent.xaml", UriKind.Relative));
 
         }
 
@@ -317,7 +317,6 @@ namespace PetSociety_for_Windows.Pages.Event
         private void eventListBox_Tap(object sender, GestureEventArgs e)
         {
             EVENT selectedEvent = (EVENT)eventListBox.SelectedItem;
-            MessageBox.Show(selectedEvent.Name.ToString());
             StaticObjects.SelectedEvent = selectedEvent;
 
             NavigationService.Navigate(new Uri("/Pages/Event/OneEvent.xaml", UriKind.Relative));
