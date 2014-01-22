@@ -123,7 +123,7 @@ namespace PetSociety_for_Windows.Pages.Lost
                 MoveViewWindow(0);
             }
         }
-        
+
 
         void MoveViewWindow(double left)
         {
@@ -139,8 +139,8 @@ namespace PetSociety_for_Windows.Pages.Lost
 
         private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-           // if (e.DeltaManipulation.Translation.X != 0)
-           //     Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
+            // if (e.DeltaManipulation.Translation.X != 0)
+            //     Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
 
         double initialPosition;
@@ -182,7 +182,7 @@ namespace PetSociety_for_Windows.Pages.Lost
 
         }
 
-      
+
 
 
         // Sample code for building a localized ApplicationBar
@@ -357,7 +357,7 @@ namespace PetSociety_for_Windows.Pages.Lost
 
         private void lostListBox_Tap(object sender, GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Lost/OneLost.xaml", UriKind.Relative));
+           // NavigationService.Navigate(new Uri("/Pages/Lost/OneLost.xaml", UriKind.Relative));
         }
     }
 }
