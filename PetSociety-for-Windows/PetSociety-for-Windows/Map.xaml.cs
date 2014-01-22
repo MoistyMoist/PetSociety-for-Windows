@@ -335,6 +335,7 @@ namespace PetSociety_for_Windows.Pages
         private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
         {
           // MessageBox.Show(e.Result.ToString());
+            progressBar.Opacity = 0;
            LostModel childlist = new LostModel();
            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
@@ -453,6 +454,7 @@ namespace PetSociety_for_Windows.Pages
         {
            // MessageBox.Show(e.Result.ToString());
             StrayModel childlist = new StrayModel();
+            progressBar.Opacity = 0;
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as StrayModel;
@@ -644,6 +646,7 @@ namespace PetSociety_for_Windows.Pages
         {
            // MessageBox.Show(e.Result.ToString());
             UserModel childlist = new UserModel();
+            progressBar.Opacity = 0;
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as UserModel;
@@ -782,6 +785,7 @@ namespace PetSociety_for_Windows.Pages
         {
             //MessageBox.Show(e.Result.ToString());
             EventModel childlist = new EventModel();
+            progressBar.Opacity = 0;
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
             childlist = ser.ReadObject(ms) as EventModel;
