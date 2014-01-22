@@ -34,6 +34,7 @@ namespace PetSociety_for_Windows.Pages.Event
             eventDescription.Text = StaticObjects.SelectedEvent.Description.ToString();
             eventStartDate.Text = StaticObjects.SelectedEvent.StartDateTime.ToString();
             eventEndDate.Text = StaticObjects.SelectedEvent.EndDateTime.ToString();
+            Euru.Text = StaticObjects.SelectedEvent.Name.ToString();
         }
 
         private void OpenClose_Left(object sender, RoutedEventArgs e)
