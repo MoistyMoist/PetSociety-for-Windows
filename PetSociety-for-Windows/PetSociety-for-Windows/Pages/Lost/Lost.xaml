@@ -6,7 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -55,17 +55,20 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
-                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Pet Society" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Lost Pets" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
-                <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-723">
+                <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">
+
                     <ListBox x:Name="lostListBox" Height="441" Margin="12,10,0,0" VerticalAlignment="Top" Width="456" ScrollViewer.HorizontalScrollBarVisibility="Visible" ScrollViewer.VerticalScrollBarVisibility="Visible" Tap="lostListBox_Tap">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel>
-                                    <TextBlock Text="{Binding PetID}"/>
+                                    <TextBlock Text="{Binding Name}"/>
                                     <TextBlock Text="{Binding Address}"/>
+                                    <TextBlock Text="{Binding Description}"/>
+                                    <Rectangle Fill="#FFA6A6A6" Height="3" Stroke="#FFA6A6A6" StrokeThickness="5"/>
                                 </StackPanel>
-                             
+
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -74,6 +77,5 @@
             </Grid>
         </Canvas>
     </Canvas>
-
 
 </phone:PhoneApplicationPage>

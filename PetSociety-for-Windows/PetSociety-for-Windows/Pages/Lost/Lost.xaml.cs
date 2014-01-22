@@ -27,6 +27,7 @@ using System.Windows.Media;
 using System.IO;
 using System.IO.IsolatedStorage;
 using PetSociety_for_Windows.Src.Utils;
+using PetSociety_for_Windows.Src.Model;
 
 namespace PetSociety_for_Windows.Pages.Lost
 {
@@ -35,8 +36,11 @@ namespace PetSociety_for_Windows.Pages.Lost
         public Lost()
         {
             InitializeComponent();
-            LoadLostList();
+            LoadPetList();
         }
+
+        List<PET> petList;
+        List<ListBoxLost> listBoxLost = new List<ListBoxLost>();
 
         private void LoadLostList()
         {
@@ -59,14 +63,50 @@ namespace PetSociety_for_Windows.Pages.Lost
                 StaticObjects.AnalysisLosts = childlist.Data;
 
             
-            for (int i = 0; i < StaticObjects.AnalysisLosts.Count;i++ )
-            {
-                lostListBox.Items.Add("" + StaticObjects.AnalysisLosts[i].PetID.ToString() + " | " + StaticObjects.AnalysisLosts[i].Address.ToString());
-                lostListBox.Template = this.Resources["LostPinIcon"] as ControlTemplate;
+            for (int i = 0; i < StaticObjects.AnalysisLosts.Count;i++ ) {
+                for (int p = 0; p < petList.Count; p++)
+                {
+                    if (StaticObjects.AnalysisLosts[i].PetID == petList[p].PetID)
+                    {
+                        StaticObjects.AnalysisLosts[i].PET = petList[p];
+                    }
+                }
+                ListBoxLost l = new ListBoxLost(
+                    StaticObjects.AnalysisLosts[i].PET.Name,
+                    StaticObjects.AnalysisLosts[i].Address,
+                    StaticObjects.AnalysisLosts[i].Description
+                    );
+                listBoxLost.Add(l);
             } 
+            //lostListBox.Items.Add("" + StaticObjects.AnalysisLosts[i].PetID.ToString() + " | " + StaticObjects.AnalysisLosts[i].Address.ToString());
+            //lostListBox.Template = this.Resources["LostPinIcon"] as ControlTemplate;
 
-            lostListBox.ItemsSource = StaticObjects.AnalysisLosts;
+            //lostListBox.ItemsSource = StaticObjects.AnalysisLosts;
+            lostListBox.ItemsSource = listBoxLost;
+        }
 
+
+        private void LoadPetList()
+        {
+
+            //progressBar.Opacity = 100;
+            WebClient Request = new WebClient();
+            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrievePetComplete);
+            Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrievePet?INtoken=" + StaticObjects.Token));
+
+        }
+        private void RetrievePetComplete(object sender, DownloadStringCompletedEventArgs e)
+        {
+            //MessageBox.Show(e.Result.ToString());
+            //progressBar.Opacity = 0;
+            PetModel childlist = new PetModel();
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
+            childlist = ser.ReadObject(ms) as PetModel;
+            if (childlist.Status != 1)
+                petList = childlist.Data;
+
+            LoadLostList();
         }
 
         private void OpenClose_Left(object sender, RoutedEventArgs e)
