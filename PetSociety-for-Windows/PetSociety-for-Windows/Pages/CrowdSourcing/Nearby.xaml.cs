@@ -54,7 +54,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             {
                 gps = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
                 gps.MovementThreshold = 20;
-                //gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
+                gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
             
             
@@ -66,8 +66,11 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             Pushpin myLocation = new Pushpin();
            
             myLocation.Location = e.Position.Location;
-          currentLat=  nearbyMap.Center.Latitude.ToString();
-          currentLong = nearbyMap.Center.Longitude.ToString();
+       //   currentLat=  nearbyMap.Center.Latitude.ToString();
+         // currentLong = nearbyMap.Center.Longitude.ToString();
+          currentLocation = new GeoCoordinate();
+          currentLocation.Latitude = e.Position.Location.Latitude;
+          currentLocation.Longitude = e.Position.Location.Longitude;
 
          
         }
@@ -148,7 +151,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 
         private void nearbyCSBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/CreateLocation.xaml?msg=" + currentLocation, UriKind.Relative)); 
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/CreateLocation.xaml?lan=" + currentLocation.Latitude.ToString()+"&lon="+currentLocation.Longitude.ToString(), UriKind.Relative)); 
             
         }
 

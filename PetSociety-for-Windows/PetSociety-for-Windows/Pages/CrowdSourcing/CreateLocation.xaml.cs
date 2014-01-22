@@ -39,8 +39,13 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
         {
             base.OnNavigatedTo(e);
             GeoCoordinate currentLocation;
-            if ((NavigationContext.QueryString.
 
+            string lan;
+            string longg;
+            NavigationContext.QueryString.TryGetValue("lan", out lan);
+            NavigationContext.QueryString.TryGetValue("long", out longg);
+
+            MessageBox.Show(lan + " " + longg);
                 
         }
     }

@@ -34,6 +34,8 @@ namespace PetSociety_for_Windows.Src.Utils
         private static List<LOST> analysisLosts;
 
 
+        private StaticObjects currentLocations;
+
 
 
 
