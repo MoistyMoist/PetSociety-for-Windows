@@ -59,12 +59,8 @@ namespace PetSociety_for_Windows.Pages.Others
             {
                // AddressResult.Items.Add(childlist.SEARCHVAL.ElementAt(i).SEARCHVAL.ToString());
 
-                ListBoxLost l = new ListBoxLost(
-                    childlist.SEARCHVAL.ElementAt(i).SEARCHVAL.ToString(),
-                    childlist.SEARCHVAL.ElementAt(i).X.ToString(),
-                    childlist.SEARCHVAL.ElementAt(i).Y.ToString()
-                 );
-                listBoxLost.Add(l);
+        
+                AddressResult.Items.Add(childlist.SEARCHVAL.ElementAt(i));
             }
         }
       

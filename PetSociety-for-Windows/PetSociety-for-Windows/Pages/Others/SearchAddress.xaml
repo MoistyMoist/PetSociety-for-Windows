@@ -21,9 +21,8 @@
                 <DataTemplate>
                     <StackPanel>
                         <TextBlock Name="Address" Text="{Binding SEARCHVAL}"/>
-                        <TextBlock Name="X" Text="{Binding X}"/>
-                        <TextBlock Name="Y" Text="{Binding Y}"/>
-                        <Rectangle Fill="#FFA6A6A6" Height="3" Stroke="#FFA6A6A6" StrokeThickness="5"/>
+                        <TextBlock Name="X" Visibility="Collapsed" Text="{Binding X}"/>
+                        <TextBlock Name="Y" Visibility="Collapsed" Text="{Binding Y}"/>
                     </StackPanel>
 
                 </DataTemplate>
