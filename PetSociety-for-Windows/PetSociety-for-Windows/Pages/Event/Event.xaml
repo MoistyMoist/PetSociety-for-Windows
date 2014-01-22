@@ -56,6 +56,11 @@
                             <ImageBrush Stretch="Fill" ImageSource="ic_10-device-access-storage.png"/>
                         </Button.Background>
                     </Button>
+                    <Button  Click="OpenClose_Right" Content="" HorizontalAlignment="Right" VerticalAlignment="Top" Width="80" Height="78" Style="{StaticResource MainNavButtonStyle}" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="0,-2,0,0">
+                        <Button.Background>
+                            <ImageBrush Stretch="Fill" ImageSource="ic_7-location-place.png"/>
+                        </Button.Background>
+                    </Button>
                     <TextBlock HorizontalAlignment="Left" Margin="88,0,0,0" TextWrapping="Wrap" Text="Events" VerticalAlignment="Top" Width="315" Height="56" FontWeight="Bold" FontSize="48" Foreground="#FFFBF7F7" TextAlignment="Center"/>
                 </Grid>
                 <Border Grid.Row="1" Background="#FFCFD4E2" Margin="0,0,0,-724">

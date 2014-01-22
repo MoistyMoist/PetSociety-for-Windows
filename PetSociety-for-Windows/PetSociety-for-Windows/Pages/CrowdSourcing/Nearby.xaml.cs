@@ -37,9 +37,11 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
     public partial class Nearby : PhoneApplicationPage
     {
         GeoCoordinateWatcher gps;
+        MapLayer GPSLayer;
         MapLayer NearbyLocationsLayer;
         Pushpin selectedPin;
         String locationId;
+        String currentLat, currentLong;
 
         public Nearby()
         {
@@ -53,7 +55,20 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
                 gps.MovementThreshold = 20;
                 //gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
+            
+            
             gps.Start();
+        }
+        private void GpsPositionChanged(object sender, GeoPositionChangedEventArgs<GeoCoordinate> e)
+        {
+            nearbyMap.Center = new GeoCoordinate(e.Position.Location.Latitude, e.Position.Location.Longitude);
+            Pushpin myLocation = new Pushpin();
+           
+            myLocation.Location = e.Position.Location;
+          currentLat=  nearbyMap.Center.Latitude.ToString();
+          currentLong = nearbyMap.Center.Longitude.ToString();
+
+         
         }
 
         
@@ -132,7 +147,8 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
 
         private void nearbyCSBtn_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/NearbyCrowdSource.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/CreateLocation.xaml?msg=" + currentLat, UriKind.Relative)); 
+
         }
 
     }

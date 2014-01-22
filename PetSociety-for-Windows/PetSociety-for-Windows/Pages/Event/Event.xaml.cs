@@ -76,6 +76,10 @@ namespace PetSociety_for_Windows.Pages.Event
             }
         }
         
+        private void OpenClose_Right(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Event/CreateEvent.xaml", UriKind.Relative));
+        }
 
         void MoveViewWindow(double left)
         {
