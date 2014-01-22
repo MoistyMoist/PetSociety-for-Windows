@@ -111,15 +111,31 @@
     <Compile Include="Pages\CrowdSourcing\Nearby.xaml.cs">
       <DependentUpon>Nearby.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\CrowdSourcing\NearbyCrowdSource.xaml.cs">
+      <DependentUpon>NearbyCrowdSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\CrowdSourcing\NearbyDetails.xaml.cs">
+      <DependentUpon>NearbyDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\CrowdSourcing\Stray.xaml.cs">
       <DependentUpon>Stray.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Event\Event.xaml.cs">
-      <DependentUpon>Event.xaml</DependentUpon>
     </Compile>
     <Compile Include="Map.xaml.cs">
       <DependentUpon>Map.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Event\CreateEvent.xaml.cs">
+      <DependentUpon>CreateEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\EditEvent.xaml.cs">
+      <DependentUpon>EditEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\Event.xaml.cs">
+      <DependentUpon>Event.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\OneEvent.xaml.cs">
+      <DependentUpon>OneEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Lost\ListBoxLost.cs" />
     <Compile Include="Pages\Lost\Lost.xaml.cs">
       <DependentUpon>Lost.xaml</DependentUpon>
     </Compile>
@@ -221,7 +237,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\CrowdSourcing\NearbyCrowdSource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\CrowdSourcing\NearbyDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\CrowdSourcing\Stray.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Map.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\CreateEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\EditEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,7 +265,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Map.xaml">
+    <Page Include="Pages\Event\OneEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -517,6 +553,7 @@
     <Content Include="Resources\IconsDark\ic_9-av-stop.png" />
     <Content Include="Resources\IconsDark\ic_9-av-upload.png" />
     <Content Include="Resources\IconsDark\lostIcon.png" />
+    <Content Include="Resources\vetIcon.jpg" />
     <Content Include="Resources\Icons\ic_1-navigation-accept.png" />
     <Content Include="Resources\Icons\ic_1-navigation-back.png" />
     <Content Include="Resources\Icons\ic_1-navigation-cancel.png" />
@@ -662,6 +699,7 @@
     <Content Include="Resources\Icons\ic_9-av-upload.png" />
     <Content Include="Resources\ic_location_place.png" />
     <Content Include="Resources\male.png" />
+    <Content Include="Resources\petStore.jpg" />
     <Content Include="Resources\rabbit.png" />
     <Content Include="Resources\Stray.png" />
     <Content Include="Resources\turtle.png" />

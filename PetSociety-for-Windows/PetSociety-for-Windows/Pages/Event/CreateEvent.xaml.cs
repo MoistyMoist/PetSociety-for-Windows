@@ -13,54 +13,15 @@ using System.Windows.Media;
 using System.IO;
 using System.IO.IsolatedStorage;
 using PetSociety_for_Windows.Src.Utils;
-using PetSociety_for_Windows.Src.RootModel;
-using System.Runtime.Serialization.Json;
-using System.Text;
 
 namespace PetSociety_for_Windows.Pages.Event
 {
-    public partial class Event : PhoneApplicationPage
+    public partial class CreateEvent : PhoneApplicationPage
     {
-         public Event()
+        public CreateEvent()
         {
             InitializeComponent();
-            VisualStateManager.GoToState(this, "Normal", false);
-            // Sample code to localize the ApplicationBar
-            BuildLocalizedApplicationBar();
-            LoadEventList();
         }
-
-         private void LoadEventList()
-         {
-
-             //progressBar.Opacity = 100;
-             WebClient Request = new WebClient();
-             Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveEventComplete);
-             Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveEvent?INtoken=" + StaticObjects.Token));
-
-         }
-         private void RetrieveEventComplete(object sender, DownloadStringCompletedEventArgs e)
-         {
-             //MessageBox.Show(e.Result.ToString());
-             //progressBar.Opacity = 0;
-             EventModel childlist = new EventModel();
-             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
-             DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
-             childlist = ser.ReadObject(ms) as EventModel;
-             if (childlist.Status != 1)
-                 StaticObjects.AnalysisEvents = childlist.Data;
-
-             /*
-             for (int i = 0; i < StaticObjects.AnalysisLosts.Count;i++ )
-             {
-                 lostListBox.Items.Add("" + StaticObjects.AnalysisLosts[i].PetID.ToString() + " | " + StaticObjects.AnalysisLosts[i].Address.ToString());
-                 lostListBox.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-             } */
-
-             eventListBox.ItemsSource = StaticObjects.AnalysisEvents;
-
-         }
-
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
             var left = Canvas.GetLeft(LayoutRoot);
@@ -75,7 +36,7 @@ namespace PetSociety_for_Windows.Pages.Event
                 MoveViewWindow(0);
             }
         }
-        
+
 
         void MoveViewWindow(double left)
         {
@@ -91,8 +52,8 @@ namespace PetSociety_for_Windows.Pages.Event
 
         private void canvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
         {
-           // if (e.DeltaManipulation.Translation.X != 0)
-           //     Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
+            // if (e.DeltaManipulation.Translation.X != 0)
+            //     Canvas.SetLeft(LayoutRoot, Math.Min(Math.Max(-840, Canvas.GetLeft(LayoutRoot) + e.DeltaManipulation.Translation.X), 0));
         }
 
         double initialPosition;
@@ -134,7 +95,7 @@ namespace PetSociety_for_Windows.Pages.Event
 
         }
 
-      
+
 
 
         // Sample code for building a localized ApplicationBar
@@ -305,11 +266,6 @@ namespace PetSociety_for_Windows.Pages.Event
                     NavigationService.Navigate(new Uri("/Pages/Others/LoginPage.xaml", UriKind.Relative));
                 }
             }
-        }
-
-        private void eventListBox_Tap(object sender, GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/Event/OneEvent.xaml", UriKind.Relative));
         }
     }
 }

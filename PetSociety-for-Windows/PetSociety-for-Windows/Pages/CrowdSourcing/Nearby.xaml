@@ -6,12 +6,13 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:my="clr-namespace:Microsoft.Phone.Controls.Maps;assembly=Microsoft.Phone.Controls.Maps"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" d:DesignHeight="768" d:DesignWidth="480">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -22,14 +23,57 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock Text="Per Society" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Nearby Locations" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
+
+
+
+
+        <ProgressBar x:Name="progressBar" IsIndeterminate="true" Margin="0,57,0,-4" Foreground="White" Grid.ColumnSpan="2" />
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 
+            <my:Map x:Name="nearbyMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" ZoomBarVisibility="Visible" Center="1.358751,103.844624" Margin="6,66,10,35" />
+            <TextBlock Name="tb" HorizontalAlignment="Left" Margin="66,-9,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+            <Button Name="nearbyCSBtn" Content="View A" HorizontalAlignment="Left" Margin="317,-9,0,0" VerticalAlignment="Top" Height="73" Click="nearbyCSBtn_Click"/>
         </Grid>
     </Grid>
+    <phone:PhoneApplicationPage.Resources>
+
+        <ControlTemplate x:Key="NearbyPin" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid>
+                    <Ellipse Fill="Red" Opacity="0.5" Margin="1" HorizontalAlignment="Left" VerticalAlignment="Center" Width="35" Height="35" Stroke="White" StrokeThickness="3"/>
+                    <Grid Margin="-5,0,0,35" MaxHeight="30" MaxWidth="50"  HorizontalAlignment="Left">
+                        <Image Source="Resources/IconsDark/LostIcon.png" Stretch="Fill" Name="LostIcon" />
+                    </Grid>
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+        <ControlTemplate x:Key="NearbyPinIconClick" TargetType="my:Pushpin">
+            <StackPanel>
+                <Grid Margin="-100,0,0,0" Canvas.ZIndex="999">
+                    <ContentPresenter x:Name="content" HorizontalAlignment="Center" Content="{TemplateBinding Content}"  Canvas.ZIndex="999"/>
+                </Grid>
+                <Grid Margin="30,0,0,0" HorizontalAlignment="Left" Canvas.ZIndex="99">
+                    <Path Data="M0,0 L0,1 L1,0" Stretch="Fill" Margin="0,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                    <Path Data="M0,0 L1,1 L1,0"  Stretch="Fill" Margin="-15,0,0,0" Height="25" Width="15" HorizontalAlignment="Left" >
+                        <Path.Fill>
+                            <SolidColorBrush Color="{StaticResource PhoneAccentColor}"/>
+                        </Path.Fill>
+                    </Path>
+                </Grid>
+                <Grid  Canvas.ZIndex="1" Margin="0,0,0,0" MaxHeight="70" MaxWidth="70"  HorizontalAlignment="Left">
+                    <Image Source="Resources/event.png" Stretch="Fill" />
+                </Grid>
+            </StackPanel>
+        </ControlTemplate>
+    </phone:PhoneApplicationPage.Resources>
 
 </phone:PhoneApplicationPage>
