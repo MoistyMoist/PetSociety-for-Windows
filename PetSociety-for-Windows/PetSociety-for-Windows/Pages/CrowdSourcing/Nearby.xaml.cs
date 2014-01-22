@@ -54,7 +54,7 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             {
                 gps = new GeoCoordinateWatcher(GeoPositionAccuracy.High);
                 gps.MovementThreshold = 20;
-                gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
+                //gps.PositionChanged += new EventHandler<GeoPositionChangedEventArgs<GeoCoordinate>>(GpsPositionChanged);
             }
             
             
