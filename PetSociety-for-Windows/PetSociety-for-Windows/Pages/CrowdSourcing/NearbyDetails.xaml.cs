@@ -70,10 +70,12 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
         { 
               for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
                 {
-                    MessageBox.Show(locationid.ToString());
+                 //   MessageBox.Show(locationid.ToString());
                     
                   if(StaticObjects.MapLocations.ElementAt(i).LocationID.ToString().Equals(locationid.ToString())){
-                     // .Text = StaticObjects.MapLocations.ElementAt(i).Title.ToString();
+                     tb_Name.Text = StaticObjects.MapLocations.ElementAt(i).Title.ToString();
+                     tb_Desc.Text = StaticObjects.MapLocations.ElementAt(i).Description.ToString();
+                     tb_Address.Text = StaticObjects.MapLocations.ElementAt(i).Address.ToString();
                         
                   } }
         }
