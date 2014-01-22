@@ -126,6 +126,15 @@
     <Compile Include="Pages\Event\Event.xaml.cs">
       <DependentUpon>Event.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Event\CreateEvent.xaml.cs">
+      <DependentUpon>CreateEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\OneEvent.xaml.cs">
+      <DependentUpon>OneEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Event\EditEvent.xaml.cs">
+      <DependentUpon>EditEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Lost\ListBoxLost.cs" />
     <Compile Include="Pages\Lost\Lost.xaml.cs">
       <DependentUpon>Lost.xaml</DependentUpon>
@@ -215,6 +224,18 @@
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
     <Page Include="Pages\Analysis\Analysis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\CreateEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\EditEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Event\OneEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
