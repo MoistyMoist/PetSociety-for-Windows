@@ -37,7 +37,7 @@
 
             <my:Map x:Name="nearbyMap" ZoomLevel="11.5" CredentialsProvider="{Binding CredentialsProvider}" CopyrightVisibility="Collapsed" LogoVisibility="Collapsed" ZoomBarVisibility="Visible" Center="1.358751,103.844624" Margin="6,66,10,35" />
             <TextBlock Name="tb" HorizontalAlignment="Left" Margin="66,-9,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-            <Button Name="nearbyCSBtn" Content="View A" HorizontalAlignment="Left" Margin="317,-9,0,0" VerticalAlignment="Top" Height="73" Click="nearbyCSBtn_Click"/>
+            <Button Name="nearbyCSBtn" Content="View A" HorizontalAlignment="Left" Margin="317,-9,0,543" Click="nearbyCSBtn_Click"/>
         </Grid>
     </Grid>
     <phone:PhoneApplicationPage.Resources>
