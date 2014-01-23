@@ -69,7 +69,6 @@
                     </Grid>
 
                 </Border>
-                <Button Content="Back" HorizontalAlignment="Left" Margin="179,585,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             </Grid>
         </Canvas>
     </Canvas>

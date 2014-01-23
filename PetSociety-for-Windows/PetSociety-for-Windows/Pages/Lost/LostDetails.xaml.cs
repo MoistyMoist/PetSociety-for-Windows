@@ -67,6 +67,7 @@ namespace PetSociety_for_Windows.Pages.Lost
                 petList = childlist.Data;
 
             //LoadLostList();
+            getDetails();
         }
 
 
@@ -79,8 +80,6 @@ namespace PetSociety_for_Windows.Pages.Lost
 
             NavigationContext.QueryString.TryGetValue("petID", out petid);
             //textBox.Text = locationid.ToString();
-
-            getDetails();
         }
 
 
@@ -387,9 +386,5 @@ namespace PetSociety_for_Windows.Pages.Lost
             }
         }
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml?", UriKind.Relative));
-        }
     }
 }
