@@ -7,12 +7,14 @@ namespace PetSociety_for_Windows.Pages.Lost
 {
     class ListBoxLost
     {
+        public int petID { get; set; }
         public String name { get; set; }
         public String address { get; set; }
         public String description { get; set; }
 
-        public ListBoxLost(String name1, String address1, String desc1)
+        public ListBoxLost(int petID1, String name1, String address1, String desc1)
         {
+            petID = petID1;
             name = name1;
             address = address1;
             description = desc1;

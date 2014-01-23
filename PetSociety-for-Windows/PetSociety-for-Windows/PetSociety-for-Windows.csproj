@@ -133,6 +133,9 @@
     <Compile Include="Pages\Lost\Lost.xaml.cs">
       <DependentUpon>Lost.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Lost\LostDetails.xaml.cs">
+      <DependentUpon>LostDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Lost\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
@@ -262,6 +265,10 @@
     <Page Include="Pages\Lost\Lost.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Lost\LostDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Pages\Lost\Page1.xaml">
       <SubType>Designer</SubType>

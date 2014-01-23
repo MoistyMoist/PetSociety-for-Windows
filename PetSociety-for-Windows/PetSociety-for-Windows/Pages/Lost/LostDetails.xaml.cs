@@ -7,16 +7,11 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using PetSociety_for_Windows.Src.Utils;
 using PetSociety_for_Windows.Src.RootModel;
-using System.Runtime.Serialization.Json;
-using System.IO;
-using System.Text;
-using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using PetSociety_for_Windows.Pages.CrowdSourcing;
+using PetSociety_for_Windows.Src.Utils;
+using PetSociety_for_Windows.Src.Model;
+using PetSociety_for_Windows.Src.HttpRequests;
 using System.Net;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,66 +21,30 @@ using System.Windows.Navigation;
 using System.Windows.Media;
 using System.IO;
 using System.IO.IsolatedStorage;
-using PetSociety_for_Windows.Src.Utils;
-using PetSociety_for_Windows.Src.Model;
+using PetSociety_for_Windows.Src.RootModel;
+using System.Runtime.Serialization.Json;
+using System.Collections.ObjectModel;
+using System.Text;
+using Microsoft.Phone.Controls.Maps;
+using System.Device.Location;
+using System.Windows.Shapes;
+using PetSociety_for_Windows.Pages.Others;
+using System.Windows.Media.Imaging;
+
 
 namespace PetSociety_for_Windows.Pages.Lost
 {
-    public partial class Lost : PhoneApplicationPage
+    public partial class LostDetails : PhoneApplicationPage
     {
-        public Lost()
+
+        string petid;
+        List<PET> petList;
+
+        public LostDetails()
         {
             InitializeComponent();
             LoadPetList();
         }
-
-        List<PET> petList;
-        List<ListBoxLost> listBoxLost = new List<ListBoxLost>();
-
-        private void LoadLostList()
-        {
-
-                //progressBar.Opacity = 100;
-                WebClient Request = new WebClient();
-                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(RetrieveLostComplete);
-                Request.DownloadStringAsync(new System.Uri("http://petsociety.cloudapp.net/api/RetrieveLost?INtoken=" + StaticObjects.Token));
-            
-        }
-        private void RetrieveLostComplete(object sender, DownloadStringCompletedEventArgs e)
-        {
-            //MessageBox.Show(e.Result.ToString());
-            //progressBar.Opacity = 0;
-            LostModel childlist = new LostModel();
-            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(e.Result.ToString()));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(childlist.GetType());
-            childlist = ser.ReadObject(ms) as LostModel;
-            if (childlist.Status != 1)
-                StaticObjects.AnalysisLosts = childlist.Data;
-
-            
-            for (int i = 0; i < StaticObjects.AnalysisLosts.Count;i++ ) {
-                for (int p = 0; p < petList.Count; p++)
-                {
-                    if (StaticObjects.AnalysisLosts[i].PetID == petList[p].PetID)
-                    {
-                        StaticObjects.AnalysisLosts[i].PET = petList[p];
-                    }
-                }
-                ListBoxLost l = new ListBoxLost(
-                    StaticObjects.AnalysisLosts[i].PetID,
-                    StaticObjects.AnalysisLosts[i].PET.Name,
-                    StaticObjects.AnalysisLosts[i].Address,
-                    StaticObjects.AnalysisLosts[i].Description
-                    );
-                listBoxLost.Add(l);
-            } 
-            //lostListBox.Items.Add("" + StaticObjects.AnalysisLosts[i].PetID.ToString() + " | " + StaticObjects.AnalysisLosts[i].Address.ToString());
-            //lostListBox.Template = this.Resources["LostPinIcon"] as ControlTemplate;
-
-            //lostListBox.ItemsSource = StaticObjects.AnalysisLosts;
-            lostListBox.ItemsSource = listBoxLost;
-        }
-
 
         private void LoadPetList()
         {
@@ -107,8 +66,79 @@ namespace PetSociety_for_Windows.Pages.Lost
             if (childlist.Status != 1)
                 petList = childlist.Data;
 
-            LoadLostList();
+            //LoadLostList();
         }
+
+
+
+        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+
+
+            NavigationContext.QueryString.TryGetValue("petID", out petid);
+            //textBox.Text = locationid.ToString();
+
+            getDetails();
+        }
+
+
+
+        public void getDetails()
+        { 
+              for (int i = 0; i < petList.Count; i++)
+                {
+                 //   MessageBox.Show(locationid.ToString());
+
+                    if (petList.ElementAt(i).PetID.ToString().Equals(petid.ToString()))
+                    {
+                        tb_Name.Text = petList.ElementAt(i).Name.ToString();
+                        tb_Desc.Text = petList.ElementAt(i).Biography.ToString();
+                        tb_Address.Text = petList.ElementAt(i).Age.ToString();
+                    // tb_type.Text = StaticObjects.MapLocations.ElementAt(i).Type.ToString();
+                  } }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {
@@ -120,25 +150,16 @@ namespace PetSociety_for_Windows.Pages.Lost
             }
             else
             {
-                //ApplicationBar.IsVisible = false;
+                // ApplicationBar.IsVisible = false;
                 MoveViewWindow(0);
             }
-        }
-        private void OpenClose_Right(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/Pages/Lost/AddLost.xaml", UriKind.Relative));
         }
 
 
         void MoveViewWindow(double left)
         {
             _viewMoved = true;
-            /*
-            if (left == -420)
-                ApplicationBar.IsVisible = true;
-            else
-                ApplicationBar.IsVisible = false;
-             */
+
             ((Storyboard)canvas.Resources["moveAnimation"]).SkipToFill();
             ((DoubleAnimation)((Storyboard)canvas.Resources["moveAnimation"]).Children[0]).To = left;
             ((Storyboard)canvas.Resources["moveAnimation"]).Begin();
@@ -311,13 +332,17 @@ namespace PetSociety_for_Windows.Pages.Lost
         {
             NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
         }
+        private void NavigateToProfile(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
+        }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Uri("/Pages/Event/Event.xaml", UriKind.Relative));
         }
-        private void NavigateToProfile(object sender, RoutedEventArgs e)
+        private void NavigateToLost(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Profile/Profile.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Lost/Lost.xaml", UriKind.Relative));
         }
         private void NavigateToStray(object sender, RoutedEventArgs e)
         {
@@ -333,7 +358,7 @@ namespace PetSociety_for_Windows.Pages.Lost
         }
         private void NavigateToSetting(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/Pages/Others/Setting.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Pages/Others/Settings.xaml", UriKind.Relative));
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
@@ -362,12 +387,9 @@ namespace PetSociety_for_Windows.Pages.Lost
             }
         }
 
-        private void lostListBox_Tap(object sender, GestureEventArgs e)
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            ListBoxLost l = (ListBoxLost)lostListBox.SelectedItem;
-            //MessageBox.Show(l.petID.ToString());
-            NavigationService.Navigate(new Uri("/Pages/Lost/LostDetails.xaml?petID=" + l.petID.ToString(), UriKind.Relative)); 
-
+            NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml?", UriKind.Relative));
         }
     }
 }
