@@ -24,6 +24,21 @@ namespace PetSociety_for_Windows.Pages.Profile
             VisualStateManager.GoToState(this, "Normal", false);
             // Sample code to localize the ApplicationBar
             BuildLocalizedApplicationBar();
+
+            WebClient webClient = new WebClient();
+            webClient.OpenReadCompleted += ImageOpenReadCompleted;
+            webClient.OpenReadAsync(new Uri(StaticObjects.CurrentUser.ProfileImageURL.ToString()));
+
+            MessageBox.Show(StaticObjects.CurrentUser.ProfileImageURL.ToString());
+        }
+        private void ImageOpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
+        {
+            if (!e.Cancelled && e.Error == null)
+            {
+             //   BitmapImage bmp = new BitmapImage();
+               // bmp.SetSource(e.Result);
+               // image1.Source = bmp;
+            }
         }
         private void OpenClose_Left(object sender, RoutedEventArgs e)
         {

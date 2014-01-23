@@ -87,13 +87,13 @@ namespace PetSociety_for_Windows.Pages
                 MessageBox.Show(Convert.ToDouble(lon).ToString());
 
 
-
+                progressBar.Opacity = 0;
                 addressLayer = new MapLayer();
 
                 Pushpin pushPin = new Pushpin();
                 GeoCoordinate LatLong = new GeoCoordinate();
-                LatLong.Latitude = Convert.ToDouble(1.3599);
-                LatLong.Longitude = Convert.ToDouble(103.7);
+                LatLong.Latitude = Convert.ToDouble(1.37996);
+                LatLong.Longitude = Convert.ToDouble(103.849787);
                 pushPin.Content = content;
                 pushPin.Location = LatLong;
                 addressLayer.Children.Add(pushPin);
@@ -317,6 +317,7 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
+                progressBar.Opacity = 0;
                 bool removeLayer = false;
                 for(int i=0;i<mainMap.Children.Count;i++)
                 {
@@ -435,6 +436,7 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
+                progressBar.Opacity = 100;
                 bool removeLayer = false;
                 for (int i = 0; i < mainMap.Children.Count; i++)
                 {
@@ -627,6 +629,7 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
+                progressBar.Opacity = 100;
                 bool removeLayer = false;
                 for (int i = 0; i < mainMap.Children.Count; i++)
                 {
@@ -766,6 +769,7 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
+                progressBar.Opacity = 100;
                 bool removeLayer = false;
                 for (int i = 0; i < mainMap.Children.Count; i++)
                 {
@@ -885,6 +889,7 @@ namespace PetSociety_for_Windows.Pages
             }
             else
             {
+                progressBar.Opacity = 100;
                 bool removeLayer = false;
                 for (int i = 0; i < mainMap.Children.Count; i++)
                 {
