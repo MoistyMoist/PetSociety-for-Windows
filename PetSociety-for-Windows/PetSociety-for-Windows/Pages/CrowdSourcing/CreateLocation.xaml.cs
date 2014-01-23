@@ -63,29 +63,32 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
       
         private void btn_create_Click_1(object sender, System.Windows.RoutedEventArgs e)
         {
-           
-        
+            Boolean valid = validate();
 
-            System.Uri createLocation = new System.Uri("http://petsociety.cloudapp.net/api/AddLocation?token=" + StaticObjects.Token
-                                 + "&INx=" + tb_Lat.Text
-                                 + "&INy=" + tb_Long.Text
-                                 + "&INdescription=" + tb_Desc.Text.ToString()
-                                 + "&INtitle=" + tb_Title.Text.ToString()
-                                 + "&INaddress=" + tb_Address.Text.ToString()
-                                 + "&INtype=" + "Pet Store"
-                                 + "&INuserID=" + StaticObjects.CurrentUser.UserID);
-            MessageBox.Show(createLocation.ToString());
+            if (valid)
+            {
 
-            WebClient Request = new WebClient();
-            Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(AddLocation);
-            Request.DownloadStringAsync(createLocation);
+                System.Uri createLocation = new System.Uri("http://petsociety.cloudapp.net/api/AddLocation?token=" + StaticObjects.Token
+                                     + "&INx=" + tb_Lat.Text
+                                     + "&INy=" + tb_Long.Text
+                                     + "&INdescription=" + tb_Desc.Text.ToString()
+                                     + "&INtitle=" + tb_Title.Text.ToString()
+                                     + "&INaddress=" + tb_Address.Text.ToString()
+                                     + "&INtype=" + "Pet Store"
+                                     + "&INuserID=" + StaticObjects.CurrentUser.UserID);
 
 
+                WebClient Request = new WebClient();
+                Request.DownloadStringCompleted += new DownloadStringCompletedEventHandler(AddLocation);
+                Request.DownloadStringAsync(createLocation);
+                MessageBox.Show("Location Created successfully");
+
+            }
 
         }
         private void AddLocation(object sender, DownloadStringCompletedEventArgs e)
         {
-            MessageBox.Show("Location added");
+            
             NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml?", UriKind.Relative)); 
 
         }
@@ -95,32 +98,32 @@ namespace PetSociety_for_Windows.Pages.CrowdSourcing
             NavigationService.Navigate(new Uri("/Pages/CrowdSourcing/Nearby.xaml?", UriKind.Relative)); 
         }
 
+        public Boolean validate() 
+        {
+            Boolean ok = false;
 
+            
+                 if (tb_Address.Text.ToString().Trim().Equals("") || tb_Desc.Text.ToString().Trim().Equals("") || tb_Title.Text.ToString().Trim().Equals("") || tb_Lat.Text.ToString().Trim().Equals("") || tb_Long.Text.ToString().Trim().Equals(""))
+                 {
+                     MessageBox.Show("All fields are required. Please fill up all the fields");
+                 }
+                 else 
+                 {
+                     ok = true;
+                     for (int i = 0; i < StaticObjects.MapLocations.Count; i++){
+                         if (tb_Title.Text.ToString().Trim().ToLower().Equals(StaticObjects.MapLocations.ElementAt(i).Title.ToString().Trim().ToLower()))
+                         {
+                            MessageBox.Show("This location is already in our database. Please choose a different one");
+                            ok = false;
+                         }
+                     }     
+                 }            
+            return ok;
 
-     
+            }
+        
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
         private void OpenClose_Left(object sender, RoutedEventArgs e)
