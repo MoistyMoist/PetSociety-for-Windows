@@ -927,7 +927,7 @@ namespace PetSociety_for_Windows.Pages
                 {
                     Pushpin pushPin = new Pushpin();
                     GeoCoordinate LatLong = new GeoCoordinate(StaticObjects.MapLocations.ElementAt(i).X, StaticObjects.MapLocations.ElementAt(i).Y);
-                    pushPin.Tag = StaticObjects.MapLocations.ElementAt(i).Title;
+                    pushPin.Tag = StaticObjects.MapLocations.ElementAt(i).LocationID;
                     pushPin.TabIndex = i;
                     pushPin.Location = LatLong;
                     pushPin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
@@ -977,7 +977,7 @@ namespace PetSociety_for_Windows.Pages
             selectedPinType = 4;
 
             int locationID = Convert.ToInt16(pin.TabIndex);
-            pin = (Pushpin)eventLayer.Children.ElementAt(locationID);
+            pin = (Pushpin)locationLayer.Children.ElementAt(locationID);
             EventContentTempletControl content = new EventContentTempletControl();
             for (int i = 0; i < StaticObjects.MapLocations.Count; i++)
             {
