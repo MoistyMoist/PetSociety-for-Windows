@@ -29,7 +29,7 @@ namespace PetSociety_for_Windows.Pages.Profile
             webClient.OpenReadCompleted += ImageOpenReadCompleted;
             webClient.OpenReadAsync(new Uri(StaticObjects.CurrentUser.ProfileImageURL.ToString()));
 
-            MessageBox.Show(StaticObjects.CurrentUser.ProfileImageURL.ToString());
+            //MessageBox.Show(StaticObjects.CurrentUser.ProfileImageURL.ToString());
         }
         private void ImageOpenReadCompleted(object sender, OpenReadCompletedEventArgs e)
         {
@@ -233,7 +233,7 @@ namespace PetSociety_for_Windows.Pages.Profile
         }
         private void NavigateToHome(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("../Map.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/Map.xaml", UriKind.Relative));
         }
         private void NavigateToEvent(object sender, RoutedEventArgs e)
         {

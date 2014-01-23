@@ -83,8 +83,8 @@ namespace PetSociety_for_Windows.Pages
             
             if(content!=null)
             {
-                MessageBox.Show(Convert.ToDouble(lan).ToString());
-                MessageBox.Show(Convert.ToDouble(lon).ToString());
+                //MessageBox.Show(Convert.ToDouble(lan).ToString());
+                //MessageBox.Show(Convert.ToDouble(lon).ToString());
 
 
                 progressBar.Opacity = 0;
