@@ -990,7 +990,7 @@ namespace PetSociety_for_Windows.Pages
                 }
             }
             pin.Content = content;
-            pin.Template = this.Resources["LocationPinIcon"] as ControlTemplate;
+            pin.Template = this.Resources["LocationPinIconClick"] as ControlTemplate;
 
             mainMap.SetView(pin.Location, mainMap.ZoomLevel);
         }
