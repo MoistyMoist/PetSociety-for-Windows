@@ -66,18 +66,18 @@
                             <TextBox x:Name="lostAddress" Margin="0,0,0,0" Height="72" TextWrapping="Wrap" Text="" Width="456"/>
                             <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Description:" Width="120" FontSize="23"/>
                             <TextBox x:Name="lostDescription" Margin="0,0,0,0" Height="120" TextWrapping="Wrap" Text="" Width="456"/>
-                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="End Date:" Width="100" FontSize="23"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Date:" Width="100" FontSize="23"/>
                             <TextBox x:Name="lostEndDate" Margin="0,0,180,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
                             <TextBox x:Name="lostEndMonth" Margin="0,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
                             <TextBox x:Name="lostEndYear" Margin="180,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
-                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="End Time:" Width="118" FontSize="23"/>
+                            <TextBlock Margin="0,0,0,0" Height="30" TextWrapping="Wrap" Text="Time:" Width="118" FontSize="23"/>
                             <TextBox x:Name="lostEndHour" Margin="0,0,180,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
                             <TextBox x:Name="lostEndMinute" Margin="0,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
                             <TextBox x:Name="lostEndSecond" Margin="180,-72,0,0" Height="72" TextWrapping="Wrap" Text="" Width="96" />
 
 
 
-                            <Button Margin="0,20,0,0" FontSize="23" Content="Create Event" Width="460" Click="Button_Click" />
+                            <Button Margin="0,20,0,0" FontSize="23" Content="Report Lost Pet" Width="460" Click="Button_Click" />
 
 
                         </StackPanel>
