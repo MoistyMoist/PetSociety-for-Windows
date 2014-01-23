@@ -71,7 +71,7 @@
                 </Border>
                 <Button Content="Back" HorizontalAlignment="Left" Margin="179,585,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
             </Grid>
-            <TextBlock FontSize="30" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Height="43" Width="142" Canvas.Left="10" Canvas.Top="344"/>
+            
         </Canvas>
     </Canvas>
 
